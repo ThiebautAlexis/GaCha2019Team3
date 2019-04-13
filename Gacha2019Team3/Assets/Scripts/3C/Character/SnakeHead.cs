@@ -12,12 +12,14 @@ public class SnakeHead : SnakePart
         UP,
         RIGHT,
         DOWN,
-        LEFT
+        LEFT,
+        NONE        
     }
 
     [Header("Gameplay Variables")]
     public bool m_IsShield = false;
     public float m_ShieldTimeLimit = 0f;
+    public int m_Size = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -30,6 +32,7 @@ public class SnakeHead : SnakePart
     void Update()
     {
         m_Controller.Update();
+        m_Size = CountBodies();
     }
 
     override public void Hit()
@@ -74,4 +77,32 @@ public class SnakeHead : SnakePart
             m_Body.Move(previousPos);
         }
     }
+
+    public int CountBodies()
+    {
+        Debug.Log("Count: " + m_Size);
+
+        if (m_Body != null)
+        {
+            return m_Body.Count();
+        }
+
+        return 0;
+    }
+
+    public void UseFirstAbility()
+    {
+        Debug.Log("Use First Ability !");
+    }
+
+    public void UseSecondAbility()
+    {
+        Debug.Log("Use Second Ability !");
+    }
+
+    public void UseThirdAbility()
+    {
+        Debug.Log("Use Third Ability !");
+    }
+    
 }
