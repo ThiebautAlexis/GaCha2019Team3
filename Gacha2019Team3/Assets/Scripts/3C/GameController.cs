@@ -2,17 +2,27 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameController : MonoBehaviour
+public class GameController
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public SnakeHead.Direction m_Direction;
 
-    // Update is called once per frame
-    void Update()
+    public void Update()
     {
-        
+        if (Input.GetAxisRaw("Horizontal") > 0)
+        {
+            m_Direction = SnakeHead.Direction.RIGHT;
+        }
+        else if (Input.GetAxisRaw("Horizontal") < 0)
+        {
+            m_Direction = SnakeHead.Direction.LEFT;
+        }
+        else if (Input.GetAxisRaw("Vertical") > 0)
+        {
+            m_Direction = SnakeHead.Direction.UP;
+        }
+        else if (Input.GetAxisRaw("Vertical") < 0)
+        {
+            m_Direction = SnakeHead.Direction.DOWN;
+        }
     }
 }

@@ -4,15 +4,40 @@ using UnityEngine;
 
 public class SnakeBody : SnakePart
 {
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        
+        gameObject.AddComponent<SpriteRenderer>().sprite = GameData.Instance.m_SnakeBodySprite;
     }
 
-    // Update is called once per frame
-    void Update()
+    override public void Hit()
     {
+        base.Hit();
+
+        if (m_Body != null)
+        {
+            m_Body = null;
+        }
+    }
+
+    public void Move(Vector2Int _NewPostion)
+    {
+        Vector2Int previousPos = m_TilePosition;
         
+        SetTilePosition(_NewPostion);
+
+        if (m_Body != null)
+        {
+            m_Body.Move(previousPos);
+        }
+    }
+
+    public int Count()
+    {
+        if (m_Body != null)
+        {
+            return m_Body.Count();
+        }
+
+        return 1;
     }
 }
