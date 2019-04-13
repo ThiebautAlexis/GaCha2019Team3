@@ -5,16 +5,7 @@ using UnityEngine;
 public class Item : MonoBehaviour
 {
 
-    public static Item instance;
-
-    private void Awake()
-    {
-        if (instance == null)
-        {
-            instance = this;
-        
-        }
-    }
+    
 
     // Start is called before the first frame update
     void Start()

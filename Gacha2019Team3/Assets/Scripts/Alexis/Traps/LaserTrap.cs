@@ -33,8 +33,7 @@ public class LaserTrap : Trap
         RaycastHit _hitInfo; 
         if(m_laserRenderer != null)
         {
-            Debug.Log("in 1 ");
-            m_laserRenderer.SetVertexCount(2);
+            m_laserRenderer.positionCount = 2; 
             m_laserRenderer.SetPosition(0, transform.position);
             m_laserRenderer.SetPosition(1, transform.position); 
         }
@@ -48,25 +47,29 @@ public class LaserTrap : Trap
                 }
                 //if(_hitInfo.collider)
                 // Check if the player is touched by the ray
-                if (false)
+                if (_hitInfo.collider.GetComponent<SnakePart>())
                 {
                     //Call Method to damage the player
+                    _hitInfo.collider.GetComponent<SnakePart>().Hit(); 
                     break; 
                 }
             }
-            _timer += .25f;
-            yield return new WaitForSeconds(.25f);
+            _timer += GameUpdater.Instance.m_TickEvent;
+            yield return new WaitForSeconds(GameUpdater.Instance.m_TickEvent);
         }
-        Destroy(gameObject); 
+        Destroy(gameObject);
+        yield break; 
     }
 
     #region UnityMethods
-    protected void Start()
+    private void Start()
     {
-        if(m_laserRenderer != null)
+        if(!m_laserRenderer)
         {
-            m_laserRenderer.SetVertexCount(0); 
+            m_laserRenderer = GetComponent<LineRenderer>();
+            m_laserRenderer.positionCount = 0; 
         }
+        TriggerTrap(); 
     }
     #endregion
     #endregion
