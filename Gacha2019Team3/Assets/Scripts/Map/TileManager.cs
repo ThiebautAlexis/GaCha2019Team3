@@ -32,4 +32,22 @@ public class TileManager
     {
         return m_MapTile[_TilePosition.x, _TilePosition.y];
     }
+
+    public List<CustomTile> GetEmptyTiles()
+    {
+        List<CustomTile> emptyTiles = new List<CustomTile>();
+         
+        for (int i = 0; i < m_MapSize.x; i++)
+        {
+            for (int j = 0; j < m_MapSize.y; j++)
+            {
+                if (m_MapTile[i,j].m_Entities.Count == 0)
+                {
+                    emptyTiles.Add(m_MapTile[i, j]);
+                }
+            }
+        }
+
+        return emptyTiles;
+    }
 }
