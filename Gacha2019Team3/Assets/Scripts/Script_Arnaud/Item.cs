@@ -23,11 +23,10 @@ public class Item : MonoBehaviour
     {
         if (!ItemManager.Instance.hasItemInStorage)
         {
-            ItemManager.Instance.hasItemInStorage = true;
-            
+            ItemManager.Instance.hasItemInStorage = true;          
         }
+
         ItemManager.Instance.isItemOnMap = false;
         Destroy(this.gameObject);
-
     }
 }

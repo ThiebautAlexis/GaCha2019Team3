@@ -24,5 +24,10 @@ public class GameController
         {
             m_Direction = SnakeHead.Direction.DOWN;
         }
+
+        if (Input.GetAxisRaw("FirstAbility") > 0)
+        {
+
+        }
     }
 }
