@@ -16,6 +16,16 @@ public class AIManager : MonoBehaviour
 
     #region Methods 
 
+    /// <summary>
+    /// Get a random empty tile
+    /// </summary>
+    /// <returns></returns>
+    private CustomTile GetRandomSpawningTile()
+    {
+        List<CustomTile> _tiles = GameData.Instance.m_TileManager.GetEmptyTiles();
+        return _tiles[UnityEngine.Random.Range(0, _tiles.Count)]; 
+    }
+
     #region UnityMethods
 
     #endregion

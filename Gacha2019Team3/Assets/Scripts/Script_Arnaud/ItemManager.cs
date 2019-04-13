@@ -52,17 +52,25 @@ public class ItemManager : MonoBehaviour
 
     void SpawnItem()
     {
+      
         Vector2Int position;
+        /*
+         * Désolé, j'ai du commenter parce qu'il y avait des erreurs
         do
         {
            position = new Vector2Int(Mathf.RoundToInt(Random.Range(0, GameData.Instance.m_TileMapSize)), Mathf.RoundToInt(Random.Range(0, GameData.Instance.m_TileMapSize)));
         }
         while (GameData.Instance.m_TileManager.m_MapTile[position.x, position.y].m_Entities.Count != 0);
+
+        List<CustomTile> _tiles = GameData.Instance.m_TileManager.GetEmptyTiles();
+        CustomTile _randomTile = _tiles[UnityEngine.Random.Range(0, _tiles.Count - 1)];
+        position = new Vector2Int(_randomTile., Mathf.RoundToInt(Random.Range(0, GameData.Instance.m_TileMapSize)));
         itemPrefab.transform.position = new Vector3(position.x, -position.y, 0) * 0.5f;
         Instantiate(itemPrefab, m_Entities);
         GameData.Instance.m_TileManager.m_MapTile[position.x, position.y].m_Entities.Add(itemPrefab);
         nbrItemOnMap++;
         flag = false;
+        */
     }
 
 
