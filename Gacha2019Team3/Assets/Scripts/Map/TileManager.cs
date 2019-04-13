@@ -50,4 +50,20 @@ public class TileManager
 
         return emptyTiles;
     }
+
+    public Vector2Int GetPosition(CustomTile _Tile)
+    {
+        for (int i = 0; i < m_MapSize.x; i++)
+        {
+            for (int j = 0; j < m_MapSize.y; j++)
+            {
+                if (m_MapTile[i, j] == _Tile)
+                {
+                    return new Vector2Int(i, j);
+                }
+            }
+        }
+
+        return new Vector2Int(-1,-1);
+    }
 }

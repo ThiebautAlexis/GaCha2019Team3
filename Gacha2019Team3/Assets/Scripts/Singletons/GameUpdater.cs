@@ -37,12 +37,14 @@ public class GameUpdater : Singleton<GameUpdater>
     {
         for (int i = 0; i < GameData.Instance.m_PlayerCount; i++)
         {
-            GameObject newSnake = new GameObject("SnakeHead_" + i);
-            SnakeHead newHead = newSnake.AddComponent<SnakeHead>();
+            //GameObject newSnake = new GameObject("SnakeHead_" + i);
 
+            GameObject newSnake = Instantiate(GameData.Instance.m_SnakeHeadPrefab);
+            SnakeHead newHead = newSnake.AddComponent<SnakeHead>();
             newSnake.transform.parent = m_EntitiesContainerTransform;
 
             newHead.InitTilePosition(new Vector2Int(GameData.Instance.m_MapSizeX / 2, GameData.Instance.m_MapSizeY / 2));
+
 
             GameData.Instance.m_Players.Add(newHead);
         }

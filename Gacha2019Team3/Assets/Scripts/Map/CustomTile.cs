@@ -8,9 +8,5 @@ public class CustomTile
     [Header("Basic Variables")]
     public List<GameObject> m_Entities = new List<GameObject>();
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+   
 }

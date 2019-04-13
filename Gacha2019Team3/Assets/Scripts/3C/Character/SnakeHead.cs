@@ -25,7 +25,7 @@ public class SnakeHead : SnakePart
     // Start is called before the first frame update
     void Start()
     {
-        gameObject.AddComponent<SpriteRenderer>().sprite = GameData.Instance.m_SnakeHeadSprite;
+        //gameObject.AddComponent<SpriteRenderer>().sprite = GameData.Instance.m_SnakeHeadSprite;
         m_Controller = new GameController();
 
         m_Controller.UseFirstAbility += UseFirstAbility;
