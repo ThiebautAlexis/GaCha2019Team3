@@ -6,6 +6,7 @@ using UnityEngine;
 public class score : MonoBehaviour
 {
     int scoring;
+    
     public int bodies = 1;
     bool done = false;
 
@@ -21,6 +22,7 @@ public class score : MonoBehaviour
     IEnumerator wait()
     {
         yield return new WaitForSeconds(1);
+        bodies = GameData.Instance.m_Players[0].m_Size;
         scoring = (scoring + bodies);
         this.gameObject.GetComponent<Text>().text = scoring.ToString();
         done = false;

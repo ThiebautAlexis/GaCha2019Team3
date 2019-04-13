@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameController
 {
-    public SnakeHead.Direction m_Direction;
+    public SnakeHead.Direction m_Direction = SnakeHead.Direction.NONE;
 
     public void Update()
     {
@@ -23,6 +23,11 @@ public class GameController
         else if (Input.GetAxisRaw("Vertical") < 0)
         {
             m_Direction = SnakeHead.Direction.DOWN;
+        }
+
+        if (Input.GetAxisRaw("FirstAbility") > 0)
+        {
+
         }
     }
 }

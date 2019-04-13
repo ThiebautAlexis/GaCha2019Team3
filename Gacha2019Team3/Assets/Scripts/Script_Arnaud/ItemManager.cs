@@ -12,10 +12,16 @@ public class ItemManager : MonoBehaviour
     public bool isProtected;
     public GameObject bulletPrefab;
     public GameObject[] cellsToAdd;
-    public GameObject lastLinkPos;
-    public GameObject spawnBulletPoint;
+    //public GameObject lastLinkPos;
+    //public GameObject spawnBulletPoint;
+    public Transform m_Entities;
     bool flag;
     public GameObject imageUI;
+    public int nbrItemAllowedOnMap;
+    int nbrItemOnMap;
+    
+    
+    
 
     private void Awake()
     {
@@ -28,13 +34,13 @@ public class ItemManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        nbrItemOnMap = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!isItemOnMap&&!flag)
+        if (nbrItemOnMap<nbrItemAllowedOnMap&&!flag)
         {
             Invoke("SpawnItem", 1);
             flag = true;
@@ -46,9 +52,16 @@ public class ItemManager : MonoBehaviour
 
     void SpawnItem()
     {
-        Vector3 position = new Vector3(Mathf.Round(Random.Range(0,1)),Mathf.Round(Random.Range(0,5)) ,0);
-        Instantiate(itemPrefab, position, Quaternion.identity);
-        isItemOnMap = true;
+        Vector2Int position;
+        do
+        {
+           position = new Vector2Int(Mathf.RoundToInt(Random.Range(0, GameData.Instance.m_TileMapSize)), Mathf.RoundToInt(Random.Range(0, GameData.Instance.m_TileMapSize)));
+        }
+        while (GameData.Instance.m_TileManager.m_MapTile[position.x, position.y].m_Entities.Count != 0);
+        itemPrefab.transform.position = new Vector3(position.x, -position.y, 0) * 0.5f;
+        Instantiate(itemPrefab, m_Entities);
+        GameData.Instance.m_TileManager.m_MapTile[position.x, position.y].m_Entities.Add(itemPrefab);
+        nbrItemOnMap++;
         flag = false;
     }
 
@@ -57,7 +70,7 @@ public class ItemManager : MonoBehaviour
     {
         if (hasItemInStorage)
         {
-            isProtected = true;
+            GameData.Instance.m_Players[0].m_IsShield = true;
             hasItemInStorage = false;
         }
     }
@@ -66,7 +79,7 @@ public class ItemManager : MonoBehaviour
     {
         if (hasItemInStorage)
         {
-            Instantiate(cellsToAdd[Mathf.RoundToInt(Random.Range(0, cellsToAdd.Length))], lastLinkPos.transform.position, Quaternion.identity);
+            //Instantiate(cellsToAdd[Mathf.RoundToInt(Random.Range(0, cellsToAdd.Length))], lastLinkPos.transform.position, Quaternion.identity);
             hasItemInStorage = false;
         }
     }
@@ -75,7 +88,7 @@ public class ItemManager : MonoBehaviour
     {
         if (hasItemInStorage)
         {
-            Instantiate(bulletPrefab, spawnBulletPoint.transform.position, Quaternion.identity);
+            //Instantiate(bulletPrefab, spawnBulletPoint.transform.position, Quaternion.identity);
             hasItemInStorage = false;
         }
     }
