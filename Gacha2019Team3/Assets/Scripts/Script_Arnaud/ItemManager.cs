@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ItemManager : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class ItemManager : MonoBehaviour
     public GameObject lastLinkPos;
     public GameObject spawnBulletPoint;
     bool flag;
+    public GameObject imageUI;
 
     private void Awake()
     {
@@ -37,6 +39,8 @@ public class ItemManager : MonoBehaviour
             Invoke("SpawnItem", 1);
             flag = true;
         }
+
+        imageUI.SetActive(hasItemInStorage);
     }
 
 
