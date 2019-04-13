@@ -2,41 +2,27 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum EPlayerID
-{
-    One,
-    Two
-}
-
 public class GameController
 {
-    public SnakeHead.Direction m_Direction = SnakeHead.Direction.DOWN;
-    public EPlayerID m_PlayerId = EPlayerID.One;
+    public SnakeHead.Direction m_Direction;
 
     public void Update()
     {
-        if (m_PlayerId == EPlayerID.One)
+        if (Input.GetAxisRaw("Horizontal") > 0)
         {
-            if (Input.GetAxisRaw("Horizontal") > 0)
-            {
-                m_Direction = SnakeHead.Direction.RIGHT;
-            }
-            else if (Input.GetAxisRaw("Horizontal") < 0)
-            {
-                m_Direction = SnakeHead.Direction.LEFT;
-            }
-            else if (Input.GetAxisRaw("Vertical") > 0)
-            {
-                m_Direction = SnakeHead.Direction.UP;
-            }
-            else if (Input.GetAxisRaw("Vertical") < 0)
-            {
-                m_Direction = SnakeHead.Direction.DOWN;
-            }
+            m_Direction = SnakeHead.Direction.RIGHT;
         }
-        else
+        else if (Input.GetAxisRaw("Horizontal") < 0)
         {
-            //GNÉ
+            m_Direction = SnakeHead.Direction.LEFT;
+        }
+        else if (Input.GetAxisRaw("Vertical") > 0)
+        {
+            m_Direction = SnakeHead.Direction.UP;
+        }
+        else if (Input.GetAxisRaw("Vertical") < 0)
+        {
+            m_Direction = SnakeHead.Direction.DOWN;
         }
     }
 }

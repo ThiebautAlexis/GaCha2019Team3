@@ -12,6 +12,11 @@ public class GameData : Singleton<GameData>
     public Sprite m_SnakeHeadSprite;
     public Sprite m_SnakeBodySprite;
 
+    [Header("Snake Prefabs")]
+    public GameObject m_SnakeHeadPrefab = null;
+    public GameObject m_SnakeBodyPrefab = null;
+    public GameObject m_SnakeQueuePrefab = null;
+
     [Header("Basic Variables")]
     public TileManager m_TileManager = null;
     public List<SnakeHead> m_Players = new List<SnakeHead>();
