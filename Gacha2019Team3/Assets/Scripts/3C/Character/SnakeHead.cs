@@ -17,6 +17,7 @@ public class SnakeHead : SnakePart
     }
 
     [Header("Gameplay Variables")]
+    public Item m_Item = null;
     public bool m_IsShield = false;
     public float m_ShieldTimeLimit = 0f;
     public int m_Size = 0;
@@ -26,6 +27,10 @@ public class SnakeHead : SnakePart
     {
         gameObject.AddComponent<SpriteRenderer>().sprite = GameData.Instance.m_SnakeHeadSprite;
         m_Controller = new GameController();
+
+        m_Controller.UseFirstAbility += UseFirstAbility;
+        m_Controller.UseSecondAbility += UseSecondAbility;
+        m_Controller.UseThirdAbility += UseThirdAbility;
     }
 
     // Update is called once per frame
@@ -90,17 +95,17 @@ public class SnakeHead : SnakePart
         return 0;
     }
 
-    public void UseFirstAbility()
+    private void UseFirstAbility()
     {
         Debug.Log("Use First Ability !");
     }
 
-    public void UseSecondAbility()
+    private void UseSecondAbility()
     {
         Debug.Log("Use Second Ability !");
     }
 
-    public void UseThirdAbility()
+    private void UseThirdAbility()
     {
         Debug.Log("Use Third Ability !");
     }
