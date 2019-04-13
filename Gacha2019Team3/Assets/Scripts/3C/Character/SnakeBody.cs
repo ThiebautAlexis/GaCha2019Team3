@@ -30,4 +30,14 @@ public class SnakeBody : SnakePart
             m_Body.Move(previousPos);
         }
     }
+
+    public int Count()
+    {
+        if (m_Body != null)
+        {
+            return m_Body.Count();
+        }
+
+        return 1;
+    }
 }
