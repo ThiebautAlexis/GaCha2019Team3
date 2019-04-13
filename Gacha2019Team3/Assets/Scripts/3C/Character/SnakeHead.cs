@@ -12,7 +12,8 @@ public class SnakeHead : SnakePart
         UP,
         RIGHT,
         DOWN,
-        LEFT
+        LEFT,
+        NONE        
     }
 
     [Header("Gameplay Variables")]
@@ -88,4 +89,20 @@ public class SnakeHead : SnakePart
 
         return 0;
     }
+
+    public void UseFirstAbility()
+    {
+        Debug.Log("Use First Ability !");
+    }
+
+    public void UseSecondAbility()
+    {
+        Debug.Log("Use Second Ability !");
+    }
+
+    public void UseThirdAbility()
+    {
+        Debug.Log("Use Third Ability !");
+    }
+    
 }

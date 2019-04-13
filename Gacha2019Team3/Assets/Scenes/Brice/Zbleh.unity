@@ -257,7 +257,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 365475619}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.63, y: -4.78, z: -10.56}
+  m_LocalPosition: {x: 4.63, y: -4.67, z: -9.11}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -274,7 +274,7 @@ GameObject:
   - component: {fileID: 788969759}
   - component: {fileID: 788969760}
   m_Layer: 0
-  m_Name: '@GameUpdater'
+  m_Name: GameUpdater
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -318,7 +318,7 @@ GameObject:
   m_Component:
   - component: {fileID: 970811035}
   m_Layer: 0
-  m_Name: '>Entities'
+  m_Name: Entities
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -348,7 +348,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1024556272}
   m_Layer: 0
-  m_Name: '>Scripts'
+  m_Name: Singletons
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -387,7 +387,7 @@ GameObject:
   - component: {fileID: 1415765249}
   - component: {fileID: 1415765250}
   m_Layer: 0
-  m_Name: '@GameData'
+  m_Name: GameData
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -419,12 +419,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bc510480a0ed5d4a89a30cc4b023f67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_TileMapSize: 50
+  m_MapSizeX: 20
+  m_MapSizeY: 20
+  m_PlayerCount: 1
+  m_SnakeHeadPrefab: {fileID: 0}
+  m_SnakeBodyPrefab: {fileID: 0}
+  m_SnakeQueuePrefab: {fileID: 0}
   m_DebugBackground: {fileID: 1380510564}
   m_SnakeHeadSprite: {fileID: 21300000, guid: b82d79c9c5d8e574c9d1b24974905835, type: 3}
   m_SnakeBodySprite: {fileID: 0}
-  m_Players: []
   m_BackgroundSprite: {fileID: 0}
+  m_Players: []
 --- !u!1001 &2108799597
 PrefabInstance:
   m_ObjectHideFlags: 0
