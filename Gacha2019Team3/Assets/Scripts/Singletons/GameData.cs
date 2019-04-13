@@ -29,6 +29,7 @@ public class GameData : Singleton<GameData>
     private void Awake()
     {
         m_TileManager = new TileManager(new Vector2Int(m_MapSizeX, m_MapSizeY));
+
         m_DebugBackground.transform.localScale = Vector3.one * (m_MapSizeX * 0.5f);
     }
 
