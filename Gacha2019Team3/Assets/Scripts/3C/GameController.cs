@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameController
 {
-    public SnakeHead.Direction m_Direction;
+    public SnakeHead.Direction m_Direction = SnakeHead.Direction.NONE;
 
     public void Update()
     {

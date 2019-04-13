@@ -16,13 +16,7 @@ public class GameUpdater : Singleton<GameUpdater>
 
     void Start()
     {
-        GameObject newSnake = new GameObject("SnakeHead");
-        SnakeHead newHead = newSnake.AddComponent<SnakeHead>();
-        newSnake.transform.parent = m_EntitiesContainerTransform;
-
-        newHead.InitTilePosition(Vector2Int.zero);
-
-        GameData.Instance.m_Players.Add(newHead);
+        InitializedPlayer();
     }
 
     void Update()
@@ -37,5 +31,20 @@ public class GameUpdater : Singleton<GameUpdater>
         GameData.Instance.m_Players.ForEach(p => p.Move());
 
         m_TickTimer = 0f;
+    }
+
+    private void InitializedPlayer()
+    {
+        for (int i = 0; i < GameData.Instance.m_PlayerCount; i++)
+        {
+            GameObject newSnake = new GameObject("SnakeHead_" + i);
+            SnakeHead newHead = newSnake.AddComponent<SnakeHead>();
+
+            newSnake.transform.parent = m_EntitiesContainerTransform;
+
+            newHead.InitTilePosition(new Vector2Int(GameData.Instance.m_MapSizeX / 2, GameData.Instance.m_MapSizeY / 2));
+
+            GameData.Instance.m_Players.Add(newHead);
+        }
     }
 }
