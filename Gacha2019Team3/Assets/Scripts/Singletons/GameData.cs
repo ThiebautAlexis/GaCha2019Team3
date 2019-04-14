@@ -14,26 +14,38 @@ public class GameData : Singleton<GameData>
     [Header("Snake Prefabs")]
     public GameObject m_SnakeHeadPrefab = null;
     public GameObject m_SnakeBodyPrefab = null;
-    public GameObject m_SnakeQueuePrefab = null;
     public GameObject m_SnakeProjectilePrefab = null;
 
-    [Header("Misc Variables")]
-    public GameObject m_Background;
-    public GameObject m_Ground;
+    [Header("Background & Ground")]
+    public GameObject m_BackgroundPrefab;
+    public GameObject m_GroundPrefab;
 
     [Header("Item")]
     public GameObject m_PickUpPrefab = null;
 
-    public List<SnakeHead> m_Players = new List<SnakeHead>();
-
+    [Header("Misc Variables")]
     public Transform m_EntitiesContainerTransform = null;
+    public List<SnakeHead> m_Players = new List<SnakeHead>();
 
     private void Awake()
     {
         m_TileManager = new TileManager(new Vector2Int(m_MapSizeX, m_MapSizeY));
 
-        /// A REVOIR
-        m_Ground.transform.localScale = Vector3.one * (m_MapSizeX * 0.5f);   
+        GenerateGroundByTile();        
     }
 
+    private void GenerateGroundByTile()
+    {
+        if (m_TileManager != null)
+        {
+            for (int i = 0; i < m_TileManager.m_MapSize.x; i++)
+            {
+                for (int j = 0; j < m_TileManager.m_MapSize.y; j++)
+                {
+                    GameObject ground = Instantiate(m_GroundPrefab, new Vector3(i * 0.5f, -0.5f, -j * 0.5f), Quaternion.identity);
+                    ground.transform.localScale = new Vector3(0.1f, 1, 0.1f);
+                }
+            }
+        }
+    }
 }
