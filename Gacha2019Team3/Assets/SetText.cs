@@ -18,7 +18,7 @@ public class SetText : MonoBehaviour
         else
         {
             wintext.GetComponent<Text>().text = "YOU DIED !";
-            scoretext.GetComponent<Text>().text = "Your lasted " + EndData.Instance.time;
+            scoretext.GetComponent<Text>().text = "Your lasted " + EndData.Instance.time + "second !";
         }
     }
 }
