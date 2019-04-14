@@ -11,7 +11,7 @@ public class TrapProjectile : Projectile
     /// <param name="_tile">tile</param>
     protected override void ApplyEffect(CustomTile _tile)
     {
-        _tile.m_Entities.Select(e => e.GetComponent<SnakePart>()).First().Hit();
+        _tile.m_Entities.Select(e => e.GetComponent<SnakePart>()).FirstOrDefault().Hit();
     }
 
     /// <summary>
@@ -21,6 +21,12 @@ public class TrapProjectile : Projectile
     /// <returns></returns>
     protected override bool CanHit(CustomTile _nextTile)
     {
-        return _nextTile.m_Entities.Any(e => e.GetComponent<SnakePart>());
+        if (_nextTile.m_Entities.Count == 0) return false;
+        for (int i = 0; i < _nextTile.m_Entities.Count; i++)
+        {
+            if (_nextTile.m_Entities[i] && _nextTile.m_Entities[i].GetComponent<SnakePart>())
+                return true; 
+        }
+        return false; 
     }
 }
