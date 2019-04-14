@@ -20,7 +20,7 @@ public abstract class SnakePart : MonoBehaviour
     public void InitTilePosition(Vector2Int _TilePosition)
     {
         m_TilePosition = _TilePosition;
-        transform.position = new Vector3(m_TilePosition.x, m_TilePosition.y, 0) * 0.5f;
+        transform.position = GameData.Instance.m_TileManager.TilePositionToWorldPosition(_TilePosition);
         GameData.Instance.m_TileManager.m_MapTile[_TilePosition.x, _TilePosition.y].m_Entities.Add(gameObject);
     }
 
@@ -30,7 +30,7 @@ public abstract class SnakePart : MonoBehaviour
 
         GameData.Instance.m_TileManager.m_MapTile[_TilePosition.x, _TilePosition.y].m_Entities.Remove(gameObject);
         m_TilePosition = _TilePosition;
-        transform.position = new Vector3(m_TilePosition.x, 0, -m_TilePosition.y) * 0.5f;
+        transform.position = GameData.Instance.m_TileManager.TilePositionToWorldPosition(_TilePosition);
         GameData.Instance.m_TileManager.m_MapTile[_TilePosition.x, _TilePosition.y].m_Entities.Add(gameObject);
     }
 
@@ -59,9 +59,8 @@ public abstract class SnakePart : MonoBehaviour
             GameObject newBody = Instantiate(GameData.Instance.m_SnakeBodyPrefab);
             newBody.transform.Rotate(new Vector3(-90, 0, 0));
             newBody.transform.parent = GameData.Instance.m_EntitiesContainerTransform;
-
-            //ADD DIRECTION POSITION (OR SAVE LAST POSITION AND SET IT HERE ?)
-            //newBody.transform.position = transform.position;
+            
+            newBody.transform.position = GameData.Instance.m_TileManager.TilePositionToWorldPosition(m_LastTilePosition);
 
             m_Body = newBody.GetComponent<SnakeBody>();
         }
