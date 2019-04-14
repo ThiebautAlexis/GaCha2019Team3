@@ -28,11 +28,11 @@ public abstract class SnakePart : MonoBehaviour
     {
         m_LastTilePosition = m_TilePosition;
 
-        GameData.Instance.m_TileManager.m_MapTile[_TilePosition.x, _TilePosition.y].m_Entities.Remove(gameObject);
+        GameData.Instance.m_TileManager.m_MapTile[m_LastTilePosition.x, m_LastTilePosition.y].m_Entities.Remove(gameObject);
         m_TilePosition = _TilePosition;
 
         transform.position = GameData.Instance.m_TileManager.TilePositionToWorldPosition(_TilePosition);
-        GameData.Instance.m_TileManager.m_MapTile[_TilePosition.x, _TilePosition.y].m_Entities.Add(gameObject);
+        GameData.Instance.m_TileManager.m_MapTile[m_TilePosition.x, m_TilePosition.y].m_Entities.Add(gameObject);
     }
 
     virtual public void Hit()
