@@ -20,9 +20,6 @@ public class ItemManager : MonoBehaviour
     public int nbrItemAllowedOnMap;
     int nbrItemOnMap;
 
-
-
-
     private void Awake()
     {
         if (Instance == null)
