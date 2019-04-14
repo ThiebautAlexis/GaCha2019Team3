@@ -24,7 +24,12 @@ public class TileManager
 
     public CustomTile GetTile(Vector2Int _TilePosition)
     {
-        return m_MapTile[_TilePosition.x, _TilePosition.y];
+        if ((_TilePosition.x > 0 && _TilePosition.x < m_MapSize.x - 1) && (_TilePosition.y > 0 && _TilePosition.y < m_MapSize.y - 1))
+        {
+            return m_MapTile[_TilePosition.x, _TilePosition.y];
+        }
+
+        return null;
     }
 
     public List<CustomTile> GetEmptyTiles()
