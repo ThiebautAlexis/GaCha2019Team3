@@ -53,7 +53,7 @@ public class LaserTrap : Trap
             _timer += Time.deltaTime;
             yield return new WaitForEndOfFrame();
         }
-        Destroy(gameObject);
+        CleanTile(); 
         yield break;
     }
 

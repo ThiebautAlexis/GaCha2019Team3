@@ -15,7 +15,8 @@ public abstract class Trap : MonoBehaviour
     }
     /// Time to wait before activation
     [SerializeField, Range(0, 9)] protected int m_activationTick = 1;
-    [SerializeField] private string m_prefabName = "Trap"; 
+
+    public Vector2Int m_GridPosition { get; set; }
     #endregion
 
     #region Methods
@@ -34,6 +35,14 @@ public abstract class Trap : MonoBehaviour
         yield return new WaitForSeconds(m_activationTick * GameUpdater.Instance.m_TickEvent);
         StartCoroutine(TriggerTrap());
         yield break; 
+    }
+    
+    protected void CleanTile()
+    {
+        CustomTile _tile = GameData.Instance.m_TileManager.GetTile(m_GridPosition);
+        _tile.m_Entities.Clear(); 
+        _tile.m_Walkable = true;
+        Destroy(gameObject);
     }
 
     protected virtual void Start()
