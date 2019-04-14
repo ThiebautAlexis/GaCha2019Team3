@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class SnakeBody : SnakePart
 {
+
+    public GameObject prefabFX;
     private void Start()
     {
 
