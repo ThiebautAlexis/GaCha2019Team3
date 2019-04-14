@@ -64,7 +64,9 @@ public class AIManager : Singleton<AIManager>
             Debug.LogWarning($"There is no free space to spawn a {_trapToSpawn.name} on the grid"); 
             yield break; 
         }
-        GameObject.Instantiate(_trapToSpawn, new Vector3(_spawningPos.x, 0, _spawningPos.y), Quaternion.identity);
+        Trap _trap = GameObject.Instantiate(_trapToSpawn, new Vector3(_spawningPos.x, 0, _spawningPos.y), Quaternion.identity).GetComponent<Trap>();
+        _trap.m_GridPosition = _spawningPos;
+        GameData.Instance.m_TileManager.GetTile(_spawningPos).m_Walkable = false; 
         if (GameData.Instance.m_TileManager.GetEmptyTiles().Count == 0)
             yield break; 
         StartCoroutine(SpawnTrap(_trapToSpawn));

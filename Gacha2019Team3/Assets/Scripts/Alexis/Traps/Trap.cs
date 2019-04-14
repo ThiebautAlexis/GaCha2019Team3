@@ -15,7 +15,9 @@ public abstract class Trap : MonoBehaviour
     }
     /// Time to wait before activation
     [SerializeField, Range(0, 9)] protected int m_activationTick = 1;
-    [SerializeField] private string m_prefabName = "Trap"; 
+    [SerializeField] private string m_prefabName = "Trap";
+
+    public Vector2Int m_GridPosition { get; set; }
     #endregion
 
     #region Methods
@@ -35,7 +37,7 @@ public abstract class Trap : MonoBehaviour
         StartCoroutine(TriggerTrap());
         yield break; 
     }
-
+    
     protected virtual void Start()
     {
         //Set a random Rotation

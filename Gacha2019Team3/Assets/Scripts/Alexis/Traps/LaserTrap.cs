@@ -53,6 +53,7 @@ public class LaserTrap : Trap
             _timer += Time.deltaTime;
             yield return new WaitForEndOfFrame();
         }
+        GameData.Instance.m_TileManager.GetTile(m_GridPosition).m_Walkable = true; 
         Destroy(gameObject);
         yield break;
     }
