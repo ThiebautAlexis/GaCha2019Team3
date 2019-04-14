@@ -10,10 +10,6 @@ public class GameUpdater : Singleton<GameUpdater>
 
     private float m_TickTimer = 0f;
 
-    [Header("Misc")]
-    [SerializeField]
-    Transform m_EntitiesContainerTransform = null;
-
     void Start()
     {
         InitializedPlayer();
@@ -37,12 +33,10 @@ public class GameUpdater : Singleton<GameUpdater>
     {
         for (int i = 0; i < GameData.Instance.m_PlayerCount; i++)
         {
-            //GameObject newSnake = new GameObject("SnakeHead_" + i);
-
             GameObject newSnake = Instantiate(GameData.Instance.m_SnakeHeadPrefab);
             newSnake.transform.Rotate(new Vector3(-90, 0, 0));
             SnakeHead newHead = newSnake.AddComponent<SnakeHead>();
-            newSnake.transform.parent = m_EntitiesContainerTransform;
+            newSnake.transform.parent = GameData.Instance.m_EntitiesContainerTransform;
 
             newHead.InitTilePosition(new Vector2Int(GameData.Instance.m_MapSizeX / 2, GameData.Instance.m_MapSizeY / 2));
 

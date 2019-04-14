@@ -3,15 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ItemManager : MonoBehaviour
+public class ItemManager : Singleton<ItemManager>
 {
     public bool hasItemInStorage;
-    public static ItemManager Instance;
+    
     public GameObject itemPrefab;
     public bool isItemOnMap;
     public bool isProtected;
-    public GameObject bulletPrefab;
-    public GameObject[] cellsToAdd;
     //public GameObject lastLinkPos;
     //public GameObject spawnBulletPoint;
     public Transform m_Entities;
@@ -23,13 +21,7 @@ public class ItemManager : MonoBehaviour
 
 
 
-    private void Awake()
-    {
-        if (Instance == null)
-        {
-            Instance = this;
-        }
-    }
+    
 
     // Start is called before the first frame update
     void Start()
@@ -52,58 +44,51 @@ public class ItemManager : MonoBehaviour
 
     void SpawnItem()
     {
-      
-        Vector2Int position;
-        /*
-         * Désolé, j'ai du commenter parce qu'il y avait des erreurs
-        do
-        {
-           position = new Vector2Int(Mathf.RoundToInt(Random.Range(0, GameData.Instance.m_MapSizeX)), Mathf.RoundToInt(Random.Range(0, GameData.Instance.m_MapSizeY)));
-        }
-        while (GameData.Instance.m_TileManager.m_MapTile[position.x, position.y].m_Entities.Count != 0);
-
-        List<CustomTile> _tiles = GameData.Instance.m_TileManager.GetEmptyTiles();
-        CustomTile _randomTile = _tiles[UnityEngine.Random.Range(0, _tiles.Count - 1)];
-        position = new Vector2Int(_randomTile., Mathf.RoundToInt(Random.Range(0, GameData.Instance.m_TileMapSize)));
-        itemPrefab.transform.position = new Vector3(position.x, -position.y, 0) * 0.5f;
-        Instantiate(itemPrefab, m_Entities);
-        GameData.Instance.m_TileManager.m_MapTile[position.x, position.y].m_Entities.Add(itemPrefab);
-        nbrItemOnMap++;
-        flag = false;
-        */
+	    if(GameData.Instance.m_TileManager.GetEmptyTiles()!=null)
+	    {
+        	List<CustomTile> myEmptyTiles = GameData.Instance.m_TileManager.GetEmptyTiles();
+        	int randNum = Mathf.RoundToInt(Random.Range(0, myEmptyTiles.Count - 1));
+        	Vector2Int position;
+        	position = GameData.Instance.m_TileManager.GetPosition(myEmptyTiles[randNum]);
+        	itemPrefab.transform.position = new Vector3(position.x, -position.y, 0) * 0.5f;
+        	Instantiate(itemPrefab, m_Entities);
+        	GameData.Instance.m_TileManager.m_MapTile[position.x, position.y].m_Entities.Add(itemPrefab);
+        	nbrItemOnMap++;
+        	flag = false;
+	    }
     }
 
-
-    public void Protect()
+    public bool CheckItem(Vector2Int position)
     {
-        if (hasItemInStorage)
+       
+        if (GameData.Instance.m_TileManager.m_MapTile[position.x, position.y].m_Entities.Count > 0)
         {
-            GameData.Instance.m_Players[0].UseSecondAbility();
-            hasItemInStorage = false;
+            for (int i = 0; i < GameData.Instance.m_TileManager.m_MapTile[position.x, position.y].m_Entities.Count; i++)
+            {
+                if (GameData.Instance.m_TileManager.m_MapTile[position.x, position.y].m_Entities[i].GetComponent<Item>() != null)
+                {
+                    return true;
+                }
+
+                else return false;
+            }
         }
+
+        else return false;
+        return false;
     }
 
-    public void AddLength()
+    public void DestroyItem(Vector2Int position)
     {
-        if (hasItemInStorage)
+        if (CheckItem(position))
         {
-            GameData.Instance.m_Players[0].UseFirstAbility();
-            hasItemInStorage = false;
-        }
-    }
-
-    public void FireShot()
-    {
-        if (hasItemInStorage)
-        {
-            GameData.Instance.m_Players[0].UseThirdAbility();
-            hasItemInStorage = false;
+            GameData.Instance.m_TileManager.m_MapTile[position.x, position.y].m_Entities.Remove(GameData.Instance.m_TileManager.m_MapTile[position.x, position.y].m_Entities[0]);
+            Destroy(GameData.Instance.m_TileManager.m_MapTile[position.x, position.y].m_Entities[0]);
         }
     }
 
 
-    private void OnDestroy()
-    {
-        Instance = null;
-    }
+   
+
+
 }

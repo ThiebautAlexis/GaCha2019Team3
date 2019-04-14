@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Brice/Zbleh.unity
     guid: 13b92feeb356f254b9286a29fe6a7551
+  - enabled: 1
+    path: Assets/Scenes/Win.unity
+    guid: 664f8987768392940b28202a7ef66a3d
   m_configObjects: {}
