@@ -13,9 +13,14 @@ public class GameData : Singleton<GameData>
 
     public Vector2Int m_MapRestrictionPlot1 = Vector2Int.zero;
     public Vector2Int m_MapRestrictionPlot2 = Vector2Int.zero;
+<<<<<<< HEAD
     Vector2Int m_BaseRestricted;
 
     public List<GameObject> walls = new List<GameObject>();
+=======
+    public int counter = 0;
+    
+>>>>>>> 8abb091bc4b36533da21a92a37b59fd485f74581
 
     public GameCamera m_Camera = null;
 
@@ -54,6 +59,11 @@ public class GameData : Singleton<GameData>
 
     private void GenerateGroundByTile()
     {
+        if (!m_GroundPrefab)
+        {
+            return;
+        }
+
         if (m_TileManager != null)
         {
             for (int i = 0; i < m_TileManager.GetFullMapSize().x / 2; i++)
