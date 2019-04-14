@@ -26,7 +26,7 @@ public abstract class Projectile : MonoBehaviour
     public void InitProjectile(Vector2Int _tilePosition, Vector3Int _dir)
     {
         m_tilePosition = _tilePosition;
-        transform.position = new Vector3(_tilePosition.x, 0, _tilePosition.y);
+        transform.position = GameData.Instance.m_TileManager.TilePositionToWorldPosition(m_tilePosition);
         GameData.Instance.m_TileManager.m_MapTile[_tilePosition.x, _tilePosition.y].m_Entities.Add(gameObject);
         transform.rotation = Quaternion.Euler(_dir.x, 0, _dir.y); 
         m_shootDirection = new Vector2Int(_dir.x, _dir.z);
@@ -45,7 +45,7 @@ public abstract class Projectile : MonoBehaviour
         GameData.Instance.m_TileManager.m_MapTile[_tilePosition.x, _tilePosition.y].m_Entities.Remove(gameObject);
         m_tilePosition = _tilePosition;
 
-        transform.position = new Vector3(_tilePosition.x, 0, _tilePosition.y); 
+        transform.position = GameData.Instance.m_TileManager.TilePositionToWorldPosition(m_tilePosition); 
         GameData.Instance.m_TileManager.m_MapTile[_tilePosition.x, _tilePosition.y].m_Entities.Add(gameObject);
     }
 
