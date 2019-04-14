@@ -18,7 +18,7 @@ public class GameUpdater : Singleton<GameUpdater>
     void Update()
     {
 
-        Debug.Log("Free Tile: " + GameData.Instance.m_TileManager.GetEmptyTiles().Count);
+        //Debug.Log("Free Tile: " + GameData.Instance.m_TileManager.GetEmptyTiles().Count);
 
         m_TickTimer += Time.deltaTime;
 
@@ -45,7 +45,7 @@ public class GameUpdater : Singleton<GameUpdater>
 
                 int numberPlayer = GameData.Instance.m_PlayerCount + 1;
 
-                newHead.InitTilePosition(new Vector2Int(GameData.Instance.m_MapSizeX / (numberPlayer + 1) * (i + 1), GameData.Instance.m_MapSizeY / (numberPlayer + 1) * (i + 1)));
+                newHead.InitTilePosition(new Vector2Int(GameData.Instance.m_TileManager.GetRestrictedMapSize().x / (numberPlayer + 1) * (i + 1), GameData.Instance.m_TileManager.GetRestrictedMapSize().y / (numberPlayer + 1) * (i + 1)));
 
                 GameData.Instance.m_Players.Add(newHead);
             }

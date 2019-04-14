@@ -818,13 +818,13 @@ MonoBehaviour:
     type: 3}
   m_SnakeBodyPrefab: {fileID: 9095718743466118222, guid: cc43013e38987774688dc6d04770eafa,
     type: 3}
-  m_SnakeQueuePrefab: {fileID: 0}
   m_SnakeProjectilePrefab: {fileID: 0}
-  m_Background: {fileID: 0}
-  m_Ground: {fileID: 119474574}
+  m_BackgroundPrefab: {fileID: 0}
+  m_GroundPrefab: {fileID: 0}
+  m_WallPrefab: {fileID: 0}
   m_PickUpPrefab: {fileID: 0}
-  m_Players: []
   m_EntitiesContainerTransform: {fileID: 2081955826}
+  m_Players: []
 --- !u!114 &2081955829
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -843,5 +843,7 @@ MonoBehaviour:
   - 0.7
   - 0.5
   - 0.2
+  m_currentStateIndex: 2
   m_spawningTrapsNames:
   - LaserTrap
+  - ShootingTrap

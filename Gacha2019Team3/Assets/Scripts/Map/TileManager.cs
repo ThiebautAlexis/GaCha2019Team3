@@ -5,8 +5,10 @@ using UnityEngine;
 public class TileManager
 {
     [Header("Basic Variables")]
-    public Vector2Int m_MapSize = Vector2Int.zero;
-    public CustomTile[,] m_MapTile = null;
+    Vector2Int m_MapSize = Vector2Int.zero;
+    CustomTile[,] m_MapTile = null;
+    public Vector2Int m_RestrictedMap1 = Vector2Int.zero;
+    public Vector2Int m_RestrictedMap2 = Vector2Int.zero;
 
     public TileManager(Vector2Int _MapSize)
     {
@@ -22,20 +24,49 @@ public class TileManager
         }
     }
 
+    public CustomTile[,] GetRestrictedMap()
+    {
+        CustomTile[,] copy = new CustomTile[GetRestrictedMapSize().x, GetRestrictedMapSize().y];
+        for (int i = m_RestrictedMap1.x; i <= m_RestrictedMap2.x; i++)
+        {
+            for (int j = m_RestrictedMap1.y; j <= m_RestrictedMap2.y; j++)
+            {
+                copy[i, j] = m_MapTile[i, j];
+            }
+        }
+
+        return copy;
+    }
+
+    public Vector2Int GetFullMapSize()
+    {
+        return m_MapSize;
+    }
+
+    public Vector2Int GetRestrictedMapSize()
+    {
+        return (m_RestrictedMap2 - m_RestrictedMap1) + Vector2Int.one;
+    }
+
     public CustomTile GetTile(Vector2Int _TilePosition)
     {
-        return m_MapTile[_TilePosition.x, _TilePosition.y];
+        if ((_TilePosition.x > 0 && _TilePosition.x < m_MapSize.x - 1) && (_TilePosition.y > 0 && _TilePosition.y < m_MapSize.y - 1))
+        {
+            return m_MapTile[_TilePosition.x, _TilePosition.y];
+        }
+
+        return null;
     }
 
     public List<CustomTile> GetEmptyTiles()
     {
         List<CustomTile> emptyTiles = new List<CustomTile>();
-         
-        for (int i = 0; i < m_MapSize.x; i++)
+
+        for (int i = m_RestrictedMap1.x; i < GetRestrictedMapSize().x; i++)
         {
-            for (int j = 0; j < m_MapSize.y; j++)
+            for (int j = m_RestrictedMap1.y; j < GetRestrictedMapSize().y; j++)
             {
-                if (m_MapTile[i,j].m_Entities.Count == 0)
+                if (m_MapTile[i, j].m_Entities.Count == 0)
                 {
                     emptyTiles.Add(m_MapTile[i, j]);
                 }
@@ -47,9 +78,9 @@ public class TileManager
 
     public Vector2Int GetPosition(CustomTile _Tile)
     {
-        for (int i = 0; i < m_MapSize.x; i++)
+        for (int i = m_RestrictedMap1.x; i < GetRestrictedMapSize().x; i++)
         {
-            for (int j = 0; j < m_MapSize.y; j++)
+            for (int j = m_RestrictedMap1.y; j < GetRestrictedMapSize().y; j++)
             {
                 if (m_MapTile[i, j] == _Tile)
                 {
@@ -58,7 +89,7 @@ public class TileManager
             }
         }
 
-        return new Vector2Int(-1,-1);
+        return new Vector2Int(-1, -1);
     }
 
     public Vector3 TilePositionToWorldPosition(Vector2Int _TilePosition)

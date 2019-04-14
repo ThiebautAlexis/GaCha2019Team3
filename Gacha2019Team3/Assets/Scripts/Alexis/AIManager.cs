@@ -1,7 +1,7 @@
 ﻿using System; 
 using System.Collections;
 using System.Collections.Generic;
-using System.IO; 
+using System.Linq; 
 using UnityEngine;
 using Random = UnityEngine.Random; 
 
@@ -10,26 +10,40 @@ public class AIManager : Singleton<AIManager>
     #region Fields and properties 
     [SerializeField] private string m_TrapPath ="Traps/"; 
     [SerializeField] private float[] m_statesCoefficient = new float[4] {1, .7f, .5f, .2f };
-    private int m_currentStateIndex = 0;
+    [SerializeField, Range(0,3)] private int m_currentStateIndex = 0;
     public int m_CurrentStateIndex { get { return m_currentStateIndex; } }
     [SerializeField] private string[] m_spawningTrapsNames;
     #endregion
 
     #region Event
-    public event Action<int> OnStateChanged; 
+    public event Action<int> OnStateChanged;
     #endregion
 
     #region Methods 
     /// <summary>
-    /// Get a random empty tile
+    /// Spawn a trap after its waiting delay
     /// </summary>
+    /// <param name="_trapToSpawn">Trap to spawn</param>
+    /// <param name="_waitingDelay">Delay to wait</param>
     /// <returns></returns>
-    private Vector2Int GetRandomSpawningPosition()
+    private IEnumerator SpawnTrap(GameObject _trapToSpawn)
     {
-        List<CustomTile> _tiles = GameData.Instance.m_TileManager.GetEmptyTiles();
-        if (_tiles.Count == 0) return Vector2Int.zero; 
-        CustomTile _tile = _tiles[UnityEngine.Random.Range(0, _tiles.Count)];
-        return GameData.Instance.m_TileManager.GetPosition(_tile); 
+        Trap _tmpTrap = _trapToSpawn.GetComponent<Trap>();
+        float _delay = _tmpTrap.m_SpawningTick * GameUpdater.Instance.m_TickEvent * m_statesCoefficient[m_currentStateIndex];
+        yield return new WaitForSeconds(_delay);
+        Vector2Int _spawningPos = _tmpTrap.GetSpawningPosition(); 
+        if (_spawningPos == null)
+        {
+            Debug.LogWarning($"There is no free space to spawn a {_trapToSpawn.name} on the grid");
+            yield break;
+        }
+        Trap _trap = Instantiate(_trapToSpawn, GameData.Instance.m_TileManager.TilePositionToWorldPosition(_spawningPos), Quaternion.identity).GetComponent<Trap>();
+        _trap.m_GridPosition = _spawningPos;
+        GameData.Instance.m_TileManager.GetTile(_spawningPos).m_Walkable = false;
+        if (GameData.Instance.m_TileManager.GetEmptyTiles().Count == 0)
+            yield break;
+        StartCoroutine(SpawnTrap(_trapToSpawn));
+        yield break;
     }
 
     /// <summary>
@@ -46,31 +60,6 @@ public class AIManager : Singleton<AIManager>
             return;
         }
         StartCoroutine(SpawnTrap(_trap)); 
-    }
-
-    /// <summary>
-    /// Spawn a trap after its waiting delay
-    /// </summary>
-    /// <param name="_trapToSpawn">Trap to spawn</param>
-    /// <param name="_waitingDelay">Delay to wait</param>
-    /// <returns></returns>
-    private IEnumerator SpawnTrap(GameObject _trapToSpawn)
-    {
-        float _delay = _trapToSpawn.GetComponent<Trap>().m_SpawningTick * GameUpdater.Instance.m_TickEvent * m_statesCoefficient[m_currentStateIndex];
-        yield return new WaitForSeconds(_delay);
-        Vector2Int _spawningPos = GetRandomSpawningPosition(); 
-        if(_spawningPos == null)
-        {
-            Debug.LogWarning($"There is no free space to spawn a {_trapToSpawn.name} on the grid"); 
-            yield break; 
-        }
-        Trap _trap = GameObject.Instantiate(_trapToSpawn, GameData.Instance.m_TileManager.TilePositionToWorldPosition(_spawningPos), Quaternion.identity).GetComponent<Trap>();
-        _trap.m_GridPosition = _spawningPos;
-        GameData.Instance.m_TileManager.GetTile(_spawningPos).m_Walkable = false; 
-        if (GameData.Instance.m_TileManager.GetEmptyTiles().Count == 0)
-            yield break; 
-        StartCoroutine(SpawnTrap(_trapToSpawn));
-        yield break; 
     }
 
     /// <summary>

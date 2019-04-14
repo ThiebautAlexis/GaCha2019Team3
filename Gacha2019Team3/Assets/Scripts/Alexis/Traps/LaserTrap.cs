@@ -1,7 +1,9 @@
 ﻿using System; 
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq; 
 using UnityEngine;
+using Random = UnityEngine.Random; 
 
 public class LaserTrap : Trap
 {
@@ -65,6 +67,60 @@ public class LaserTrap : Trap
         yield break;
     }
 
+    public override Vector2Int GetSpawningPosition()
+    {
+        List<CustomTile> _tiles = GameData.Instance.m_TileManager.GetEmptyTiles();
+        if (_tiles.Count == 0) return Vector2Int.zero;
+        if (AIManager.Instance.m_CurrentStateIndex <= 1)
+        {
+            return GameData.Instance.m_TileManager.GetPosition(_tiles[Random.Range(0, _tiles.Count)]);
+        }
+        else
+        {
+            SnakeHead.Direction _dir = GameData.Instance.m_Players[0].m_Controller.m_Direction;
+            Vector2Int _playerPosition = GameData.Instance.m_Players[0].m_TilePosition;
+            List<Vector2Int> _availablePosition;
+            switch (_dir)
+            {
+                case SnakeHead.Direction.UP:
+                    _availablePosition = _tiles.Select(t => GameData.Instance.m_TileManager.GetPosition(t)).Where(p => p.y > _playerPosition.y).ToList();
+                    break;
+                case SnakeHead.Direction.RIGHT:
+                    _availablePosition = _tiles.Select(t => GameData.Instance.m_TileManager.GetPosition(t)).Where(p => p.x > _playerPosition.x).ToList();
+                    break;
+                case SnakeHead.Direction.DOWN:
+                    _availablePosition = _tiles.Select(t => GameData.Instance.m_TileManager.GetPosition(t)).Where(p => p.y < _playerPosition.y).ToList();
+                    break;
+                case SnakeHead.Direction.LEFT:
+                    _availablePosition = _tiles.Select(t => GameData.Instance.m_TileManager.GetPosition(t)).Where(p => p.x < _playerPosition.x).ToList();
+                    break;
+                case SnakeHead.Direction.NONE:
+                    _availablePosition = _tiles.Select(t => GameData.Instance.m_TileManager.GetPosition(t)).ToList();
+                    break;
+                default:
+                    _availablePosition = _tiles.Select(t => GameData.Instance.m_TileManager.GetPosition(t)).ToList();
+                    break;
+            }
+            return Vector2Int.zero;
+        }
+    }
+
+    public override Vector3 GetBestOrientation()
+    {
+        if(AIManager.Instance.m_CurrentStateIndex == 0)
+        {
+            return new Vector3(0, 90 * (int)UnityEngine.Random.Range(0, 3), 0);
+        }
+        if (AIManager.Instance.m_CurrentStateIndex >= 1)
+        {
+            SnakeHead.Direction _dir = GameData.Instance.m_Players[0].m_Controller.m_Direction;
+            if (_dir == SnakeHead.Direction.UP || _dir == SnakeHead.Direction.DOWN)
+                return Vector3.zero;
+            else return new Vector3(0, 90, 0);
+        }
+        else return Vector3.zero; 
+    }
+
     #region UnityMethods
     protected override void Start()
     {
@@ -75,6 +131,8 @@ public class LaserTrap : Trap
         }
         m_laserRenderer.positionCount = 0;
     }
+
+
     #endregion
     #endregion
 }

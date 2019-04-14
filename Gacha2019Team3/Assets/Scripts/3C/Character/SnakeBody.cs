@@ -4,19 +4,32 @@ using UnityEngine;
 
 public class SnakeBody : SnakePart
 {
+    public bool m_CanBeDestroyed = false;
+    public GameObject m_FXDamagePrefab = null;
 
-    public GameObject prefabFX;
-    private void Start()
+    private void Update()
     {
+        if (m_CanBeDestroyed)
+        {
+            GameData.Instance.m_Camera.m_ShakeBehavior.LaunchCameraShake(1f, 0.1f, 5f);
 
+            GameObject fx = Instantiate(m_FXDamagePrefab, transform.position, Quaternion.identity);       
+            Destroy(fx, m_FXDamagePrefab.GetComponent<ParticleSystem>().main.duration);
+
+            GameData.Instance.m_TileManager.GetTile(m_TilePosition).m_Entities.Remove(gameObject);
+            Destroy(gameObject);
+        }
     }
 
-    override public void Hit()
+    override public void HitEffect()
     {
-        base.Hit();
+        base.HitEffect();
+
+        m_CanBeDestroyed = true;
 
         if (m_Body != null)
         {
+            CanBeDestroyed();
             m_Body = null;
         }
     }
@@ -26,7 +39,6 @@ public class SnakeBody : SnakePart
         Vector2Int previousPos = m_TilePosition;
 
         SetTilePosition(_NewPostion);
-
 
         if (m_Body != null)
         {
@@ -42,5 +54,14 @@ public class SnakeBody : SnakePart
         }
 
         return 1;
+    }
+
+    public void CanBeDestroyed()
+    {
+        m_CanBeDestroyed = true;
+        if (m_Body != null)
+        {
+            m_Body.CanBeDestroyed();
+        }
     }
 }

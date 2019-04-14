@@ -19,22 +19,16 @@ public class SnakeHead : SnakePart
 
     [Header("Gameplay Variables")]
     public bool m_HasItem = false;
-    public bool m_IsShield = false;
-
-    public float m_ShieldActiveTime = 0f;
-    public int m_ShieldTimeLimit = 32;
 
     public int m_Size = 0;
     public float m_ResetAbility = 0.5f;
 
     private float m_TimerAbility = 0f;
-    private bool m_CanUseAbility = false;
-
+    private bool m_CanUseAbility = true;
 
     void Start()
     {
         m_Controller = new GameController();
-
         m_Controller.UseFirstAbility += UseFirstAbility;
         m_Controller.UseSecondAbility += UseSecondAbility;
         m_Controller.UseThirdAbility += UseThirdAbility;
@@ -44,19 +38,15 @@ public class SnakeHead : SnakePart
     {
         m_Controller.Update();
         m_Size = CountBodies();
-        ShieldUpdateTimeAndDeactivate();
         ResetAbility();
     }
 
-    override public void Hit()
+    override public void HitEffect()
     {
-        base.Hit();
+        base.HitEffect();
 
-        if (!m_IsShield)
-        {
-            Debug.Log("Die");
-            Die();
-        }
+        Debug.Log("Die");
+        Die();
     }
 
     public void Die()
@@ -89,8 +79,8 @@ public class SnakeHead : SnakePart
                 break;
         }
 
-        newPos.x = Mathf.Clamp(newPos.x, 0, GameData.Instance.m_TileManager.m_MapSize.x - 1);
-        newPos.y = Mathf.Clamp(newPos.y, 0, GameData.Instance.m_TileManager.m_MapSize.y - 1);
+        newPos.x = Mathf.Clamp(newPos.x, 0, GameData.Instance.m_TileManager.GetRestrictedMapSize().x - 1);
+        newPos.y = Mathf.Clamp(newPos.y, 0, GameData.Instance.m_TileManager.GetRestrictedMapSize().y - 1);
 
         if (newPos == m_TilePosition)
         {
@@ -124,20 +114,24 @@ public class SnakeHead : SnakePart
                     {
                         return false;
                     }
-                    else if (entities[i].GetComponent<SnakePart>() != null)
-                    {
-                        Debug.Log("Hit my queue");
-                        Hit();
-                    }
                     else
                     {
-                        Item item;
-                        bool doesItemExists = ItemManager.Instance.CheckItem(_WantedTilePosition, out item);
-                        if (doesItemExists)
+                        SnakePart snakePart = entities[i].GetComponent<SnakePart>();
+                        if (snakePart != null && !snakePart.m_CanWalkOnItself)
                         {
-                            m_HasItem = true;
-                            ItemManager.Instance.SetImageUIActive(true);
-                            ItemManager.Instance.DestroyItem(_WantedTilePosition, item);
+                            Debug.Log("Hit my queue");
+                            Hit();
+                        }
+                        else
+                        {
+                            Item item;
+                            bool doesItemExists = ItemManager.Instance.CheckItem(_WantedTilePosition, out item);
+                            if (doesItemExists)
+                            {
+                                m_HasItem = true;
+                                ItemManager.Instance.SetImageUIActive(true);
+                                ItemManager.Instance.DestroyItem(_WantedTilePosition, item);
+                            }
                         }
                     }
                 }
@@ -157,35 +151,6 @@ public class SnakeHead : SnakePart
         return 0;
     }
 
-    void ActivateShield()
-    {
-        m_IsShield = true;
-
-    }
-
-    void DeactivateShield()
-    {
-        Debug.Log("a pu Shield !");
-
-        m_IsShield = false;
-
-    }
-
-    void ShieldUpdateTimeAndDeactivate()
-    {
-        if (m_IsShield)
-        {
-            m_ShieldActiveTime += Time.deltaTime;
-
-            if (m_ShieldActiveTime > (float)(m_ShieldTimeLimit * GameUpdater.Instance.m_TickEvent))
-            {
-                DeactivateShield();
-
-                m_ShieldActiveTime = 0;
-            }
-        }
-    }
-
     public void ShootProjectile()
     {
         Debug.Log("Shoot !!!");
@@ -201,18 +166,37 @@ public class SnakeHead : SnakePart
 
     public void UseFirstAbility()
     {
-        if (m_HasItem && !m_CanUseAbility)
+        if (m_HasItem && m_CanUseAbility)
         {
             Debug.Log("Add Body !");
 
-            AddBody();
+            // Add x2
+            if (m_Size == 0)
+            {
+                for (int i = 0; i < 10; i++)
+                {
+                    AddBody();
+                }
+            }
+
+            for (int i = 0; i < m_Size; i++)
+            {
+                AddBody();
+            }
+
+            // Add +2
+            //for (int i = 0; i < 2; i++)
+            //{
+            //    AddBody();
+            //}
+
             UseItemGenericFunction();
         }
     }
 
     public void UseSecondAbility()
     {
-        if (m_HasItem && !m_CanUseAbility)
+        if (m_HasItem && m_CanUseAbility)
         {
             Debug.Log("Shield !");
 
@@ -223,7 +207,7 @@ public class SnakeHead : SnakePart
 
     public void UseThirdAbility()
     {
-        if (m_HasItem && !m_CanUseAbility)
+        if (m_HasItem && m_CanUseAbility)
         {
             Debug.Log("Shoot !");
 
@@ -234,20 +218,20 @@ public class SnakeHead : SnakePart
 
     void UseItemGenericFunction()
     {
-        m_CanUseAbility = true;
+        m_CanUseAbility = false;
         m_HasItem = false;
         ItemManager.Instance.SetImageUIActive(false);
     }
 
     public void ResetAbility()
     {
-        if (m_CanUseAbility)
+        if (!m_CanUseAbility)
         {
             m_TimerAbility += Time.deltaTime;
 
             if (m_TimerAbility > m_ResetAbility)
             {
-                m_CanUseAbility = false;
+                m_CanUseAbility = true;
                 m_TimerAbility = 0f;
             }
         }
