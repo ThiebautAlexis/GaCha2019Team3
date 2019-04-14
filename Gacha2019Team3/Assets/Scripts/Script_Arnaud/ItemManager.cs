@@ -50,21 +50,18 @@ public class ItemManager : MonoBehaviour
 
     void SpawnItem()
     {
-        List<CustomTile> myEmptyTiles = GameData.Instance.m_TileManager.GetEmptyTiles();
-        int randNum = Mathf.RoundToInt(Random.Range(0, myEmptyTiles.Count - 1));
-        Vector2Int position;
-        position = GameData.Instance.m_TileManager.GetPosition(myEmptyTiles[randNum]);
-        /*do
-        {
-           position = new Vector2Int(Mathf.RoundToInt(Random.Range(0, GameData.Instance.m_MapSizeX)), Mathf.RoundToInt(Random.Range(0, GameData.Instance.m_MapSizeY)));
-        }
-        while (GameData.Instance.m_TileManager.m_MapTile[position.x, position.y].m_Entities.Count != 0);*/
-      
-        itemPrefab.transform.position = new Vector3(position.x, -position.y, 0) * 0.5f;
-        Instantiate(itemPrefab, m_Entities);
-        GameData.Instance.m_TileManager.m_MapTile[position.x, position.y].m_Entities.Add(itemPrefab);
-        nbrItemOnMap++;
-        flag = false;
+	if(GameData.Instance.m_TileManager.GetEmptyTiles()!=null)
+	{
+        	List<CustomTile> myEmptyTiles = GameData.Instance.m_TileManager.GetEmptyTiles();
+        	int randNum = Mathf.RoundToInt(Random.Range(0, myEmptyTiles.Count - 1));
+        	Vector2Int position;
+        	position = GameData.Instance.m_TileManager.GetPosition(myEmptyTiles[randNum]);
+        	itemPrefab.transform.position = new Vector3(position.x, -position.y, 0) * 0.5f;
+        	Instantiate(itemPrefab, m_Entities);
+        	GameData.Instance.m_TileManager.m_MapTile[position.x, position.y].m_Entities.Add(itemPrefab);
+        	nbrItemOnMap++;
+        	flag = false;
+	}
     }
 
 
