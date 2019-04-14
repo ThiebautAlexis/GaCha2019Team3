@@ -26,7 +26,7 @@ public class ShootingTrap : Trap
             Destroy(_projectileObject); 
         }
         yield return new WaitForSeconds(m_activationTick * GameUpdater.Instance.m_TickEvent);
-        Destroy(gameObject); 
+        CleanTile(); 
         yield break; 
     }
 
