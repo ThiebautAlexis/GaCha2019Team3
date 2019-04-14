@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class TrapProjectile : Projectile
 {
+
     /// <summary>
     /// Hit the snake part on the tile
     /// </summary>

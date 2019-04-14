@@ -17,6 +17,7 @@ public abstract class Trap : MonoBehaviour
     [SerializeField, Range(0, 9)] protected int m_activationTick = 1;
 
     public Vector2Int m_GridPosition { get; set; }
+
     #endregion
 
     #region Methods
