@@ -10,6 +10,8 @@ public abstract class SnakePart : MonoBehaviour
     [Header("Gameplay Variables")]
     protected Vector2Int m_TilePosition = Vector2Int.zero;
 
+    protected Vector2Int m_LastTilePosition = Vector2Int.zero;
+
     public Vector2Int GetTilePosition()
     {
         return m_TilePosition;
@@ -24,6 +26,8 @@ public abstract class SnakePart : MonoBehaviour
 
     public void SetTilePosition(Vector2Int _TilePosition)
     {
+        m_LastTilePosition = m_TilePosition;
+
         GameData.Instance.m_TileManager.m_MapTile[_TilePosition.x, _TilePosition.y].m_Entities.Remove(gameObject);
         m_TilePosition = _TilePosition;
         transform.position = new Vector3(m_TilePosition.x, 0, -m_TilePosition.y) * 0.5f;
@@ -46,5 +50,24 @@ public abstract class SnakePart : MonoBehaviour
         //TileManager
 
         Destroy(this);
+    }
+
+    public void AddBody()
+    {
+        if (m_Body == null)
+        {
+            GameObject newBody = Instantiate(GameData.Instance.m_SnakeBodyPrefab);
+            newBody.transform.Rotate(new Vector3(-90, 0, 0));
+            newBody.transform.parent = GameData.Instance.m_EntitiesContainerTransform;
+
+            //ADD DIRECTION POSITION (OR SAVE LAST POSITION AND SET IT HERE ?)
+            //newBody.transform.position = transform.position;
+
+            m_Body = newBody.GetComponent<SnakeBody>();
+        }
+        else
+        {
+            m_Body.AddBody();
+        }
     }
 }

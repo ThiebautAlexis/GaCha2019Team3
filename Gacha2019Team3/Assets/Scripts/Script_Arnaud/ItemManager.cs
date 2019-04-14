@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ItemManager : MonoBehaviour
+public class ItemManager : Singleton<ItemManager>
 {
     public bool hasItemInStorage;
-    public static ItemManager Instance;
+    
     public GameObject itemPrefab;
     public bool isItemOnMap;
     public bool isProtected;
@@ -18,13 +18,10 @@ public class ItemManager : MonoBehaviour
     public int nbrItemAllowedOnMap;
     int nbrItemOnMap;
 
-    private void Awake()
-    {
-        if (Instance == null)
-        {
-            Instance = this;
-        }
-    }
+
+
+
+    
 
     // Start is called before the first frame update
     void Start()
@@ -47,8 +44,8 @@ public class ItemManager : MonoBehaviour
 
     void SpawnItem()
     {
-	if(GameData.Instance.m_TileManager.GetEmptyTiles()!=null)
-	{
+	    if(GameData.Instance.m_TileManager.GetEmptyTiles()!=null)
+	    {
         	List<CustomTile> myEmptyTiles = GameData.Instance.m_TileManager.GetEmptyTiles();
         	int randNum = Mathf.RoundToInt(Random.Range(0, myEmptyTiles.Count - 1));
         	Vector2Int position;
@@ -58,15 +55,40 @@ public class ItemManager : MonoBehaviour
         	GameData.Instance.m_TileManager.m_MapTile[position.x, position.y].m_Entities.Add(itemPrefab);
         	nbrItemOnMap++;
         	flag = false;
-	}
+	    }
+    }
+
+    public bool CheckItem(Vector2Int position)
+    {
+       
+        if (GameData.Instance.m_TileManager.m_MapTile[position.x, position.y].m_Entities.Count > 0)
+        {
+            for (int i = 0; i < GameData.Instance.m_TileManager.m_MapTile[position.x, position.y].m_Entities.Count; i++)
+            {
+                if (GameData.Instance.m_TileManager.m_MapTile[position.x, position.y].m_Entities[i].GetComponent<Item>() != null)
+                {
+                    return true;
+                }
+
+                else return false;
+            }
+        }
+
+        else return false;
+        return false;
+    }
+
+    public void DestroyItem(Vector2Int position)
+    {
+        if (CheckItem(position))
+        {
+            GameData.Instance.m_TileManager.m_MapTile[position.x, position.y].m_Entities.Remove(GameData.Instance.m_TileManager.m_MapTile[position.x, position.y].m_Entities[0]);
+            Destroy(GameData.Instance.m_TileManager.m_MapTile[position.x, position.y].m_Entities[0]);
+        }
     }
 
 
    
 
 
-    private void OnDestroy()
-    {
-        Instance = null;
-    }
 }

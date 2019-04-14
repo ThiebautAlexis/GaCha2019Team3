@@ -19,6 +19,7 @@ public class SnakeHead : SnakePart
     [Header("Gameplay Variables")]
     public Item m_Item = null;
     public bool m_IsShield = false;
+    public float m_ShieldActiveTime = 4.0f;
     public float m_ShieldTimeLimit = 0f;
     public int m_Size = 0;
 
@@ -38,6 +39,7 @@ public class SnakeHead : SnakePart
     {
         m_Controller.Update();
         m_Size = CountBodies();
+        ShieldUpdateTimeAndDeactivate();
     }
 
     override public void Hit()
@@ -124,19 +126,62 @@ public class SnakeHead : SnakePart
         return 0;
     }
 
+    void ActivateShield()
+    {
+        m_IsShield = true;
+
+    }
+
+    void DeactivateShield()
+    {
+        m_IsShield = false;
+
+    }
+
+    void ShieldUpdateTimeAndDeactivate()
+    {
+        if (m_IsShield)
+        {
+            m_ShieldTimeLimit += Time.deltaTime;
+
+            if (m_ShieldTimeLimit > m_ShieldActiveTime)
+            {
+                DeactivateShield();
+
+                m_ShieldTimeLimit = 0;
+            }
+        }
+    }
+
+    public void ShootProjectile()
+    {
+        Debug.Log("Shoot !!!");
+
+        GameObject projectile = Instantiate(GameData.Instance.m_SnakeProjectilePrefab);
+
+        projectile.transform.rotation = transform.rotation;
+
+        //SET POSITION TO CURRENT POSITION + DIRECTION (Check if it's outside the map)
+    }
+
     public void UseFirstAbility()
     {
         Debug.Log("Use First Ability !");
+
+        AddBody();
     }
 
     public void UseSecondAbility()
     {
         Debug.Log("Use Second Ability !");
+
+        ActivateShield();
     }
 
     public void UseThirdAbility()
     {
         Debug.Log("Use Third Ability !");
-    }
 
+        ShootProjectile();
+    }
 }

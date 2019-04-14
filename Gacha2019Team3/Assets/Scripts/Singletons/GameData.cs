@@ -14,6 +14,7 @@ public class GameData : Singleton<GameData>
     public GameObject m_SnakeHeadPrefab = null;
     public GameObject m_SnakeBodyPrefab = null;
     public GameObject m_SnakeQueuePrefab = null;
+    public GameObject m_SnakeProjectilePrefab = null;
 
     [Header("Basic Variables")]
     public TileManager m_TileManager = null;
@@ -26,6 +27,8 @@ public class GameData : Singleton<GameData>
     public Sprite m_BackgroundSprite = null;
 
     public List<SnakeHead> m_Players = new List<SnakeHead>();
+
+    public Transform m_EntitiesContainerTransform = null;
 
     private void Awake()
     {
