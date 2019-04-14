@@ -55,7 +55,7 @@ public class SnakeHead : SnakePart
         if (!m_IsShield)
         {
             Debug.Log("Die");
-            Time.timeScale = 0;
+            Die();
         }
     }
 
@@ -114,34 +114,37 @@ public class SnakeHead : SnakePart
         CustomTile wantedTile = GameData.Instance.m_TileManager.GetTile(_WantedTilePosition);
         List<GameObject> entities = wantedTile.m_Entities;
 
-        if (entities.Count > 0)
+        if (wantedTile != null)
         {
-            for (int i = 0; i < entities.Count; i++)
+            if (entities.Count > 0)
             {
-                if (!wantedTile.m_Walkable)
+                for (int i = 0; i < entities.Count; i++)
                 {
-                    return false;
-                }
-                else if (entities[i].GetComponent<SnakePart>() != null)
-                {
-                    Debug.Log("Hit my queue");
-                    Hit();
-                }
-                else
-                {
-                    Item item;
-                    bool doesItemExists = ItemManager.Instance.CheckItem(_WantedTilePosition, out item);
-                    if (doesItemExists)
+                    if (!wantedTile.m_Walkable)
                     {
-                        m_HasItem = true;
-                        ItemManager.Instance.SetImageUIActive(true);
-                        ItemManager.Instance.DestroyItem(_WantedTilePosition, item);
+                        return false;
+                    }
+                    else if (entities[i].GetComponent<SnakePart>() != null)
+                    {
+                        Debug.Log("Hit my queue");
+                        Hit();
+                    }
+                    else
+                    {
+                        Item item;
+                        bool doesItemExists = ItemManager.Instance.CheckItem(_WantedTilePosition, out item);
+                        if (doesItemExists)
+                        {
+                            m_HasItem = true;
+                            ItemManager.Instance.SetImageUIActive(true);
+                            ItemManager.Instance.DestroyItem(_WantedTilePosition, item);
+                        }
                     }
                 }
             }
+            return true;
         }
-
-        return true;
+        return false;
     }
 
     public int CountBodies()
