@@ -6,7 +6,7 @@ public class SnakeBody : SnakePart
 {
     private void Start()
     {
-        gameObject.AddComponent<SpriteRenderer>().sprite = GameData.Instance.m_SnakeBodySprite;
+        
     }
 
     override public void Hit()

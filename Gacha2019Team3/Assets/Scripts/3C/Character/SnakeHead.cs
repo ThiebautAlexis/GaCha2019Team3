@@ -70,12 +70,19 @@ public class SnakeHead : SnakePart
             case Direction.LEFT:
                 newPos = m_TilePosition - new Vector2Int(1, 0);
                 break;
+            case Direction.NONE:
+                return;
             default:
                 break;
         }
 
         newPos.x = Mathf.Clamp(newPos.x, 0, GameData.Instance.m_TileManager.m_MapSize.x - 1);
         newPos.y = Mathf.Clamp(newPos.y, 0, GameData.Instance.m_TileManager.m_MapSize.y - 1);
+
+        if (newPos == m_TilePosition)
+        {
+            return;
+        }
 
         SetTilePosition(newPos);
 
@@ -85,6 +92,7 @@ public class SnakeHead : SnakePart
         }
         if (CanMove(newPos))
         {
+
         }
 
     }

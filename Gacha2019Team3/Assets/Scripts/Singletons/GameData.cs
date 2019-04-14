@@ -5,10 +5,11 @@ using UnityEngine.UI;
 
 public class GameData : Singleton<GameData>
 {
-    [Header("Hand filled datas")]
+    [Header("Basic Variables")]
     public int m_MapSizeX = 20;
     public int m_MapSizeY = 20;
     public int m_PlayerCount = 1;
+    public TileManager m_TileManager = null;
 
     [Header("Snake Prefabs")]
     public GameObject m_SnakeHeadPrefab = null;
@@ -16,15 +17,9 @@ public class GameData : Singleton<GameData>
     public GameObject m_SnakeQueuePrefab = null;
     public GameObject m_SnakeProjectilePrefab = null;
 
-    [Header("Basic Variables")]
-    public TileManager m_TileManager = null;
-
     [Header("Misc Variables")]
-    public GameObject m_DebugBackground;
-    public Sprite m_SnakeHeadSprite;
-    public Sprite m_SnakeBodySprite;
-
-    public Sprite m_BackgroundSprite = null;
+    public GameObject m_Background;
+    public GameObject m_Ground;
 
     public List<SnakeHead> m_Players = new List<SnakeHead>();
 
@@ -34,8 +29,8 @@ public class GameData : Singleton<GameData>
     {
         m_TileManager = new TileManager(new Vector2Int(m_MapSizeX, m_MapSizeY));
 
-        m_DebugBackground.transform.localScale = Vector3.one * (m_MapSizeX * 0.5f);
-       
+        /// A REVOIR
+        m_Ground.transform.localScale = Vector3.one * (m_MapSizeX * 0.5f);   
     }
 
 }
