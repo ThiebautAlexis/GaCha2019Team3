@@ -52,9 +52,11 @@ public class SnakeHead : SnakePart
     {
         base.Hit();
 
-        Debug.LogError("DEAD !!!");
-        Debug.LogWarning("Time Scale Stopped");
-        Time.timeScale = 0;
+        if (!m_IsShield)
+        {
+            Debug.Log("Die");
+            Time.timeScale = 0;
+        }
     }
 
     public void Die()
@@ -120,6 +122,11 @@ public class SnakeHead : SnakePart
                 {
                     return false;
                 }
+                else if (entities[i].GetComponent<SnakePart>())
+                {
+                    Debug.Log("Hit my queue");
+                    Hit();
+                }
                 else
                 {
                     Item item;
@@ -180,9 +187,11 @@ public class SnakeHead : SnakePart
     {
         Debug.Log("Shoot !!!");
 
-        GameObject projectile = Instantiate(GameData.Instance.m_SnakeProjectilePrefab);
-
-        projectile.transform.rotation = transform.rotation;
+        if (GameData.Instance.m_SnakeProjectilePrefab != null)
+        {
+            GameObject projectile = Instantiate(GameData.Instance.m_SnakeProjectilePrefab);
+            projectile.transform.rotation = transform.rotation;
+        }
 
         //SET POSITION TO CURRENT POSITION + DIRECTION (Check if it's outside the map)
     }
