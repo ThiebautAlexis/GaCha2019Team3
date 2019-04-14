@@ -19,18 +19,19 @@ public class SnakeHead : SnakePart
     [Header("Gameplay Variables")]
     public bool m_HasItem = false;
     public bool m_IsShield = false;
-    public float m_ShieldActiveTime = 4.0f;
-    public float m_ShieldTimeLimit = 0f;
+
+    public float m_ShieldActiveTime = 0f;
+    public int m_ShieldTimeLimit = 32;
+
     public int m_Size = 0;
-    public float m_Resetability = 0.5f;
+    public float m_ResetAbility = 0.5f;
 
     private float m_TimerAbility = 0f;
     private bool m_CanUseAbility = false;
 
-    // Start is called before the first frame update
+
     void Start()
     {
-        //gameObject.AddComponent<SpriteRenderer>().sprite = GameData.Instance.m_SnakeHeadSprite;
         m_Controller = new GameController();
 
         m_Controller.UseFirstAbility += UseFirstAbility;
@@ -38,7 +39,6 @@ public class SnakeHead : SnakePart
         m_Controller.UseThirdAbility += UseThirdAbility;
     }
 
-    // Update is called once per frame
     void Update()
     {
         m_Controller.Update();
@@ -88,13 +88,6 @@ public class SnakeHead : SnakePart
         {
             return;
         }
-
-        /*SetTilePosition(newPos);
-
-        if (m_Body != null)
-        {
-            m_Body.Move(previousPos);
-        }*/
 
         if (CanMove(newPos))
         {
@@ -156,6 +149,8 @@ public class SnakeHead : SnakePart
 
     void DeactivateShield()
     {
+        Debug.Log("a pu Shield !");
+
         m_IsShield = false;
 
     }
@@ -164,13 +159,13 @@ public class SnakeHead : SnakePart
     {
         if (m_IsShield)
         {
-            m_ShieldTimeLimit += Time.deltaTime;
+            m_ShieldActiveTime += Time.deltaTime;
 
-            if (m_ShieldTimeLimit > m_ShieldActiveTime)
+            if (m_ShieldActiveTime > (float)(m_ShieldTimeLimit * GameUpdater.Instance.m_TickEvent))
             {
                 DeactivateShield();
 
-                m_ShieldTimeLimit = 0;
+                m_ShieldActiveTime = 0;
             }
         }
     }
@@ -190,7 +185,7 @@ public class SnakeHead : SnakePart
     {
         if (m_HasItem && !m_CanUseAbility)
         {
-            Debug.Log("Use First Ability !");
+            Debug.Log("Add Body !");
 
             AddBody();
             UseItemGenericFunction();
@@ -201,7 +196,7 @@ public class SnakeHead : SnakePart
     {
         if (m_HasItem && !m_CanUseAbility)
         {
-            Debug.Log("Use Second Ability !");
+            Debug.Log("Shield !");
 
             ActivateShield();
             UseItemGenericFunction();
@@ -212,7 +207,7 @@ public class SnakeHead : SnakePart
     {
         if (m_HasItem && !m_CanUseAbility)
         {
-            Debug.Log("Use Third Ability !");
+            Debug.Log("Shoot !");
 
             ShootProjectile();
             UseItemGenericFunction();
@@ -232,7 +227,7 @@ public class SnakeHead : SnakePart
         {
             m_TimerAbility += Time.deltaTime;
 
-            if (true)
+            if (m_TimerAbility > m_ResetAbility)
             {
                 m_CanUseAbility = false;
                 m_TimerAbility = 0f;
