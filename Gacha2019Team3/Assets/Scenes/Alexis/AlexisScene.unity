@@ -811,8 +811,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bc510480a0ed5d4a89a30cc4b023f67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_MapSizeX: 5
-  m_MapSizeY: 5
+  m_MapSizeX: 10
+  m_MapSizeY: 10
   m_PlayerCount: 1
   m_SnakeHeadPrefab: {fileID: 7896868396144839396, guid: 928ea3a2d81f10a46b7bc0347c454f87,
     type: 3}
