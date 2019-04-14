@@ -17,6 +17,13 @@ public class ShakeCamera : MonoBehaviour
 
     Vector3 originalPos;
 
+    public void LaunchCameraShake(float _Duration, float _Amount, float _DecraseFactor)
+    {
+        shakeDuration = _Duration;
+        shakeAmount = _Amount;
+        decreaseFactor = _DecraseFactor;
+    }
+
     void Awake()
     {
         if (camTransform == null)
@@ -44,4 +51,6 @@ public class ShakeCamera : MonoBehaviour
             camTransform.localPosition = originalPos;
         }
     }
+
+
 }

@@ -73,7 +73,7 @@ public abstract class SnakePart : MonoBehaviour
         if (m_Body == null)
         {
             GameObject newBody = Instantiate(GameData.Instance.m_SnakeBodyPrefab);
-           // newBody.transform.Rotate(new Vector3(-90, 0, 0));
+
             newBody.transform.parent = GameData.Instance.m_EntitiesContainerTransform;           
             newBody.transform.position = GameData.Instance.m_TileManager.TilePositionToWorldPosition(m_TilePosition);
 
