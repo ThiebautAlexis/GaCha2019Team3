@@ -47,13 +47,16 @@ public class SnakeHead : SnakePart
     {
         base.Hit();
 
-        Debug.LogError("DEAD !!!");
-        Debug.LogWarning("Time Scale Stopped");
-        Time.timeScale = 0;
+        if (!m_IsShield)
+        {
+            Debug.LogError("DEAD !!!");
+            Die();
+        }
     }
 
     public void Die()
     {
+
         SceneManager.LoadScene("Win");
     }
 
