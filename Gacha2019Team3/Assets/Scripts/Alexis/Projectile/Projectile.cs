@@ -3,38 +3,41 @@ using System.Collections.Generic;
 using System.Linq; 
 using UnityEngine;
 
-public class Projectile : MonoBehaviour
+public abstract class Projectile : MonoBehaviour
 {
     #region Fields and Properties
-    [SerializeField] string m_targetedTag = "Player"; 
-
     private Vector2Int m_tilePosition = Vector2Int.zero;
 
     private Vector2Int m_lastTilePosition = Vector2Int.zero; 
 
     public Vector2Int m_TilePosition { get { return m_tilePosition; } }
 
-    private Vector2Int m_shootDirection = Vector2Int.zero; 
+    private Vector2Int m_shootDirection = Vector2Int.zero;
     #endregion
 
     #region Methods
+    protected abstract void ApplyEffect(CustomTile _tile);
+    protected abstract bool CanHit(CustomTile _nextTile);
+
     /// <summary>
     /// Init the tile position of the projectile
     /// </summary>
     /// <param name="_tilePosition"></param>
-    private void InitTilePosition(Vector2Int _tilePosition, Vector2Int _dir)
+    public void InitProjectile(Vector2Int _tilePosition, Vector2Int _dir)
     {
+        transform.rotation = Quaternion.Euler(_dir.x, 0, _dir.y); 
         m_tilePosition = _tilePosition;
         transform.position = new Vector3(m_TilePosition.x, m_TilePosition.y, 0) * 0.5f;
         GameData.Instance.m_TileManager.m_MapTile[_tilePosition.x, _tilePosition.y].m_Entities.Add(gameObject);
-
+        m_shootDirection = _dir;
+        StartCoroutine(MoveProjectile()); 
     }
 
     /// <summary>
     /// Set the tile position of the projectile
     /// </summary>
     /// <param name="_tilePosition"></param>
-    public void SetTilePosition(Vector2Int _tilePosition)
+    protected void SetTilePosition(Vector2Int _tilePosition)
     {
         m_lastTilePosition = m_tilePosition;
 
@@ -44,17 +47,7 @@ public class Projectile : MonoBehaviour
         GameData.Instance.m_TileManager.m_MapTile[_tilePosition.x, _tilePosition.y].m_Entities.Add(gameObject);
     }
 
-    private bool CanHit(Vector2Int _checkedPosition)
-    {
-        CustomTile _nextTile = GameData.Instance.m_TileManager.GetTile(_checkedPosition);
-        if (_nextTile.m_Entities.Any(e => e.tag.ToLower() == m_targetedTag.ToLower()))
-        {
-            return true;
-        }
-        return false; 
-    }
-
-    public IEnumerator MoveProjectile()
+    protected IEnumerator MoveProjectile()
     {
         //MAKE THE PROJECTILE MOVE UNTIL IT REACHS A WALL OR THE PLAYER
         Vector2Int _nextPos;
@@ -67,6 +60,17 @@ public class Projectile : MonoBehaviour
                 break;
             }
             _nextTile = GameData.Instance.m_TileManager.GetTile(_nextPos);
+            /*
+             * Le projectile peut-il passer au travers des tiles non walkables?
+            if (!_nextTile.m_Walkable)
+                break;
+            */
+            if(CanHit(_nextTile))
+            {
+                SetTilePosition(_nextPos);
+                ApplyEffect(_nextTile); 
+                break; 
+            }
             SetTilePosition(_nextPos); 
             yield return new WaitForSeconds(GameUpdater.Instance.m_TickEvent);
         }
