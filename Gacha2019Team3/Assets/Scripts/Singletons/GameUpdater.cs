@@ -40,7 +40,7 @@ public class GameUpdater : Singleton<GameUpdater>
             //GameObject newSnake = new GameObject("SnakeHead_" + i);
 
             GameObject newSnake = Instantiate(GameData.Instance.m_SnakeHeadPrefab);
-            newSnake.transform.Rotate(new Vector3(-90, 0, 0));
+            //newSnake.transform.Rotate(new Vector3(-90, 0, 0));
             SnakeHead newHead = newSnake.AddComponent<SnakeHead>();
             newSnake.transform.parent = m_EntitiesContainerTransform;
 
