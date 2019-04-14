@@ -14,6 +14,7 @@ public class GameData : Singleton<GameData>
     public GameObject m_SnakeHeadPrefab = null;
     public GameObject m_SnakeBodyPrefab = null;
     public GameObject m_SnakeQueuePrefab = null;
+    public GameObject m_SnakeProjectilePrefab = null;
 
     [Header("Basic Variables")]
     public TileManager m_TileManager = null;
