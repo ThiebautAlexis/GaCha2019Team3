@@ -17,11 +17,15 @@ public class SnakeHead : SnakePart
     }
 
     [Header("Gameplay Variables")]
-    public Item m_Item = null;
+    public bool m_HasItem = false;
     public bool m_IsShield = false;
     public float m_ShieldActiveTime = 4.0f;
     public float m_ShieldTimeLimit = 0f;
     public int m_Size = 0;
+    public float m_Resetability = 0.5f;
+
+    private float m_TimerAbility = 0f;
+    private bool m_CanUseAbility = false;
 
     // Start is called before the first frame update
     void Start()
@@ -40,6 +44,7 @@ public class SnakeHead : SnakePart
         m_Controller.Update();
         m_Size = CountBodies();
         ShieldUpdateTimeAndDeactivate();
+        ResetAbility();
     }
 
     override public void Hit()
@@ -84,15 +89,21 @@ public class SnakeHead : SnakePart
             return;
         }
 
-        SetTilePosition(newPos);
+        /*SetTilePosition(newPos);
 
         if (m_Body != null)
         {
             m_Body.Move(previousPos);
-        }
+        }*/
+
         if (CanMove(newPos))
         {
+            SetTilePosition(newPos);
 
+            if (m_Body != null)
+            {
+                m_Body.Move(previousPos);
+            }
         }
 
     }
@@ -106,15 +117,20 @@ public class SnakeHead : SnakePart
         {
             for (int i = 0; i < entities.Count; i++)
             {
-                if (entities[i].GetType() == typeof(Item))
+                if (!wantedTile.m_Walkable)
                 {
-                    //Item item = entities[i] is Item;
-                    return true;
+                    return false;
                 }
                 else
                 {
-
-                    return false;
+                    Item item;
+                    bool doesItemExists = ItemManager.Instance.CheckItem(_WantedTilePosition, out item);
+                    if (doesItemExists)
+                    {
+                        m_HasItem = true;
+                        ItemManager.Instance.SetImageUIActive(true);
+                        ItemManager.Instance.DestroyItem(_WantedTilePosition, item);
+                    }
                 }
             }
         }
@@ -124,8 +140,6 @@ public class SnakeHead : SnakePart
 
     public int CountBodies()
     {
-        Debug.Log("Count: " + m_Size);
-
         if (m_Body != null)
         {
             return m_Body.Count();
@@ -174,22 +188,55 @@ public class SnakeHead : SnakePart
 
     public void UseFirstAbility()
     {
-        Debug.Log("Use First Ability !");
+        if (m_HasItem && !m_CanUseAbility)
+        {
+            Debug.Log("Use First Ability !");
 
-        AddBody();
+            AddBody();
+            UseItemGenericFunction();
+        }
     }
 
     public void UseSecondAbility()
     {
-        Debug.Log("Use Second Ability !");
+        if (m_HasItem && !m_CanUseAbility)
+        {
+            Debug.Log("Use Second Ability !");
 
-        ActivateShield();
+            ActivateShield();
+            UseItemGenericFunction();
+        }
     }
 
     public void UseThirdAbility()
     {
-        Debug.Log("Use Third Ability !");
+        if (m_HasItem && !m_CanUseAbility)
+        {
+            Debug.Log("Use Third Ability !");
 
-        ShootProjectile();
+            ShootProjectile();
+            UseItemGenericFunction();
+        }
+    }
+
+    void UseItemGenericFunction()
+    {
+        m_CanUseAbility = true;
+        m_HasItem = false;
+        ItemManager.Instance.SetImageUIActive(false);
+    }
+
+    public void ResetAbility()
+    {
+        if (m_CanUseAbility)
+        {
+            m_TimerAbility += Time.deltaTime;
+
+            if (true)
+            {
+                m_CanUseAbility = false;
+                m_TimerAbility = 0f;
+            }
+        }
     }
 }

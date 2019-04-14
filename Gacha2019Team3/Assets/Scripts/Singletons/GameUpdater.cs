@@ -34,14 +34,19 @@ public class GameUpdater : Singleton<GameUpdater>
         for (int i = 0; i < GameData.Instance.m_PlayerCount; i++)
         {
             GameObject newSnake = Instantiate(GameData.Instance.m_SnakeHeadPrefab);
-            newSnake.transform.Rotate(new Vector3(-90, 0, 0));
-            SnakeHead newHead = newSnake.GetComponent<SnakeHead>();
-            newSnake.transform.parent = GameData.Instance.m_EntitiesContainerTransform;
+            if (newSnake != null)
+            {
+                SnakeHead newHead = newSnake.GetComponent<SnakeHead>();
+                newSnake.transform.parent = GameData.Instance.m_EntitiesContainerTransform;
 
-            newHead.InitTilePosition(new Vector2Int(GameData.Instance.m_MapSizeX / 2, GameData.Instance.m_MapSizeY / 2));
+                newHead.InitTilePosition(new Vector2Int(GameData.Instance.m_MapSizeX / 2, GameData.Instance.m_MapSizeY / 2));
 
-
-            GameData.Instance.m_Players.Add(newHead);
+                GameData.Instance.m_Players.Add(newHead);
+            }
+            else
+            {
+                Debug.LogError("Missing Data reference in GameData.");
+            }
         }
     }
 }

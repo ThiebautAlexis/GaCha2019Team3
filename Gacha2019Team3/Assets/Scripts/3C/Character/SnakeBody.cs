@@ -35,7 +35,7 @@ public class SnakeBody : SnakePart
     {
         if (m_Body != null)
         {
-            return m_Body.Count();
+            return m_Body.Count() + 1;
         }
 
         return 1;

@@ -12,7 +12,8 @@ public class GameController
 
     public event FirstAbilityEvent UseFirstAbility; 
     public event FirstAbilityEvent UseSecondAbility; 
-    public event FirstAbilityEvent UseThirdAbility; 
+    public event FirstAbilityEvent UseThirdAbility;
+
 
     public void Update()
     {
