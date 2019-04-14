@@ -24,7 +24,11 @@ public abstract class Trap : MonoBehaviour
     /// <summary>
     /// This Method is called when the trap has to trigger
     /// </summary>
-    protected abstract IEnumerator TriggerTrap(); 
+    protected abstract IEnumerator TriggerTrap();
+
+    public abstract Vector2Int GetSpawningPosition();
+
+    public abstract Vector3 GetBestOrientation(); 
 
     /// <summary>
     /// Wait some time before triggering the trap
@@ -49,7 +53,7 @@ public abstract class Trap : MonoBehaviour
     protected virtual void Start()
     {
         //Set a random Rotation
-        transform.rotation = Quaternion.Euler(0, 90 * (int)UnityEngine.Random.Range(0, 3), 0);
+        transform.rotation = Quaternion.Euler(GetBestOrientation()); 
         //Prepare to be triggered
         StartCoroutine(PrepareTrigger());
     }
