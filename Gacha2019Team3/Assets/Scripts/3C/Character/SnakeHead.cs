@@ -119,7 +119,6 @@ public class SnakeHead : SnakePart
                         SnakePart snakePart = entities[i].GetComponent<SnakePart>();
                         if (snakePart != null && !snakePart.m_CanWalkOnItself)
                         {
-
                             Debug.Log("Hit my queue");
                             Hit();
                         }
@@ -174,8 +173,12 @@ public class SnakeHead : SnakePart
             // Add x2
             if (m_Size == 0)
             {
-                AddBody();
+                for (int i = 0; i < 10; i++)
+                {
+                    AddBody();
+                }
             }
+
             for (int i = 0; i < m_Size; i++)
             {
                 AddBody();

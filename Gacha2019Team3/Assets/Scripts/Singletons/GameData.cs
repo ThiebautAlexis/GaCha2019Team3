@@ -10,6 +10,7 @@ public class GameData : Singleton<GameData>
     public int m_MapSizeY = 20;
     public int m_PlayerCount = 1;
     public TileManager m_TileManager = null;
+    public GameCamera m_Camera = null;
 
     [Header("Snake Prefabs")]
     public GameObject m_SnakeHeadPrefab = null;

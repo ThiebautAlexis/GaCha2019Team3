@@ -4,38 +4,32 @@ using UnityEngine;
 
 public class SnakeBody : SnakePart
 {
-<<<<<<< HEAD
-
-    public GameObject prefabFX;
-=======
     public bool m_CanBeDestroyed = false;
-    public GameObject m_FXDamage = null;
-
->>>>>>> BriceBranch
-    private void Start()
-    {
-
-    }
+    public GameObject m_FXDamagePrefab = null;
 
     private void Update()
     {
         if (m_CanBeDestroyed)
         {
-            Instantiate(m_FXDamage, transform.position, Quaternion.identity);
+            GameData.Instance.m_Camera.m_ShakeBehavior.LaunchCameraShake(1f, 0.1f, 5f);
+
+            GameObject fx = Instantiate(m_FXDamagePrefab, transform.position, Quaternion.identity);       
+            Destroy(fx, m_FXDamagePrefab.GetComponent<ParticleSystem>().main.duration);
+
+            GameData.Instance.m_TileManager.GetTile(m_TilePosition).m_Entities.Remove(gameObject);
             Destroy(gameObject);
         }
-        
     }
 
     override public void HitEffect()
     {
         base.HitEffect();
 
-        CanBeDestroyed();
+        m_CanBeDestroyed = true;
 
         if (m_Body != null)
         {
-            m_Body.CanBeDestroyed();
+            CanBeDestroyed();
             m_Body = null;
         }
     }
@@ -65,5 +59,9 @@ public class SnakeBody : SnakePart
     public void CanBeDestroyed()
     {
         m_CanBeDestroyed = true;
+        if (m_Body != null)
+        {
+            m_Body.CanBeDestroyed();
+        }
     }
 }
