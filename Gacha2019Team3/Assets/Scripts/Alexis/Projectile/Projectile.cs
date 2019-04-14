@@ -39,14 +39,13 @@ public abstract class Projectile : MonoBehaviour
     /// <param name="_tilePosition"></param>
     protected void SetTilePosition(Vector2Int _tilePosition)
     {
-        m_lastTilePosition = m_TilePosition;
+        m_lastTilePosition = m_tilePosition;
 
-
-        GameData.Instance.m_TileManager.m_MapTile[_tilePosition.x, _tilePosition.y].m_Entities.Remove(gameObject);
+        GameData.Instance.m_TileManager.m_MapTile[m_TilePosition.x, m_TilePosition.y].m_Entities.Remove(gameObject);
         m_tilePosition = _tilePosition;
 
         transform.position = GameData.Instance.m_TileManager.TilePositionToWorldPosition(m_tilePosition); 
-        GameData.Instance.m_TileManager.m_MapTile[_tilePosition.x, _tilePosition.y].m_Entities.Add(gameObject);
+        GameData.Instance.m_TileManager.m_MapTile[m_tilePosition.x, m_tilePosition.y].m_Entities.Add(gameObject);
     }
 
     protected IEnumerator MoveProjectile()

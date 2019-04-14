@@ -122,7 +122,7 @@ public class SnakeHead : SnakePart
                 {
                     return false;
                 }
-                else if (entities[i].GetComponent<SnakePart>())
+                else if (entities[i].GetComponent<SnakePart>() != null)
                 {
                     Debug.Log("Hit my queue");
                     Hit();
