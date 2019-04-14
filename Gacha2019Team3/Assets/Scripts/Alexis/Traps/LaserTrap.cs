@@ -59,7 +59,7 @@ public class LaserTrap : Trap
                 }
             }
             _timer += Time.deltaTime;
-            yield return new WaitForSeconds(5);
+            yield return new WaitForEndOfFrame();
         }
         CleanTile(); 
         yield break;
