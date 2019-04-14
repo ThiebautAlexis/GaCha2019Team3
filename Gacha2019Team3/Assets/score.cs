@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class score : MonoBehaviour
 {
+
     int scoring;
     
     public int bodies = 1;
@@ -24,6 +25,7 @@ public class score : MonoBehaviour
         yield return new WaitForSeconds(1);
         bodies = GameData.Instance.m_Players[0].m_Size;
         scoring = (scoring + bodies);
+        EndData.Instance.UpdateScore(scoring);
         this.gameObject.GetComponent<Text>().text = scoring.ToString();
         done = false;
         yield return null;
