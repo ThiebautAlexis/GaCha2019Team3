@@ -483,15 +483,6 @@ MonoBehaviour:
   cellsToAdd: []
   m_Entities: {fileID: 970811035}
   imageUI: {fileID: 1816745729}
-<<<<<<< HEAD
-  nbrItemAllowedOnMap: 1
---- !u!1 &1158409811 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1355918359115628134, guid: 2b042877859141d47a92f3c1fbcb5f77,
-    type: 3}
-  m_PrefabInstance: {fileID: 1442161178}
-  m_PrefabAsset: {fileID: 0}
-=======
   nbrItemAllowedOnMap: 0
 >>>>>>> b43a3be7f0e01a9e62240961a765f265067d2fb9
 --- !u!1 &1268687584
