@@ -38,25 +38,25 @@ public class ShootingTrap : Trap
         List<Vector2Int> _availablesPosition;
         if (AIManager.Instance.m_CurrentStateIndex == 0)
         {
-            _availablesPosition = _tiles.Select(t => GameData.Instance.m_TileManager.GetPosition(t)).Where(p => (p.x == 0 || p.x == GameData.Instance.m_MapSizeX)).ToList();
+            _availablesPosition = _tiles.Select(t => GameData.Instance.m_TileManager.GetPosition(t)).Where(p => (p.x == 0 || p.x == GameData.Instance.m_TileManager.GetRestrictedMapSize().x)).ToList();
         }
         Vector2Int _playerPosition = GameData.Instance.m_Players[0].m_TilePosition;
         if (AIManager.Instance.m_CurrentStateIndex == 1)
         {
-            _availablesPosition = _tiles.Select(t => GameData.Instance.m_TileManager.GetPosition(t)).Where(p => p.y == _playerPosition.y && (p.x == 0 || p.x == GameData.Instance.m_MapSizeX )).ToList();
+            _availablesPosition = _tiles.Select(t => GameData.Instance.m_TileManager.GetPosition(t)).Where(p => p.y == _playerPosition.y && (p.x == 0 || p.x == GameData.Instance.m_TileManager.GetRestrictedMapSize().x)).ToList();
         }
         if(AIManager.Instance.m_CurrentStateIndex > 1)
         {
             SnakeHead.Direction _dir = GameData.Instance.m_Players[0].m_Controller.m_Direction;
             if(_dir == SnakeHead.Direction.LEFT || _dir == SnakeHead.Direction.RIGHT)
-                _availablesPosition = _tiles.Select(t => GameData.Instance.m_TileManager.GetPosition(t)).Where(p => p.y == _playerPosition.y && (p.x == 0 || p.x == GameData.Instance.m_MapSizeX)).ToList();
+                _availablesPosition = _tiles.Select(t => GameData.Instance.m_TileManager.GetPosition(t)).Where(p => p.y == _playerPosition.y && (p.x == 0 || p.x == GameData.Instance.m_TileManager.GetRestrictedMapSize().x)).ToList();
             else if (_dir == SnakeHead.Direction.UP || _dir == SnakeHead.Direction.DOWN)
-                _availablesPosition = _tiles.Select(t => GameData.Instance.m_TileManager.GetPosition(t)).Where(p => p.x == _playerPosition.y && (p.y == 0 || p.y == GameData.Instance.m_MapSizeX)).ToList();
+                _availablesPosition = _tiles.Select(t => GameData.Instance.m_TileManager.GetPosition(t)).Where(p => p.x == _playerPosition.y && (p.y == 0 || p.y == GameData.Instance.m_TileManager.GetRestrictedMapSize().x)).ToList();
             else _availablesPosition = _tiles.Select(t => GameData.Instance.m_TileManager.GetPosition(t)).Where(p => p.x == _playerPosition.y && p.y == _playerPosition.y).ToList();
         }
         else
         {
-            _availablesPosition = _tiles.Select(t => GameData.Instance.m_TileManager.GetPosition(t)).Where(p => p.x == 0 || p.x == GameData.Instance.m_MapSizeX || p.y == 0 || p.y == GameData.Instance.m_MapSizeY).ToList();
+            _availablesPosition = _tiles.Select(t => GameData.Instance.m_TileManager.GetPosition(t)).Where(p => p.x == 0 || p.x == GameData.Instance.m_TileManager.GetRestrictedMapSize().x || p.y == 0 || p.y == GameData.Instance.m_TileManager.GetRestrictedMapSize().y).ToList();
         }
         return _availablesPosition[(int)Random.Range(0, _availablesPosition.Count-1)];
     }
@@ -67,7 +67,7 @@ public class ShootingTrap : Trap
         {
             return Vector3.zero; 
         }
-        if(m_GridPosition.x == GameData.Instance.m_MapSizeX)
+        if(m_GridPosition.x == GameData.Instance.m_TileManager.GetRestrictedMapSize().x)
         {
             return new Vector3(0, 180, 0); 
         }
@@ -75,7 +75,7 @@ public class ShootingTrap : Trap
         {
             return new Vector3(0, 90, 0);
         }
-        if (m_GridPosition.y == GameData.Instance.m_MapSizeY)
+        if (m_GridPosition.y == GameData.Instance.m_TileManager.GetRestrictedMapSize().y)
         {
             return new Vector3(0, -90, 0);
         }
