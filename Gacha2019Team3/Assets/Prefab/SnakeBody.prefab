@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9095718743466118220}
   - component: {fileID: 9095718743466118221}
+  - component: {fileID: 7589046296658690537}
   m_Layer: 0
   m_Name: SnakeBody
   m_TagString: Untagged
@@ -47,6 +48,19 @@ MonoBehaviour:
   m_Body: {fileID: 0}
   m_TilePosition: {x: 0, y: 0}
   m_LastTilePosition: {x: 0, y: 0}
+--- !u!65 &7589046296658690537
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9095718743466118222}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.7, y: 0.5, z: 0.5}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &9095718745319076492
 PrefabInstance:
   m_ObjectHideFlags: 0
