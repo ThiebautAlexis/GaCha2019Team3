@@ -4,9 +4,14 @@ using UnityEngine;
 
 public class SnakeBody : SnakePart
 {
+<<<<<<< HEAD
+
+    public GameObject prefabFX;
+=======
     public bool m_CanBeDestroyed = false;
     public GameObject m_FXDamage = null;
 
+>>>>>>> BriceBranch
     private void Start()
     {
 
