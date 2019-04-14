@@ -38,6 +38,14 @@ public abstract class Trap : MonoBehaviour
         yield break; 
     }
     
+    protected void CleanTile()
+    {
+        CustomTile _tile = GameData.Instance.m_TileManager.GetTile(m_GridPosition);
+        _tile.m_Entities.RemoveAt(0);
+        _tile.m_Walkable = true;
+        Destroy(gameObject);
+    }
+
     protected virtual void Start()
     {
         //Set a random Rotation
