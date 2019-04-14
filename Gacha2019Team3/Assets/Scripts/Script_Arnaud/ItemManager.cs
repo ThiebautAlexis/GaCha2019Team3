@@ -51,6 +51,7 @@ public class ItemManager : Singleton<ItemManager>
             int randNum = Mathf.RoundToInt(Random.Range(0, myEmptyTiles.Count - 1));
             Vector2Int position;
             position = GameData.Instance.m_TileManager.GetPosition(myEmptyTiles[randNum]);
+
             itemPrefab.transform.position = GameData.Instance.m_TileManager.TilePositionToWorldPosition(position);
 
             GameObject item = Instantiate<GameObject>(itemPrefab, GameData.Instance.m_EntitiesContainerTransform);

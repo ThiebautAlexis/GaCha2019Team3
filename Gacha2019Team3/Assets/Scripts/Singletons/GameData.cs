@@ -8,6 +8,7 @@ public class GameData : Singleton<GameData>
     [Header("Basic Variables")]
     [SerializeField] int m_MapSizeX = 40;
     [SerializeField] int m_MapSizeY = 40;
+    public float m_CellSize = 1.0f;
     public int m_PlayerCount = 1;
     public TileManager m_TileManager = null;
 
@@ -38,8 +39,9 @@ public class GameData : Singleton<GameData>
     private void Awake()
     {
         m_TileManager = new TileManager(new Vector2Int(m_MapSizeX, m_MapSizeY));
+        m_TileManager.m_CellSize = m_CellSize;
 
-        
+
         GenerateGroundByTile();        
     }
 
