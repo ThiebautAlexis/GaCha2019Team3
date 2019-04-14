@@ -22,12 +22,6 @@ public class TileManager
         }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public CustomTile GetTile(Vector2Int _TilePosition)
     {
         if ((_TilePosition.x > 0 && _TilePosition.x < m_MapSize.x - 1) && (_TilePosition.y > 0 && _TilePosition.y < m_MapSize.y - 1))

@@ -17,6 +17,9 @@ public class GameUpdater : Singleton<GameUpdater>
 
     void Update()
     {
+
+        Debug.Log("Free Tile: " + GameData.Instance.m_TileManager.GetEmptyTiles().Count);
+
         m_TickTimer += Time.deltaTime;
 
         if (m_TickTimer < m_TickEvent)
@@ -27,6 +30,7 @@ public class GameUpdater : Singleton<GameUpdater>
         GameData.Instance.m_Players.ForEach(p => p.Move());
 
         m_TickTimer = 0f;
+
     }
 
     private void InitializedPlayer()
@@ -39,7 +43,9 @@ public class GameUpdater : Singleton<GameUpdater>
                 SnakeHead newHead = newSnake.GetComponent<SnakeHead>();
                 newSnake.transform.parent = GameData.Instance.m_EntitiesContainerTransform;
 
-                newHead.InitTilePosition(new Vector2Int(GameData.Instance.m_MapSizeX / 2, GameData.Instance.m_MapSizeY / 2));
+                int numberPlayer = GameData.Instance.m_PlayerCount + 1;
+
+                newHead.InitTilePosition(new Vector2Int(GameData.Instance.m_MapSizeX / (numberPlayer + 1) * (i + 1), GameData.Instance.m_MapSizeY / (numberPlayer + 1) * (i + 1)));
 
                 GameData.Instance.m_Players.Add(newHead);
             }
