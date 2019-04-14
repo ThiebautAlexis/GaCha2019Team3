@@ -69,7 +69,7 @@ public class AIManager : Singleton<AIManager>
         GameData.Instance.m_TileManager.GetTile(_spawningPos).m_Walkable = false; 
         if (GameData.Instance.m_TileManager.GetEmptyTiles().Count == 0)
             yield break; 
-        //StartCoroutine(SpawnTrap(_trapToSpawn));
+        StartCoroutine(SpawnTrap(_trapToSpawn));
         yield break; 
     }
 
