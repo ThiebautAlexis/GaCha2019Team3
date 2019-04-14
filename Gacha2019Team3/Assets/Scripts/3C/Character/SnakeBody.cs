@@ -4,17 +4,38 @@ using UnityEngine;
 
 public class SnakeBody : SnakePart
 {
+<<<<<<< HEAD
+
+    public GameObject prefabFX;
+=======
+    public bool m_CanBeDestroyed = false;
+    public GameObject m_FXDamage = null;
+
+>>>>>>> BriceBranch
     private void Start()
     {
 
     }
 
-    override public void Hit()
+    private void Update()
     {
-        base.Hit();
+        if (m_CanBeDestroyed)
+        {
+            Instantiate(m_FXDamage, transform.position, Quaternion.identity);
+            Destroy(gameObject);
+        }
+        
+    }
+
+    override public void HitEffect()
+    {
+        base.HitEffect();
+
+        CanBeDestroyed();
 
         if (m_Body != null)
         {
+            m_Body.CanBeDestroyed();
             m_Body = null;
         }
     }
@@ -24,7 +45,6 @@ public class SnakeBody : SnakePart
         Vector2Int previousPos = m_TilePosition;
 
         SetTilePosition(_NewPostion);
-
 
         if (m_Body != null)
         {
@@ -40,5 +60,10 @@ public class SnakeBody : SnakePart
         }
 
         return 1;
+    }
+
+    public void CanBeDestroyed()
+    {
+        m_CanBeDestroyed = true;
     }
 }
