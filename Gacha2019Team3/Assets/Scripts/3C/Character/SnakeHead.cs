@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class SnakeHead : SnakePart
 {
@@ -47,17 +46,9 @@ public class SnakeHead : SnakePart
     {
         base.Hit();
 
-        if (!m_IsShield)
-        {
-            Debug.LogError("DEAD !!!");
-            Die();
-        }
-    }
-
-    public void Die()
-    {
-
-        SceneManager.LoadScene("Win");
+        Debug.LogError("DEAD !!!");
+        Debug.LogWarning("Time Scale Stopped");
+        Time.timeScale = 0;
     }
 
     public void Move()
@@ -79,6 +70,8 @@ public class SnakeHead : SnakePart
             case Direction.LEFT:
                 newPos = m_TilePosition - new Vector2Int(1, 0);
                 break;
+            case Direction.NONE:
+                return;
             default:
                 break;
         }
@@ -86,15 +79,20 @@ public class SnakeHead : SnakePart
         newPos.x = Mathf.Clamp(newPos.x, 0, GameData.Instance.m_TileManager.m_MapSize.x - 1);
         newPos.y = Mathf.Clamp(newPos.y, 0, GameData.Instance.m_TileManager.m_MapSize.y - 1);
 
+        if (newPos == m_TilePosition)
+        {
+            return;
+        }
+
         SetTilePosition(newPos);
 
         if (m_Body != null)
         {
             m_Body.Move(previousPos);
         }
-
         if (CanMove(newPos))
         {
+
         }
 
     }
@@ -108,22 +106,17 @@ public class SnakeHead : SnakePart
         {
             for (int i = 0; i < entities.Count; i++)
             {
-                if (wantedTile.m_Walkable)
-                {
-                    return false;
-                }
-
                 if (entities[i].GetType() == typeof(Item))
                 {
-                    if (ItemManager.Instance.CheckItem(_WantedTilePosition))
-                    {
-                        m_Item = new Item();
-                        ItemManager.Instance.DestroyItem(_WantedTilePosition);
-                    }                    
+                    //Item item = entities[i] is Item;
+                    return true;
+                }
+                else
+                {
+
+                    return false;
                 }
             }
-
-            return true;
         }
 
         return true;
@@ -144,11 +137,13 @@ public class SnakeHead : SnakePart
     void ActivateShield()
     {
         m_IsShield = true;
+
     }
 
     void DeactivateShield()
     {
         m_IsShield = false;
+
     }
 
     void ShieldUpdateTimeAndDeactivate()
