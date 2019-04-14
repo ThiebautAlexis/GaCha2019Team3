@@ -36,7 +36,7 @@ public class GameUpdater : Singleton<GameUpdater>
             GameObject newSnake = Instantiate(GameData.Instance.m_SnakeHeadPrefab);
             if (newSnake != null)
             {
-                SnakeHead newHead = newSnake.AddComponent<SnakeHead>();
+                SnakeHead newHead = newSnake.GetComponent<SnakeHead>();
                 newSnake.transform.parent = GameData.Instance.m_EntitiesContainerTransform;
 
                 newHead.InitTilePosition(new Vector2Int(GameData.Instance.m_MapSizeX / 2, GameData.Instance.m_MapSizeY / 2));
