@@ -10,6 +10,8 @@ public abstract class SnakePart : MonoBehaviour
     [Header("Gameplay Variables")]
     protected Vector2Int m_TilePosition = Vector2Int.zero;
 
+    protected Vector2Int m_LastTilePosition = Vector2Int.zero;
+
     public Vector2Int GetTilePosition()
     {
         return m_TilePosition;
@@ -24,6 +26,8 @@ public abstract class SnakePart : MonoBehaviour
 
     public void SetTilePosition(Vector2Int _TilePosition)
     {
+        m_LastTilePosition = m_TilePosition;
+
         GameData.Instance.m_TileManager.m_MapTile[_TilePosition.x, _TilePosition.y].m_Entities.Remove(gameObject);
         m_TilePosition = _TilePosition;
         transform.position = new Vector3(m_TilePosition.x, 0, -m_TilePosition.y) * 0.5f;
