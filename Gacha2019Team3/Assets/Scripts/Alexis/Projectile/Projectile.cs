@@ -23,13 +23,13 @@ public abstract class Projectile : MonoBehaviour
     /// Init the tile position of the projectile
     /// </summary>
     /// <param name="_tilePosition"></param>
-    public void InitProjectile(Vector2Int _tilePosition, Vector2Int _dir)
+    public void InitProjectile(Vector2Int _tilePosition, Vector3Int _dir)
     {
-        transform.rotation = Quaternion.Euler(_dir.x, 0, _dir.y); 
         m_tilePosition = _tilePosition;
-        transform.position = new Vector3(m_TilePosition.x, m_TilePosition.y, 0) * 0.5f;
+        transform.position = new Vector3(_tilePosition.x, 0, _tilePosition.y);
         GameData.Instance.m_TileManager.m_MapTile[_tilePosition.x, _tilePosition.y].m_Entities.Add(gameObject);
-        m_shootDirection = _dir;
+        transform.rotation = Quaternion.Euler(_dir.x, 0, _dir.y); 
+        m_shootDirection = new Vector2Int(_dir.x, _dir.z);
         StartCoroutine(MoveProjectile()); 
     }
 
@@ -39,11 +39,13 @@ public abstract class Projectile : MonoBehaviour
     /// <param name="_tilePosition"></param>
     protected void SetTilePosition(Vector2Int _tilePosition)
     {
-        m_lastTilePosition = m_tilePosition;
+        m_lastTilePosition = m_TilePosition;
+
 
         GameData.Instance.m_TileManager.m_MapTile[_tilePosition.x, _tilePosition.y].m_Entities.Remove(gameObject);
         m_tilePosition = _tilePosition;
-        transform.position = new Vector3(m_TilePosition.x, 0, -m_TilePosition.y) * 0.5f;
+
+        transform.position = new Vector3(_tilePosition.x, 0, _tilePosition.y); 
         GameData.Instance.m_TileManager.m_MapTile[_tilePosition.x, _tilePosition.y].m_Entities.Add(gameObject);
     }
 
@@ -51,11 +53,11 @@ public abstract class Projectile : MonoBehaviour
     {
         //MAKE THE PROJECTILE MOVE UNTIL IT REACHS A WALL OR THE PLAYER
         Vector2Int _nextPos;
-        CustomTile _nextTile; 
+        CustomTile _nextTile;
         while (true)
         {
             _nextPos = m_tilePosition + m_shootDirection;
-            if (_nextPos.x < 0 || _nextPos.x > GameData.Instance.m_MapSizeX || _nextPos.y < 0 || _nextPos.y > GameData.Instance.m_MapSizeY)
+            if (_nextPos.x < 0 || _nextPos.x >= GameData.Instance.m_MapSizeX || _nextPos.y < 0 || _nextPos.y >= GameData.Instance.m_MapSizeY)
             {
                 break;
             }
@@ -76,8 +78,8 @@ public abstract class Projectile : MonoBehaviour
         }
         Destroy(gameObject); 
     }
-    #region UnityMethods
 
+    #region UnityMethods
     #endregion
 
     #endregion
