@@ -26,12 +26,44 @@ public abstract class SnakePart : MonoBehaviour
     {
         GameData.Instance.m_TileManager.m_MapTile[_TilePosition.x, _TilePosition.y].m_Entities.Remove(gameObject);
         m_TilePosition = _TilePosition;
-        transform.position = new Vector3(m_TilePosition.x, -m_TilePosition.y, 0) * 0.5f;
+        transform.position = new Vector3(m_TilePosition.x, 0, -m_TilePosition.y) * 0.5f;
         GameData.Instance.m_TileManager.m_MapTile[_TilePosition.x, _TilePosition.y].m_Entities.Add(gameObject);
     }
 
     virtual public void Hit()
     {
         Debug.Log("Hit !");
+    }
+
+    public void RemoveParts()
+    {
+        if (m_Body != null)
+        {
+            m_Body.RemoveParts();
+        }
+
+        // Maybe remove if from tile ?
+        //TileManager
+
+        Destroy(this);
+    }
+
+    public void AddBody()
+    {
+        if (m_Body == null)
+        {
+            GameObject newBody = Instantiate(GameData.Instance.m_SnakeBodyPrefab);
+            newBody.transform.Rotate(new Vector3(-90, 0, 0));
+            newBody.transform.parent = GameData.Instance.m_EntitiesContainerTransform;
+
+            //ADD DIRECTION POSITION (OR SAVE LAST POSITION AND SET IT HERE ?)
+            //newBody.transform.position = transform.position;
+
+            m_Body = newBody.GetComponent<SnakeBody>();
+        }
+        else
+        {
+            m_Body.AddBody();
+        }
     }
 }
