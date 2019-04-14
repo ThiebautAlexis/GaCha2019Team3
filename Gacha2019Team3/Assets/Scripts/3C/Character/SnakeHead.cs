@@ -156,6 +156,12 @@ public class SnakeHead : SnakePart
     public void ShootProjectile()
     {
         Debug.Log("Shoot !!!");
+
+        GameObject projectile = Instantiate(GameData.Instance.m_SnakeProjectilePrefab);
+
+        projectile.transform.rotation = transform.rotation;
+
+        //SET POSITION TO CURRENT POSITION + DIRECTION (Check if it's outside the map)
     }
 
     public void UseFirstAbility()
