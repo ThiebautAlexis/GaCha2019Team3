@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SnakeHead : SnakePart
 {
@@ -54,6 +55,11 @@ public class SnakeHead : SnakePart
         Debug.LogError("DEAD !!!");
         Debug.LogWarning("Time Scale Stopped");
         Time.timeScale = 0;
+    }
+
+    public void Die()
+    {
+        SceneManager.LoadScene("Win");
     }
 
     public void Move()
