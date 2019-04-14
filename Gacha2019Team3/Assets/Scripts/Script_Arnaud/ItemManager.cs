@@ -19,9 +19,9 @@ public class ItemManager : MonoBehaviour
     public GameObject imageUI;
     public int nbrItemAllowedOnMap;
     int nbrItemOnMap;
-    
-    
-    
+
+
+
 
     private void Awake()
     {
@@ -40,7 +40,7 @@ public class ItemManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (nbrItemOnMap<nbrItemAllowedOnMap&&!flag)
+        if (nbrItemOnMap < nbrItemAllowedOnMap && !flag)
         {
             Invoke("SpawnItem", 1);
             flag = true;
@@ -58,7 +58,7 @@ public class ItemManager : MonoBehaviour
          * Désolé, j'ai du commenter parce qu'il y avait des erreurs
         do
         {
-           position = new Vector2Int(Mathf.RoundToInt(Random.Range(0, GameData.Instance.m_TileMapSize)), Mathf.RoundToInt(Random.Range(0, GameData.Instance.m_TileMapSize)));
+           position = new Vector2Int(Mathf.RoundToInt(Random.Range(0, GameData.Instance.m_MapSizeX)), Mathf.RoundToInt(Random.Range(0, GameData.Instance.m_MapSizeY)));
         }
         while (GameData.Instance.m_TileManager.m_MapTile[position.x, position.y].m_Entities.Count != 0);
 
@@ -78,7 +78,7 @@ public class ItemManager : MonoBehaviour
     {
         if (hasItemInStorage)
         {
-            GameData.Instance.m_Players[0].m_IsShield = true;
+            GameData.Instance.m_Players[0].UseSecondAbility();
             hasItemInStorage = false;
         }
     }
@@ -87,7 +87,7 @@ public class ItemManager : MonoBehaviour
     {
         if (hasItemInStorage)
         {
-            //Instantiate(cellsToAdd[Mathf.RoundToInt(Random.Range(0, cellsToAdd.Length))], lastLinkPos.transform.position, Quaternion.identity);
+            GameData.Instance.m_Players[0].UseFirstAbility();
             hasItemInStorage = false;
         }
     }
@@ -96,7 +96,7 @@ public class ItemManager : MonoBehaviour
     {
         if (hasItemInStorage)
         {
-            //Instantiate(bulletPrefab, spawnBulletPoint.transform.position, Quaternion.identity);
+            GameData.Instance.m_Players[0].UseThirdAbility();
             hasItemInStorage = false;
         }
     }
