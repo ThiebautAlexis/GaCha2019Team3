@@ -10,33 +10,32 @@ public class ItemManager : Singleton<ItemManager>
     public GameObject itemPrefab;
     public bool isItemOnMap;
     public bool isProtected;
-    //public GameObject lastLinkPos;
-    //public GameObject spawnBulletPoint;
-    bool flag;
+
     public GameObject imageUI;
     public int nbrItemAllowedOnMap;
     int nbrItemOnMap;
 
+    public float m_SpawnTimeLimit = 1.0f;
+    float m_SpawnTime = 0;
 
 
-
-
-
-    // Start is called before the first frame update
     void Start()
     {
         nbrItemOnMap = 0;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (nbrItemOnMap < nbrItemAllowedOnMap && !flag)
+        if (nbrItemOnMap < nbrItemAllowedOnMap)
         {
-            Invoke("SpawnItem", 1);
-            flag = true;
-        }
+            m_SpawnTime += Time.deltaTime;
+            if (m_SpawnTime > m_SpawnTimeLimit)
+            {
+                SpawnItem();
 
+                m_SpawnTime = 0;
+            }
+        }
     }
 
     public void SetImageUIActive(bool _IsActive)
@@ -57,7 +56,6 @@ public class ItemManager : Singleton<ItemManager>
             GameObject item = Instantiate<GameObject>(itemPrefab, GameData.Instance.m_EntitiesContainerTransform);
             GameData.Instance.m_TileManager.m_MapTile[position.x, position.y].m_Entities.Add(item);
             nbrItemOnMap++;
-            flag = false;
         }
     }
 
@@ -92,6 +90,11 @@ public class ItemManager : Singleton<ItemManager>
         if (!_ToDestroy)
         {
             return;
+        }
+
+        if (nbrItemOnMap >= nbrItemAllowedOnMap)
+        {
+            m_SpawnTime = 0;
         }
 
         GameData.Instance.m_TileManager.m_MapTile[position.x, position.y].m_Entities.Remove(_ToDestroy.gameObject);
