@@ -13,7 +13,7 @@ public class SnakeHead : SnakePart
         RIGHT,
         DOWN,
         LEFT,
-        NONE        
+        NONE
     }
 
     [Header("Gameplay Variables")]
@@ -57,7 +57,7 @@ public class SnakeHead : SnakePart
         switch (m_Controller.m_Direction)
         {
             case Direction.UP:
-                newPos = m_TilePosition - new Vector2Int(0, 1); 
+                newPos = m_TilePosition - new Vector2Int(0, 1);
                 break;
             case Direction.RIGHT:
                 newPos = m_TilePosition + new Vector2Int(1, 0);
@@ -81,6 +81,35 @@ public class SnakeHead : SnakePart
         {
             m_Body.Move(previousPos);
         }
+        if (CanMove(newPos))
+        {
+        }
+
+    }
+
+    public bool CanMove(Vector2Int _WantedTilePosition)
+    {
+        CustomTile wantedTile = GameData.Instance.m_TileManager.GetTile(_WantedTilePosition);
+        List<GameObject> entities = wantedTile.m_Entities;
+
+        if (entities.Count > 0)
+        {
+            for (int i = 0; i < entities.Count; i++)
+            {
+                if (entities[i].GetType() == typeof(Item))
+                {
+                    //Item item = entities[i] is Item;
+                    return true;
+                }
+                else
+                {
+
+                    return false;
+                }
+            }
+        }
+
+        return true;
     }
 
     public int CountBodies()
@@ -109,5 +138,5 @@ public class SnakeHead : SnakePart
     {
         Debug.Log("Use Third Ability !");
     }
-    
+
 }
