@@ -14,6 +14,7 @@ public class ShootingTrap : Trap
     /// </summary>
     protected override IEnumerator TriggerTrap()
     {
+
         yield return new WaitForSeconds(m_activationTick * GameUpdater.Instance.m_TickEvent);
         GameObject _projectileObject = Instantiate((Resources.Load("TrapsProjectile") as GameObject), transform.position, Quaternion.identity); 
         TrapProjectile _projectile = _projectileObject.GetComponent<TrapProjectile>(); 

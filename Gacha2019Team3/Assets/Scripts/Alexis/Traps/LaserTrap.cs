@@ -27,31 +27,39 @@ public class LaserTrap : Trap
     {
         float _timer = 0;
         RaycastHit _hitInfo;
-        if (m_laserRenderer != null)
+        int _rayNumber = AIManager.Instance.m_CurrentStateIndex < 3 ? 1 : AIManager.Instance.m_CurrentStateIndex > 3 ? 4 : (int)UnityEngine.Random.Range(2,4); 
+        if(m_laserRenderer)
         {
-            m_laserRenderer.positionCount = 2;
-            m_laserRenderer.SetPosition(0, transform.position);
-            m_laserRenderer.SetPosition(1, transform.position);
+            m_laserRenderer.positionCount = 2 * _rayNumber;
+            for (int i = 0; i < m_laserRenderer.positionCount; i++)
+            {
+                m_laserRenderer.SetPosition(i, transform.position); 
+            }
         }
+        Vector3 _direction = Vector3.zero; 
         while (_timer < m_LaserDurationInSeconds)
         {
-            if (Physics.Raycast(new Ray(transform.position, transform.forward), out _hitInfo))
+            for (int i = 0; i < m_laserRenderer.positionCount; i+=2)
             {
-                if (m_laserRenderer != null)
+                _direction = transform.forward * Mathf.Cos(90*(i/2)*Mathf.Deg2Rad) + transform.right * Mathf.Sin(90 * (i/2) * Mathf.Deg2Rad);
+                if (Physics.Raycast(new Ray(transform.position, _direction), out _hitInfo))
                 {
-                    m_laserRenderer.SetPosition(1, _hitInfo.point);
-                }
-                //if(_hitInfo.collider)
-                // Check if the player is touched by the ray
-                if (_hitInfo.collider.GetComponent<SnakePart>())
-                {
-                    //Call Method to damage the player
-                    _hitInfo.collider.GetComponent<SnakePart>().Hit();
-                    break;
+                    if (m_laserRenderer != null)
+                    {
+                        m_laserRenderer.SetPosition(i, transform.position); 
+                        m_laserRenderer.SetPosition(i+1, _hitInfo.point);
+                    }
+                    // Check if the player is touched by the ray
+                    if (_hitInfo.collider.GetComponent<SnakePart>())
+                    {
+                        //Call Method to damage the player
+                        _hitInfo.collider.GetComponent<SnakePart>().Hit();
+                        break;
+                    }
                 }
             }
             _timer += Time.deltaTime;
-            yield return new WaitForEndOfFrame();
+            yield return new WaitForSeconds(5);
         }
         CleanTile(); 
         yield break;

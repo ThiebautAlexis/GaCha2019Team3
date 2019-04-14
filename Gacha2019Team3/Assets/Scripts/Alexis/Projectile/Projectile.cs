@@ -76,7 +76,7 @@ public abstract class Projectile : MonoBehaviour
             SetTilePosition(_nextPos); 
             yield return new WaitForSeconds(GameUpdater.Instance.m_TickEvent);
         }
-        
+        GameData.Instance.m_TileManager.GetTile(m_tilePosition).m_Entities.Remove(gameObject); 
         Destroy(gameObject); 
     }
 
