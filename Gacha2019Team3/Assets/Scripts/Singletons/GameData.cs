@@ -11,16 +11,12 @@ public class GameData : Singleton<GameData>
     public int m_PlayerCount = 1;
     public TileManager m_TileManager = null;
 
+    public List<GameObject> walls = new List<GameObject>();
     public Vector2Int m_MapRestrictionPlot1 = Vector2Int.zero;
     public Vector2Int m_MapRestrictionPlot2 = Vector2Int.zero;
-<<<<<<< HEAD
     Vector2Int m_BaseRestricted;
 
-    public List<GameObject> walls = new List<GameObject>();
-=======
     public int counter = 0;
-    
->>>>>>> 8abb091bc4b36533da21a92a37b59fd485f74581
 
     public GameCamera m_Camera = null;
 
