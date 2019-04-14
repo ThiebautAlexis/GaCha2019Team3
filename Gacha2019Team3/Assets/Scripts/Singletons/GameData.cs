@@ -32,7 +32,28 @@ public class GameData : Singleton<GameData>
         m_TileManager = new TileManager(new Vector2Int(m_MapSizeX, m_MapSizeY));
 
         /// A REVOIR
+        /// 
+        GenerateGroundByTile();
+
         m_Ground.transform.localScale = Vector3.one * (m_MapSizeX * 0.5f);   
+    }
+
+    private void GenerateGroundByTile()
+    {
+        if (m_TileManager != null)
+        {
+        //for (int i = 0; i < m_MapSize.x; i++)
+        //{
+        //    for (int j = 0; j < m_MapSize.y; j++)
+        //    {
+        //        if (m_MapTile[i, j].m_Entities.Count == 0)
+        //        {
+        //            emptyTiles.Add(m_MapTile[i, j]);
+        //        }
+        //    }
+        //}
+
+        }
     }
 
 }
