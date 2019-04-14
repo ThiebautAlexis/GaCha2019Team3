@@ -10,8 +10,6 @@ public class ItemManager : MonoBehaviour
     public GameObject itemPrefab;
     public bool isItemOnMap;
     public bool isProtected;
-    public GameObject bulletPrefab;
-    public GameObject[] cellsToAdd;
     //public GameObject lastLinkPos;
     //public GameObject spawnBulletPoint;
     public Transform m_Entities;
@@ -52,12 +50,16 @@ public class ItemManager : MonoBehaviour
 
     void SpawnItem()
     {
+        List<CustomTile> myEmptyTiles = GameData.Instance.m_TileManager.GetEmptyTiles();
+        int randNum = Mathf.RoundToInt(Random.Range(0, myEmptyTiles.Count - 1));
         Vector2Int position;
-        do
+        position = GameData.Instance.m_TileManager.GetPosition(myEmptyTiles[randNum]);
+        /*do
         {
            position = new Vector2Int(Mathf.RoundToInt(Random.Range(0, GameData.Instance.m_MapSizeX)), Mathf.RoundToInt(Random.Range(0, GameData.Instance.m_MapSizeY)));
         }
-        while (GameData.Instance.m_TileManager.m_MapTile[position.x, position.y].m_Entities.Count != 0);
+        while (GameData.Instance.m_TileManager.m_MapTile[position.x, position.y].m_Entities.Count != 0);*/
+      
         itemPrefab.transform.position = new Vector3(position.x, -position.y, 0) * 0.5f;
         Instantiate(itemPrefab, m_Entities);
         GameData.Instance.m_TileManager.m_MapTile[position.x, position.y].m_Entities.Add(itemPrefab);
@@ -66,32 +68,7 @@ public class ItemManager : MonoBehaviour
     }
 
 
-    public void Protect()
-    {
-        if (hasItemInStorage)
-        {
-            GameData.Instance.m_Players[0].UseSecondAbility();
-            hasItemInStorage = false;
-        }
-    }
-
-    public void AddLength()
-    {
-        if (hasItemInStorage)
-        {
-            GameData.Instance.m_Players[0].UseFirstAbility();
-            hasItemInStorage = false;
-        }
-    }
-
-    public void FireShot()
-    {
-        if (hasItemInStorage)
-        {
-            GameData.Instance.m_Players[0].UseThirdAbility();
-            hasItemInStorage = false;
-        }
-    }
+   
 
 
     private void OnDestroy()
