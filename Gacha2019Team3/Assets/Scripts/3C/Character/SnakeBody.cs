@@ -9,6 +9,8 @@ public class SnakeBody : SnakePart
 
     private void Update()
     {
+        MoveSmooth();
+
         if (m_CanBeDestroyed)
         {
             GameData.Instance.m_Camera.m_ShakeBehavior.LaunchCameraShake(1f, 0.1f, 5f);

@@ -36,6 +36,7 @@ public class SnakeHead : SnakePart
 
     void Update()
     {
+        MoveSmooth();
         m_Controller.Update();
         m_Size = CountBodies();
         ResetAbility();
@@ -102,6 +103,12 @@ public class SnakeHead : SnakePart
     public bool CanMove(Vector2Int _WantedTilePosition)
     {
         CustomTile wantedTile = GameData.Instance.m_TileManager.GetTile(_WantedTilePosition);
+
+        if (wantedTile == null)
+        {
+            return false;
+        }
+
         List<GameObject> entities = wantedTile.m_Entities;
 
         if (wantedTile != null)

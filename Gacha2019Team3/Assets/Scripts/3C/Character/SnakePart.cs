@@ -11,6 +11,7 @@ public abstract class SnakePart : MonoBehaviour
     public bool m_CanWalkOnItself = false;
     public Vector2Int m_TilePosition = Vector2Int.zero;
     public Vector2Int m_LastTilePosition = Vector2Int.zero;
+    public float m_MoveSmoothSpeed = 0.2f;
 
     [Header("Shield Variables")]
     public bool m_IsShield = false;
@@ -36,7 +37,6 @@ public abstract class SnakePart : MonoBehaviour
         GameData.Instance.m_TileManager.GetRestrictedMap()[m_LastTilePosition.x, m_LastTilePosition.y].m_Entities.Remove(gameObject);
         m_TilePosition = _TilePosition;
 
-        transform.position = GameData.Instance.m_TileManager.TilePositionToWorldPosition(_TilePosition);
         GameData.Instance.m_TileManager.GetRestrictedMap()[m_TilePosition.x, m_TilePosition.y].m_Entities.Add(gameObject);
     }
 
@@ -74,7 +74,7 @@ public abstract class SnakePart : MonoBehaviour
         {
             GameObject newBody = Instantiate(GameData.Instance.m_SnakeBodyPrefab);
 
-            newBody.transform.parent = GameData.Instance.m_EntitiesContainerTransform;           
+            newBody.transform.parent = GameData.Instance.m_EntitiesContainerTransform;
             newBody.transform.position = GameData.Instance.m_TileManager.TilePositionToWorldPosition(m_TilePosition);
 
             m_Body = newBody.GetComponent<SnakeBody>();
@@ -114,8 +114,14 @@ public abstract class SnakePart : MonoBehaviour
         }
     }
 
+    protected void MoveSmooth()
+    {
+        transform.position = Vector3.MoveTowards(transform.position, GameData.Instance.m_TileManager.TilePositionToWorldPosition(m_TilePosition), m_MoveSmoothSpeed);
+    }
+
     private void Update()
     {
         ShieldUpdateTimeAndDeactivate();
+        MoveSmooth();
     }
 }
