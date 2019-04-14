@@ -60,6 +60,7 @@ public abstract class Projectile : MonoBehaviour
             {
                 break;
             }
+
             _nextTile = GameData.Instance.m_TileManager.GetTile(_nextPos);
             /*
              * Le projectile peut-il passer au travers des tiles non walkables?
