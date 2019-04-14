@@ -46,8 +46,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Body: {fileID: 0}
+  m_CanWalkOnItself: 0
   m_TilePosition: {x: 0, y: 0}
   m_LastTilePosition: {x: 0, y: 0}
+  m_IsShield: 0
+  m_ShieldActiveTime: 0
+  m_ShieldTimeLimit: 32
+  m_CanBeDestroyed: 0
+  m_FXDamage: {fileID: 1749411839220447726, guid: 29727cd9c593725498e87fc979dfb856,
+    type: 3}
 --- !u!65 &7589046296658690537
 BoxCollider:
   m_ObjectHideFlags: 0
