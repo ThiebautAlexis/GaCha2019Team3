@@ -14,19 +14,18 @@ public class GameData : Singleton<GameData>
     [Header("Snake Prefabs")]
     public GameObject m_SnakeHeadPrefab = null;
     public GameObject m_SnakeBodyPrefab = null;
-    public GameObject m_SnakeQueuePrefab = null;
     public GameObject m_SnakeProjectilePrefab = null;
 
-    [Header("Misc Variables")]
+    [Header("Background & Ground")]
     public GameObject m_Background;
     public GameObject m_Ground;
 
     [Header("Item")]
     public GameObject m_PickUpPrefab = null;
 
-    public List<SnakeHead> m_Players = new List<SnakeHead>();
-
+    [Header("Misc Variables")]
     public Transform m_EntitiesContainerTransform = null;
+    public List<SnakeHead> m_Players = new List<SnakeHead>();
 
     private void Awake()
     {
