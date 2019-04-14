@@ -79,8 +79,8 @@ public class SnakeHead : SnakePart
                 break;
         }
 
-        newPos.x = Mathf.Clamp(newPos.x, 0, GameData.Instance.m_TileManager.m_MapSize.x - 1);
-        newPos.y = Mathf.Clamp(newPos.y, 0, GameData.Instance.m_TileManager.m_MapSize.y - 1);
+        newPos.x = Mathf.Clamp(newPos.x, 0, GameData.Instance.m_TileManager.GetRestrictedMapSize().x - 1);
+        newPos.y = Mathf.Clamp(newPos.y, 0, GameData.Instance.m_TileManager.GetRestrictedMapSize().y - 1);
 
         if (newPos == m_TilePosition)
         {
