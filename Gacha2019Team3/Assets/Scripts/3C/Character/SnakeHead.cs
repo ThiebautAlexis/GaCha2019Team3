@@ -95,17 +95,17 @@ public class SnakeHead : SnakePart
         return 0;
     }
 
-    private void UseFirstAbility()
+    public void UseFirstAbility()
     {
         Debug.Log("Use First Ability !");
     }
 
-    private void UseSecondAbility()
+    public void UseSecondAbility()
     {
         Debug.Log("Use Second Ability !");
     }
 
-    private void UseThirdAbility()
+    public void UseThirdAbility()
     {
         Debug.Log("Use Third Ability !");
     }

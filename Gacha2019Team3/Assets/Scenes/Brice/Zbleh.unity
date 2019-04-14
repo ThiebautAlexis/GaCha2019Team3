@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -380,9 +380,64 @@ Transform:
   m_Children:
   - {fileID: 788969759}
   - {fileID: 1415765249}
+  - {fileID: 1155801803}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1155801802
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1155801803}
+  - component: {fileID: 1155801804}
+  m_Layer: 0
+  m_Name: ItemManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1155801803
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1155801802}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1024556272}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1155801804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1155801802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e53bfbc7c53ab7c4a9709799790ad229, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hasItemInStorage: 0
+  itemPrefab: {fileID: 4182660323343212295, guid: b0a866ac45d7a044db30e17eef6d9566,
+    type: 3}
+  isItemOnMap: 0
+  isProtected: 0
+  bulletPrefab: {fileID: 1283129466929095692, guid: fae60d3927982b846a8ab771df5b5966,
+    type: 3}
+  cellsToAdd: []
+  m_Entities: {fileID: 970811035}
+  imageUI: {fileID: 1816745729}
+  nbrItemAllowedOnMap: 1
 --- !u!1 &1268687584
 GameObject:
   m_ObjectHideFlags: 0
@@ -676,6 +731,12 @@ PrefabInstance:
       objectReference: {fileID: 365475621}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2b042877859141d47a92f3c1fbcb5f77, type: 3}
+--- !u!1 &1816745729 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2717706116944841886, guid: 2b042877859141d47a92f3c1fbcb5f77,
+    type: 3}
+  m_PrefabInstance: {fileID: 1442161178}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7217272935542592723
 PrefabInstance:
   m_ObjectHideFlags: 0
