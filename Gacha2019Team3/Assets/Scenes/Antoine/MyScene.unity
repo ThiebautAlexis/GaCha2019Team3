@@ -161,7 +161,8 @@ MonoBehaviour:
   isItemOnMap: 0
   isProtected: 0
   imageUI: {fileID: 1129989168}
-  nbrItemAllowedOnMap: 10
+  nbrItemAllowedOnMap: 4
+  m_SpawnTimeLimit: 1
 --- !u!1 &671155073
 GameObject:
   m_ObjectHideFlags: 0
