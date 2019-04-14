@@ -10,6 +10,7 @@ public class timer : MonoBehaviour
     //int maxtime;
     int showtime;
     public string scenename;
+    bool flag = true;
 
     private void Start()
     {
@@ -31,5 +32,11 @@ public class timer : MonoBehaviour
             EndData.Instance.UpdateTime(/*maxtime - */showtime);
             this.gameObject.GetComponent<Text>().text = showtime.ToString();
         //}
+
+        if (showtime == 5 && flag)
+        {
+            GameData.Instance.expand(1);
+            flag = false;
+        }
     }
 }

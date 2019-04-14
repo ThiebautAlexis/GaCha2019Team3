@@ -75,6 +75,7 @@ public class ShootingTrap : Trap
         {
             return new Vector3(0, 90, 0);
         }
+
         if (m_GridPosition.y == GameData.Instance.m_TileManager.GetRestrictedMapSize().x)
         {
             return new Vector3(0, -90, 0);
