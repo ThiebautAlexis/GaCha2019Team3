@@ -21,6 +21,9 @@ public class GameData : Singleton<GameData>
     public GameObject m_Background;
     public GameObject m_Ground;
 
+    [Header("Item")]
+    public GameObject m_PickUpPrefab = null;
+
     public List<SnakeHead> m_Players = new List<SnakeHead>();
 
     public Transform m_EntitiesContainerTransform = null;
