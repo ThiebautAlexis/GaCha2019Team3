@@ -37,7 +37,7 @@ public class AIManager : Singleton<AIManager>
     /// Then make it spawn after its delay
     /// </summary>
     /// <param name="_trapName"></param>
-    public void PrepareSpawnedTrap(string _trapName)
+    public void StartSpawningRoutine(string _trapName)
     {
         GameObject _trap = Resources.Load(m_TrapPath + _trapName) as GameObject;
         if (!_trap || !_trap.GetComponent<Trap>())
@@ -45,8 +45,7 @@ public class AIManager : Singleton<AIManager>
             Debug.LogWarning($"This trap doesn't exist in the {Application.dataPath + "/" + m_TrapPath + _trapName} or a trap component is missing"); 
             return;
         }
-        float _delay = _trap.GetComponent<Trap>().m_SpawningTick * GameUpdater.Instance.m_TickEvent * m_statesCoefficient[m_currentStateIndex];
-        StartCoroutine(SpawnTrap(_trap, _delay)); 
+        StartCoroutine(SpawnTrap(_trap)); 
     }
 
     /// <summary>
@@ -55,16 +54,21 @@ public class AIManager : Singleton<AIManager>
     /// <param name="_trapToSpawn">Trap to spawn</param>
     /// <param name="_waitingDelay">Delay to wait</param>
     /// <returns></returns>
-    private IEnumerator SpawnTrap(GameObject _trapToSpawn, float _waitingDelay)
+    private IEnumerator SpawnTrap(GameObject _trapToSpawn)
     {
-        yield return new WaitForSeconds(_waitingDelay);
+        float _delay = _trapToSpawn.GetComponent<Trap>().m_SpawningTick * GameUpdater.Instance.m_TickEvent * m_statesCoefficient[m_currentStateIndex];
+        yield return new WaitForSeconds(_delay);
         Vector2Int _spawningPos = GetRandomSpawningPosition(); 
         if(_spawningPos == null)
         {
             Debug.LogWarning($"There is no free space to spawn a {_trapToSpawn.name} on the grid"); 
             yield break; 
         }
-        GameObject.Instantiate(_trapToSpawn, new Vector3(_spawningPos.x, 0, _spawningPos.y), Quaternion.identity); 
+        GameObject.Instantiate(_trapToSpawn, new Vector3(_spawningPos.x, 0, _spawningPos.y), Quaternion.identity);
+        if (GameData.Instance.m_TileManager.GetEmptyTiles().Count == 0)
+            yield break; 
+        StartCoroutine(SpawnTrap(_trapToSpawn));
+        yield break; 
     }
 
     /// <summary>
@@ -92,7 +96,7 @@ public class AIManager : Singleton<AIManager>
     {
         for (int i = 0; i < m_spawningTrapsNames.Length; i++)
         {
-            PrepareSpawnedTrap(m_spawningTrapsNames[i]); 
+            StartSpawningRoutine(m_spawningTrapsNames[i]); 
         }
     }
     #endregion
