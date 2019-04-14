@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class SnakeHead : SnakePart
 {
@@ -23,6 +22,10 @@ public class SnakeHead : SnakePart
     public float m_ShieldActiveTime = 4.0f;
     public float m_ShieldTimeLimit = 0f;
     public int m_Size = 0;
+    public float m_Resetability = 0.5f;
+
+    private float m_TimerAbility = 0f;
+    private bool m_CanUseAbility = false;
 
     // Start is called before the first frame update
     void Start()
@@ -41,6 +44,7 @@ public class SnakeHead : SnakePart
         m_Controller.Update();
         m_Size = CountBodies();
         ShieldUpdateTimeAndDeactivate();
+        ResetAbility();
     }
 
     override public void Hit()
@@ -50,11 +54,6 @@ public class SnakeHead : SnakePart
         Debug.LogError("DEAD !!!");
         Debug.LogWarning("Time Scale Stopped");
         Time.timeScale = 0;
-    }
-
-    public void Die()
-    {
-        SceneManager.LoadScene("Win");
     }
 
     public void Move()
@@ -76,6 +75,8 @@ public class SnakeHead : SnakePart
             case Direction.LEFT:
                 newPos = m_TilePosition - new Vector2Int(1, 0);
                 break;
+            case Direction.NONE:
+                return;
             default:
                 break;
         }
@@ -83,15 +84,27 @@ public class SnakeHead : SnakePart
         newPos.x = Mathf.Clamp(newPos.x, 0, GameData.Instance.m_TileManager.m_MapSize.x - 1);
         newPos.y = Mathf.Clamp(newPos.y, 0, GameData.Instance.m_TileManager.m_MapSize.y - 1);
 
+        if (newPos == m_TilePosition)
+        {
+            return;
+        }
+
         SetTilePosition(newPos);
 
         if (m_Body != null)
         {
             m_Body.Move(previousPos);
         }
-        if (CanMove(newPos))
-        {
-        }
+
+        //if (CanMove(newPos))
+        //{
+        //    SetTilePosition(newPos);
+
+        //    if (m_Body != null)
+        //    {
+        //        m_Body.Move(previousPos);
+        //    }
+        //}
 
     }
 
@@ -111,8 +124,11 @@ public class SnakeHead : SnakePart
                 }
                 else
                 {
-
-                    return false;
+                    if (ItemManager.Instance.CheckItem(_WantedTilePosition))
+                    {
+                        m_Item = new Item();
+                        ItemManager.Instance.DestroyItem(_WantedTilePosition);
+                    }
                 }
             }
         }
@@ -172,22 +188,48 @@ public class SnakeHead : SnakePart
 
     public void UseFirstAbility()
     {
-        Debug.Log("Use First Ability !");
+        if (m_Item != null && !m_CanUseAbility)
+        {
+            Debug.Log("Use First Ability !");
 
-        AddBody();
+            AddBody();
+            m_CanUseAbility = true;
+        }
     }
 
     public void UseSecondAbility()
     {
-        Debug.Log("Use Second Ability !");
+        if (m_Item != null && !m_CanUseAbility)
+        {
+            Debug.Log("Use Second Ability !");
 
-        ActivateShield();
+            ActivateShield();
+            m_CanUseAbility = true;
+        }
     }
 
     public void UseThirdAbility()
     {
-        Debug.Log("Use Third Ability !");
+        if (m_Item != null && !m_CanUseAbility)
+        {
+            Debug.Log("Use Third Ability !");
 
-        ShootProjectile();
+            ShootProjectile();
+            m_CanUseAbility = true;
+        }
+    }
+
+    public void ResetAbility()
+    {
+        if (m_CanUseAbility)
+        {
+            m_TimerAbility += Time.deltaTime;
+
+            if (true)
+            {
+                m_CanUseAbility = false;
+                m_TimerAbility = 0f;
+            }
+        }
     }
 }

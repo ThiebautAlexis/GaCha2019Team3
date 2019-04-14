@@ -13,39 +13,31 @@ public class LaserTrap : Trap
         get { return m_laserDuration * GameUpdater.Instance.m_TickEvent;  }
     }
 
-    [SerializeField] private LineRenderer m_laserRenderer;  
+    [SerializeField] private LineRenderer m_laserRenderer;
     #endregion
 
     #region Methods
     /// <summary>
     /// Method called when the trap has to be activated
-    /// </summary>
-    protected override void TriggerTrap()
-    {
-        StartCoroutine(CastLaser());
-    }
-
-    /// <summary>
     /// Cast a ray in front of the trap during a certain duration
     /// If the player is touched, call the damage method 
-    /// Then break
+    /// Then break and destroy the object
     /// </summary>
-    /// <returns></returns>
-    private IEnumerator CastLaser()
+    protected override IEnumerator TriggerTrap()
     {
         float _timer = 0;
-        RaycastHit _hitInfo; 
-        if(m_laserRenderer != null)
+        RaycastHit _hitInfo;
+        if (m_laserRenderer != null)
         {
-            m_laserRenderer.positionCount = 2; 
+            m_laserRenderer.positionCount = 2;
             m_laserRenderer.SetPosition(0, transform.position);
-            m_laserRenderer.SetPosition(1, transform.position); 
+            m_laserRenderer.SetPosition(1, transform.position);
         }
-        while(_timer < m_LaserDurationInSeconds)
+        while (_timer < m_LaserDurationInSeconds)
         {
             if (Physics.Raycast(new Ray(transform.position, transform.forward), out _hitInfo))
             {
-                if(m_laserRenderer != null)
+                if (m_laserRenderer != null)
                 {
                     m_laserRenderer.SetPosition(1, _hitInfo.point);
                 }
@@ -54,15 +46,15 @@ public class LaserTrap : Trap
                 if (_hitInfo.collider.GetComponent<SnakePart>())
                 {
                     //Call Method to damage the player
-                    _hitInfo.collider.GetComponent<SnakePart>().Hit(); 
-                    break; 
+                    _hitInfo.collider.GetComponent<SnakePart>().Hit();
+                    break;
                 }
             }
-            _timer += Time.deltaTime; 
+            _timer += Time.deltaTime;
             yield return new WaitForEndOfFrame();
         }
         Destroy(gameObject);
-        yield break; 
+        yield break;
     }
 
     #region UnityMethods
