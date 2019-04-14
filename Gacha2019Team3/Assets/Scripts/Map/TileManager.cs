@@ -62,9 +62,9 @@ public class TileManager
     {
         List<CustomTile> emptyTiles = new List<CustomTile>();
 
-        for (int i = m_RestrictedMap1.x; i < GetRestrictedMapSize().x; i++)
+        for (int i = m_RestrictedMap1.x; i <= m_RestrictedMap2.x; i++)
         {
-            for (int j = m_RestrictedMap1.y; j < GetRestrictedMapSize().y; j++)
+            for (int j = m_RestrictedMap1.y; j <= m_RestrictedMap2.y; j++)
             {
                 if (m_MapTile[i, j].m_Entities.Count == 0)
                 {
@@ -78,9 +78,9 @@ public class TileManager
 
     public Vector2Int GetPosition(CustomTile _Tile)
     {
-        for (int i = m_RestrictedMap1.x; i < GetRestrictedMapSize().x; i++)
+        for (int i = m_RestrictedMap1.x; i <= m_RestrictedMap2.x; i++)
         {
-            for (int j = m_RestrictedMap1.y; j < GetRestrictedMapSize().y; j++)
+            for (int j = m_RestrictedMap1.y; j < m_RestrictedMap2.y; j++)
             {
                 if (m_MapTile[i, j] == _Tile)
                 {

@@ -291,18 +291,22 @@ MonoBehaviour:
   m_MapSizeX: 20
   m_MapSizeY: 20
   m_PlayerCount: 1
+  m_MapRestrictionPlot1: {x: 0, y: 0}
+  m_MapRestrictionPlot2: {x: 5, y: 5}
+  counter: 0
+  m_Camera: {fileID: 0}
   m_SnakeHeadPrefab: {fileID: 7896868396144839396, guid: 928ea3a2d81f10a46b7bc0347c454f87,
     type: 3}
   m_SnakeBodyPrefab: {fileID: 9095718743466118222, guid: cc43013e38987774688dc6d04770eafa,
     type: 3}
-  m_SnakeQueuePrefab: {fileID: 0}
   m_SnakeProjectilePrefab: {fileID: 0}
-  m_Background: {fileID: 0}
-  m_Ground: {fileID: 0}
+  m_BackgroundPrefab: {fileID: 0}
+  m_GroundPrefab: {fileID: 0}
+  m_WallPrefab: {fileID: 0}
   m_PickUpPrefab: {fileID: 5378841321813338835, guid: b1ce6fc03074e964ea1246d8754b2d35,
     type: 3}
-  m_Players: []
   m_EntitiesContainerTransform: {fileID: 0}
+  m_Players: []
 --- !u!1001 &1051724247
 PrefabInstance:
   m_ObjectHideFlags: 0
