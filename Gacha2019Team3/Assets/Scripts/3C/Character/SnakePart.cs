@@ -30,6 +30,7 @@ public abstract class SnakePart : MonoBehaviour
 
         GameData.Instance.m_TileManager.m_MapTile[_TilePosition.x, _TilePosition.y].m_Entities.Remove(gameObject);
         m_TilePosition = _TilePosition;
+
         transform.position = GameData.Instance.m_TileManager.TilePositionToWorldPosition(_TilePosition);
         GameData.Instance.m_TileManager.m_MapTile[_TilePosition.x, _TilePosition.y].m_Entities.Add(gameObject);
     }

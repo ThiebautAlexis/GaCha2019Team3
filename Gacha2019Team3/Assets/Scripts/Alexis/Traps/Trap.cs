@@ -15,24 +15,25 @@ public abstract class Trap : MonoBehaviour
     }
     /// Time to wait before activation
     [SerializeField, Range(0, 9)] protected int m_activationTick = 1;
-    [SerializeField] private string m_prefabName; 
+    [SerializeField] private string m_prefabName = "Trap"; 
     #endregion
 
     #region Methods
     /// <summary>
     /// This Method is called when the trap has to trigger
     /// </summary>
-    protected abstract void TriggerTrap(); 
+    protected abstract IEnumerator TriggerTrap(); 
 
     /// <summary>
     /// Wait some time before triggering the trap
     /// </summary>
     /// <param name="_waitingTime">Time to wait</param>
     /// <returns></returns>
-    public virtual IEnumerator PrepareTrigger(int _waitedTicks)
+    protected virtual IEnumerator PrepareTrigger()
     {
-        yield return new WaitForSeconds(_waitedTicks * GameUpdater.Instance.m_TickEvent);
-        TriggerTrap(); 
+        yield return new WaitForSeconds(m_activationTick * GameUpdater.Instance.m_TickEvent);
+        StartCoroutine(TriggerTrap());
+        yield break; 
     }
 
     protected virtual void Start()
@@ -40,12 +41,7 @@ public abstract class Trap : MonoBehaviour
         //Set a random Rotation
         transform.rotation = Quaternion.Euler(0, 90 * (int)UnityEngine.Random.Range(0, 3), 0);
         //Prepare to be triggered
-        StartCoroutine(PrepareTrigger(m_activationTick));
-    }
-
-    private void OnDestroy()
-    {
-        AIManager.Instance?.PrepareSpawnedTrap(m_prefabName); 
+        StartCoroutine(PrepareTrigger());
     }
     #endregion
 
