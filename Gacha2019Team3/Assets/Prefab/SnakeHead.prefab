@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7896868396144839398}
   - component: {fileID: 7896868396144839397}
+  - component: {fileID: 6063151396894242360}
   m_Layer: 0
   m_Name: SnakeHead
   m_TagString: Untagged
@@ -53,6 +54,19 @@ MonoBehaviour:
   m_ShieldTimeLimit: 16
   m_Size: 0
   m_ResetAbility: 0.5
+--- !u!65 &6063151396894242360
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7896868396144839396}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.8, y: 0.75, z: 0.8}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &7896868397679748332
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -60,6 +74,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7896868396144839398}
     m_Modifications:
+    - target: {fileID: 100000, guid: 939bcc984d229e34abb232a3cada5e3a, type: 3}
+      propertyPath: m_Name
+      value: joueur_fbx
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 939bcc984d229e34abb232a3cada5e3a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -115,10 +133,6 @@ PrefabInstance:
     - target: {fileID: 400000, guid: 939bcc984d229e34abb232a3cada5e3a, type: 3}
       propertyPath: m_LocalScale.z
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: 939bcc984d229e34abb232a3cada5e3a, type: 3}
-      propertyPath: m_Name
-      value: joueur_fbx
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 939bcc984d229e34abb232a3cada5e3a, type: 3}
