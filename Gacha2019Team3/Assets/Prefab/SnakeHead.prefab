@@ -47,11 +47,12 @@ MonoBehaviour:
   m_Body: {fileID: 0}
   m_TilePosition: {x: 0, y: 0}
   m_LastTilePosition: {x: 0, y: 0}
-  m_Item: {fileID: 0}
+  m_HasItem: 0
   m_IsShield: 0
-  m_ShieldActiveTime: 4
-  m_ShieldTimeLimit: 0
+  m_ShieldActiveTime: 0
+  m_ShieldTimeLimit: 16
   m_Size: 0
+  m_ResetAbility: 0.5
 --- !u!1001 &7896868397679748332
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -59,10 +60,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7896868396144839398}
     m_Modifications:
-    - target: {fileID: 100000, guid: 939bcc984d229e34abb232a3cada5e3a, type: 3}
-      propertyPath: m_Name
-      value: joueur_fbx
-      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 939bcc984d229e34abb232a3cada5e3a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -118,6 +115,10 @@ PrefabInstance:
     - target: {fileID: 400000, guid: 939bcc984d229e34abb232a3cada5e3a, type: 3}
       propertyPath: m_LocalScale.z
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 939bcc984d229e34abb232a3cada5e3a, type: 3}
+      propertyPath: m_Name
+      value: joueur_fbx
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 939bcc984d229e34abb232a3cada5e3a, type: 3}
