@@ -31,11 +31,7 @@ public class GameData : Singleton<GameData>
     {
         m_TileManager = new TileManager(new Vector2Int(m_MapSizeX, m_MapSizeY));
 
-        /// A REVOIR
-        /// 
-        GenerateGroundByTile();
-
-        //m_Ground.transform.localScale = Vector3.one * (m_MapSizeX * 0.5f);   
+        GenerateGroundByTile();        
     }
 
     private void GenerateGroundByTile()
@@ -46,11 +42,10 @@ public class GameData : Singleton<GameData>
             {
                 for (int j = 0; j < m_TileManager.m_MapSize.y; j++)
                 {
-                    GameObject ground = Instantiate(m_GroundPrefab, new Vector3(i, -1, -j), Quaternion.identity);
+                    GameObject ground = Instantiate(m_GroundPrefab, new Vector3(i * 0.5f, -0.5f, -j * 0.5f), Quaternion.identity);
                     ground.transform.localScale = new Vector3(0.1f, 1, 0.1f);
                 }
             }
         }
     }
-
 }

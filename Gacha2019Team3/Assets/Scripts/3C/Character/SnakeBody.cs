@@ -6,7 +6,7 @@ public class SnakeBody : SnakePart
 {
     private void Start()
     {
-        
+
     }
 
     override public void Hit()
@@ -22,12 +22,18 @@ public class SnakeBody : SnakePart
     public void Move(Vector2Int _NewPostion)
     {
         Vector2Int previousPos = m_TilePosition;
-        
+
         SetTilePosition(_NewPostion);
+
 
         if (m_Body != null)
         {
+            GameData.Instance.m_TileManager.GetTile(_NewPostion).m_Walkable = false;
             m_Body.Move(previousPos);
+        }
+        else
+        {
+            GameData.Instance.m_TileManager.GetTile(previousPos).m_Walkable = true;
         }
     }
 
