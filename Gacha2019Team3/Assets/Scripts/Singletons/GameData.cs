@@ -85,7 +85,7 @@ public class GameData : Singleton<GameData>
        
         for (int i = 0; i < m_TileManager.GetRestrictedMapSize().x / 2; i++)
         {
-            GameObject upWall = Destroy(new Vector3(1 * i, 0, 1));
+            GameObject upWall = Instantiate(m_WallPrefab, new Vector3(1 * i, 0, 1), Quaternion.identity);
             GameObject downWall = Instantiate(m_WallPrefab, new Vector3(1 * i, 0, -m_TileManager.GetRestrictedMapSize().x / 2), Quaternion.identity);
         }
 
