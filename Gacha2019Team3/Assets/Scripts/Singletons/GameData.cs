@@ -10,10 +10,14 @@ public class GameData : Singleton<GameData>
     [SerializeField] int m_MapSizeY = 40;
     public int m_PlayerCount = 1;
     public TileManager m_TileManager = null;
+<<<<<<< HEAD
     public Vector2Int m_MapRestrictionPlot1 = Vector2Int.zero;
     public Vector2Int m_MapRestrictionPlot2 = Vector2Int.zero;
     public int counter = 0;
     
+=======
+    public GameCamera m_Camera = null;
+>>>>>>> e287a86cf8a7fa707b7677e6c56802584974b490
 
     [Header("Snake Prefabs")]
     public GameObject m_SnakeHeadPrefab = null;
