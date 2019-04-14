@@ -97,12 +97,7 @@ public class SnakeHead : SnakePart
 
             if (m_Body != null)
             {
-                GameData.Instance.m_TileManager.GetTile(newPos).m_Walkable = false;
                 m_Body.Move(previousPos);
-            }
-            else
-            {
-                GameData.Instance.m_TileManager.GetTile(previousPos).m_Walkable = true;
             }
         }
 
@@ -123,6 +118,7 @@ public class SnakeHead : SnakePart
                 }
                 else if (entities[i].GetComponent<SnakePart>())
                 {
+                    Debug.Log("Hit my queue");
                     Hit();
                 }
                 else
