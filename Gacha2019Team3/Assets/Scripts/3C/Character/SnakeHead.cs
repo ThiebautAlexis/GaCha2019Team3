@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SnakeHead : SnakePart
 {
@@ -46,9 +47,17 @@ public class SnakeHead : SnakePart
     {
         base.Hit();
 
-        Debug.LogError("DEAD !!!");
-        Debug.LogWarning("Time Scale Stopped");
-        Time.timeScale = 0;
+        if (!m_IsShield)
+        {
+            Debug.LogError("DEAD !!!");
+            Die();
+        }
+    }
+
+    public void Die()
+    {
+
+        SceneManager.LoadScene("Win");
     }
 
     public void Move()
@@ -83,6 +92,7 @@ public class SnakeHead : SnakePart
         {
             m_Body.Move(previousPos);
         }
+
         if (CanMove(newPos))
         {
         }
@@ -98,17 +108,22 @@ public class SnakeHead : SnakePart
         {
             for (int i = 0; i < entities.Count; i++)
             {
-                if (entities[i].GetType() == typeof(Item))
+                if (wantedTile.m_Walkable)
                 {
-                    //Item item = entities[i] is Item;
-                    return true;
-                }
-                else
-                {
-
                     return false;
                 }
+
+                if (entities[i].GetType() == typeof(Item))
+                {
+                    if (ItemManager.Instance.CheckItem(_WantedTilePosition))
+                    {
+                        m_Item = new Item();
+                        ItemManager.Instance.DestroyItem(_WantedTilePosition);
+                    }                    
+                }
             }
+
+            return true;
         }
 
         return true;
@@ -129,13 +144,11 @@ public class SnakeHead : SnakePart
     void ActivateShield()
     {
         m_IsShield = true;
-
     }
 
     void DeactivateShield()
     {
         m_IsShield = false;
-
     }
 
     void ShieldUpdateTimeAndDeactivate()
