@@ -27,6 +27,8 @@ public class GameData : Singleton<GameData>
 
     public List<SnakeHead> m_Players = new List<SnakeHead>();
 
+    public Transform m_EntitiesContainerTransform = null;
+
     private void Awake()
     {
         m_TileManager = new TileManager(new Vector2Int(m_MapSizeX, m_MapSizeY));

@@ -47,4 +47,23 @@ public abstract class SnakePart : MonoBehaviour
 
         Destroy(this);
     }
+
+    public void AddBody()
+    {
+        if (m_Body == null)
+        {
+            GameObject newBody = Instantiate(GameData.Instance.m_SnakeBodyPrefab);
+            newBody.transform.Rotate(new Vector3(-90, 0, 0));
+            newBody.transform.parent = GameData.Instance.m_EntitiesContainerTransform;
+
+            //ADD DIRECTION POSITION (OR SAVE LAST POSITION AND SET IT HERE ?)
+            //newBody.transform.position = transform.position;
+
+            m_Body = newBody.GetComponent<SnakeBody>();
+        }
+        else
+        {
+            m_Body.AddBody();
+        }
+    }
 }
