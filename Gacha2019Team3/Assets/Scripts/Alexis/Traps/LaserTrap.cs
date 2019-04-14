@@ -8,6 +8,10 @@ public class LaserTrap : Trap
     #region Fields and properties
     [Header("Laser Settings")]
     [SerializeField, Range(.1f, 5)] private int m_laserDuration = 1;
+    public float m_LaserDurationInSeconds
+    {
+        get { return m_laserDuration * GameUpdater.Instance.m_TickEvent;  }
+    }
 
     [SerializeField] private LineRenderer m_laserRenderer;  
     #endregion
@@ -22,9 +26,9 @@ public class LaserTrap : Trap
     }
 
     /// <summary>
-    //Cast a ray in front of the trap during a certain duration
-    // If the player is touched, call the damage method 
-    // Then break
+    /// Cast a ray in front of the trap during a certain duration
+    /// If the player is touched, call the damage method 
+    /// Then break
     /// </summary>
     /// <returns></returns>
     private IEnumerator CastLaser()
@@ -37,7 +41,7 @@ public class LaserTrap : Trap
             m_laserRenderer.SetPosition(0, transform.position);
             m_laserRenderer.SetPosition(1, transform.position); 
         }
-        while(_timer < m_laserDuration)
+        while(_timer < m_LaserDurationInSeconds)
         {
             if (Physics.Raycast(new Ray(transform.position, transform.forward), out _hitInfo))
             {
@@ -54,22 +58,22 @@ public class LaserTrap : Trap
                     break; 
                 }
             }
-            _timer += GameUpdater.Instance.m_TickEvent;
-            yield return new WaitForSeconds(GameUpdater.Instance.m_TickEvent);
+            _timer += Time.deltaTime; 
+            yield return new WaitForEndOfFrame();
         }
         Destroy(gameObject);
         yield break; 
     }
 
     #region UnityMethods
-    private void Start()
+    protected override void Start()
     {
-        if(!m_laserRenderer)
+        base.Start();
+        if (!m_laserRenderer)
         {
             m_laserRenderer = GetComponent<LineRenderer>();
-            m_laserRenderer.positionCount = 0; 
         }
-        TriggerTrap(); 
+        m_laserRenderer.positionCount = 0;
     }
     #endregion
     #endregion

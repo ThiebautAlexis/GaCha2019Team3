@@ -66,4 +66,9 @@ public class TileManager
 
         return new Vector2Int(-1,-1);
     }
+
+    public Vector3 TilePositionToWorldPosition(Vector2Int _TilePosition)
+    {
+        return new Vector3(_TilePosition.x * 0.5f, 0, _TilePosition.y * 0.5f);
+    }
 }
