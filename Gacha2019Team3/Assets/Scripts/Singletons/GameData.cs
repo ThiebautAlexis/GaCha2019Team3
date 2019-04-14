@@ -17,8 +17,8 @@ public class GameData : Singleton<GameData>
     public GameObject m_SnakeProjectilePrefab = null;
 
     [Header("Background & Ground")]
-    public GameObject m_Background;
-    public GameObject m_Ground;
+    public GameObject m_BackgroundPrefab;
+    public GameObject m_GroundPrefab;
 
     [Header("Item")]
     public GameObject m_PickUpPrefab = null;
@@ -35,24 +35,21 @@ public class GameData : Singleton<GameData>
         /// 
         GenerateGroundByTile();
 
-        m_Ground.transform.localScale = Vector3.one * (m_MapSizeX * 0.5f);   
+        //m_Ground.transform.localScale = Vector3.one * (m_MapSizeX * 0.5f);   
     }
 
     private void GenerateGroundByTile()
     {
         if (m_TileManager != null)
         {
-        //for (int i = 0; i < m_MapSize.x; i++)
-        //{
-        //    for (int j = 0; j < m_MapSize.y; j++)
-        //    {
-        //        if (m_MapTile[i, j].m_Entities.Count == 0)
-        //        {
-        //            emptyTiles.Add(m_MapTile[i, j]);
-        //        }
-        //    }
-        //}
-
+            for (int i = 0; i < m_TileManager.m_MapSize.x; i++)
+            {
+                for (int j = 0; j < m_TileManager.m_MapSize.y; j++)
+                {
+                    GameObject ground = Instantiate(m_GroundPrefab, new Vector3(i, -1, -j), Quaternion.identity);
+                    ground.transform.localScale = new Vector3(0.1f, 1, 0.1f);
+                }
+            }
         }
     }
 
