@@ -3,86 +3,108 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ItemManager : MonoBehaviour
+public class ItemManager : Singleton<ItemManager>
 {
     public bool hasItemInStorage;
-    public static ItemManager Instance;
+
     public GameObject itemPrefab;
     public bool isItemOnMap;
     public bool isProtected;
-    public GameObject bulletPrefab;
-    public GameObject[] cellsToAdd;
-    public GameObject lastLinkPos;
-    public GameObject spawnBulletPoint;
-    bool flag;
+
     public GameObject imageUI;
+    public int nbrItemAllowedOnMap;
+    int nbrItemOnMap;
 
-    private void Awake()
-    {
-        if (Instance == null)
-        {
-            Instance = this;
-        }
-    }
+    public float m_SpawnTimeLimit = 1.0f;
+    float m_SpawnTime = 0;
 
-    // Start is called before the first frame update
+
     void Start()
     {
-        
+        nbrItemOnMap = 0;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (!isItemOnMap&&!flag)
+        if (nbrItemOnMap < nbrItemAllowedOnMap)
         {
-            Invoke("SpawnItem", 1);
-            flag = true;
-        }
+            m_SpawnTime += Time.deltaTime;
+            if (m_SpawnTime > m_SpawnTimeLimit)
+            {
+                SpawnItem();
 
-        imageUI.SetActive(hasItemInStorage);
+                m_SpawnTime = 0;
+            }
+        }
     }
 
+    public void SetImageUIActive(bool _IsActive)
+    {
+        imageUI.SetActive(_IsActive);
+    }
 
     void SpawnItem()
     {
-        Vector3 position = new Vector3(Mathf.Round(Random.Range(0,1)),Mathf.Round(Random.Range(0,5)) ,0);
-        Instantiate(itemPrefab, position, Quaternion.identity);
-        isItemOnMap = true;
-        flag = false;
-    }
-
-
-    public void Protect()
-    {
-        if (hasItemInStorage)
+        if (GameData.Instance.m_TileManager.GetEmptyTiles() != null)
         {
-            isProtected = true;
-            hasItemInStorage = false;
+            List<CustomTile> myEmptyTiles = GameData.Instance.m_TileManager.GetEmptyTiles();
+            int randNum = Mathf.RoundToInt(Random.Range(0, myEmptyTiles.Count - 1));
+            Vector2Int position;
+            position = GameData.Instance.m_TileManager.GetPosition(myEmptyTiles[randNum]);
+
+            itemPrefab.transform.position = GameData.Instance.m_TileManager.TilePositionToWorldPosition(position);
+
+            GameObject item = Instantiate<GameObject>(itemPrefab, GameData.Instance.m_EntitiesContainerTransform);
+            GameData.Instance.m_TileManager.GetRestrictedMap()[position.x, position.y].m_Entities.Add(item);
+            nbrItemOnMap++;
         }
     }
 
-    public void AddLength()
+    public bool CheckItem(Vector2Int position, out Item _Item)
     {
-        if (hasItemInStorage)
+
+        if (GameData.Instance.m_TileManager.GetRestrictedMap()[position.x, position.y].m_Entities.Count > 0)
         {
-            Instantiate(cellsToAdd[Mathf.RoundToInt(Random.Range(0, cellsToAdd.Length))], lastLinkPos.transform.position, Quaternion.identity);
-            hasItemInStorage = false;
+            for (int i = 0; i < GameData.Instance.m_TileManager.GetRestrictedMap()[position.x, position.y].m_Entities.Count; i++)
+            {
+                Item item = GameData.Instance.m_TileManager.GetRestrictedMap()[position.x, position.y].m_Entities[i].GetComponent<Item>();
+                if (item)
+                {
+                    _Item = item;
+                    return true;
+                }
+
+                else
+                {
+                    _Item = null;
+                    return false;
+                }
+            }
         }
+
+        _Item = null;
+        return false;
     }
 
-    public void FireShot()
+    public void DestroyItem(Vector2Int position, Item _ToDestroy)
     {
-        if (hasItemInStorage)
+        if (!_ToDestroy)
         {
-            Instantiate(bulletPrefab, spawnBulletPoint.transform.position, Quaternion.identity);
-            hasItemInStorage = false;
+            return;
         }
+
+        if (nbrItemOnMap >= nbrItemAllowedOnMap)
+        {
+            m_SpawnTime = 0;
+        }
+
+        GameData.Instance.m_TileManager.GetRestrictedMap()[position.x, position.y].m_Entities.Remove(_ToDestroy.gameObject);
+        DestroyImmediate(_ToDestroy.gameObject);
+        --nbrItemOnMap;
     }
 
 
-    private void OnDestroy()
-    {
-        Instance = null;
-    }
+
+
+
 }

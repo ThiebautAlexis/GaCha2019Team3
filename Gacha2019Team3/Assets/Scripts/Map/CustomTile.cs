@@ -3,25 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-public class CustomTile : MonoBehaviour
+public class CustomTile
 {
     [Header("Basic Variables")]
-    public List<GameObject> m_Entities = null;
+    public List<GameObject> m_Entities = new List<GameObject>();
+    public bool m_Walkable = true;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        InitializeTileMap();
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    private void InitializeTileMap()
-    {
-        m_Entities = new List<GameObject>();
-    }
 }

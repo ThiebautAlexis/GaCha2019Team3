@@ -1,8 +1,15 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
+guid: 0302cd0bb1f49574f9c6473aac6c6d38
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
+=======
 guid: 31233d2f548f47049a1fa489a20dcc1d
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 11400000
+>>>>>>> Irénée
   userData: 
   assetBundleName: 
   assetBundleVariant: 

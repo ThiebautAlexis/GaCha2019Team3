@@ -6,11 +6,14 @@
 				<MusicSwitchContainer Name="Music_Switch" ID="{35C8A688-B98C-43BF-BAB0-C2E4CE1B9BE6}" ShortID="330147588">
 					<PropertyList>
 						<Property Name="GridFrequencyPreset" Type="int16" Value="51"/>
+<<<<<<< HEAD
+=======
 						<Property Name="Volume" Type="Real64">
 							<ValueList>
 								<Value>-7</Value>
 							</ValueList>
 						</Property>
+>>>>>>> Irénée
 					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Conversion">
@@ -44,13 +47,26 @@
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
+<<<<<<< HEAD
+										<MusicTrack Name="Music_Loop01_HeartBeat_120BPM" ID="{F19C2843-B09D-4C27-B44A-29D177F85296}" ShortID="615096102">
+=======
 										<MusicTrack Name="Music_Loop01_HeartBeat_120BPM_Compressed" ID="{23E83612-0436-4675-95D8-14996FB207C8}" ShortID="130447597">
+>>>>>>> Irénée
 											<ReferenceList>
 												<Reference Name="OutputBus">
 													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{D377AB41-7350-4418-9D68-8CC72864D6BA}"/>
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
+<<<<<<< HEAD
+												<AudioFileSource Name="Music_Loop01_HeartBeat_120BPM" ID="{4C6AB8C9-1308-4083-8CCE-25A2A8457FFB}" ShortID="653834219">
+													<Language>SFX</Language>
+													<AudioFile>Music_Loop01_HeartBeat_120BPM.wav</AudioFile>
+												</AudioFileSource>
+											</ChildrenList>
+											<TransitionList>
+												<MusicTransition Name="Root" ID="{845FC6F6-4A79-4BF0-834B-965C3B4A5A9F}">
+=======
 												<AudioFileSource Name="Music_Loop01_HeartBeat_120BPM_Compressed" ID="{4852DAF3-BF5D-4829-9DE3-EF50D7DC68BD}" ShortID="534065206">
 													<Language>SFX</Language>
 													<AudioFile>Music_Loop01_HeartBeat_120BPM_Compressed.wav</AudioFile>
@@ -58,6 +74,7 @@
 											</ChildrenList>
 											<TransitionList>
 												<MusicTransition Name="Root" ID="{95D52E37-0B2F-428D-8370-2C88D77E772D}">
+>>>>>>> Irénée
 													<PropertyList>
 														<Property Name="IsFolder" Type="bool" Value="True"/>
 													</PropertyList>
@@ -65,15 +82,25 @@
 												</MusicTransition>
 											</TransitionList>
 											<SequenceList>
+<<<<<<< HEAD
+												<MusicTrackSequence Name="" ID="{9C108D9B-51EC-470E-8965-CA02124F797C}">
+													<ClipList>
+														<MusicClip Name="Music_Loop01_HeartBeat_120BPM" ID="{AE95B135-62F8-47D2-AFE8-C86D27E23904}">
+=======
 												<MusicTrackSequence Name="" ID="{981F7D26-D7E5-4C4A-8EEA-92B15D91DFBB}">
 													<ClipList>
 														<MusicClip Name="Music_Loop01_HeartBeat_120BPM_Compressed" ID="{A336C7D8-A894-4A50-A0D4-CD2B6D36926C}">
+>>>>>>> Irénée
 															<PropertyList>
 																<Property Name="EndTrimOffset" Type="Real64" Value="8000"/>
 																<Property Name="FadeInMode" Type="int16" Value="0"/>
 																<Property Name="FadeOutMode" Type="int16" Value="0"/>
 															</PropertyList>
+<<<<<<< HEAD
+															<AudioSourceRef Name="Music_Loop01_HeartBeat_120BPM" ID="{4C6AB8C9-1308-4083-8CCE-25A2A8457FFB}"/>
+=======
 															<AudioSourceRef Name="Music_Loop01_HeartBeat_120BPM_Compressed" ID="{4852DAF3-BF5D-4829-9DE3-EF50D7DC68BD}"/>
+>>>>>>> Irénée
 														</MusicClip>
 													</ClipList>
 												</MusicTrackSequence>
@@ -103,13 +130,26 @@
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
+<<<<<<< HEAD
+										<MusicTrack Name="Music_Loop02_HeartBeat_120BPM" ID="{CABD1C4B-EDBB-4DD7-8DEC-A47D957FEE44}" ShortID="286707741">
+=======
 										<MusicTrack Name="Music_Loop02_HeartBeat_120BPM_Compressed_1" ID="{3BE3B6D1-FD71-4A1D-BAE4-B1E259C31D59}" ShortID="496395400">
+>>>>>>> Irénée
 											<ReferenceList>
 												<Reference Name="OutputBus">
 													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{D377AB41-7350-4418-9D68-8CC72864D6BA}"/>
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
+<<<<<<< HEAD
+												<AudioFileSource Name="Music_Loop02_HeartBeat_120BPM" ID="{CF7E1204-E943-4C78-99F5-C597FFBA873B}" ShortID="644075638">
+													<Language>SFX</Language>
+													<AudioFile>Music_Loop02_HeartBeat_120BPM.wav</AudioFile>
+												</AudioFileSource>
+											</ChildrenList>
+											<TransitionList>
+												<MusicTransition Name="Root" ID="{05DBBA27-485C-4781-AA72-6AD4CEC91AA3}">
+=======
 												<AudioFileSource Name="Music_Loop02_HeartBeat_120BPM_Compressed_1" ID="{CABA1ED6-F080-49F9-BC23-3EB62366FAB4}" ShortID="763640264">
 													<Language>SFX</Language>
 													<AudioFile>Music_Loop02_HeartBeat_120BPM_Compressed_1.wav</AudioFile>
@@ -117,6 +157,7 @@
 											</ChildrenList>
 											<TransitionList>
 												<MusicTransition Name="Root" ID="{38426AD7-273A-49E0-B1F2-DC514FC1781F}">
+>>>>>>> Irénée
 													<PropertyList>
 														<Property Name="IsFolder" Type="bool" Value="True"/>
 													</PropertyList>
@@ -124,15 +165,25 @@
 												</MusicTransition>
 											</TransitionList>
 											<SequenceList>
+<<<<<<< HEAD
+												<MusicTrackSequence Name="" ID="{D64A3DFF-06C1-4333-AB23-D3DC7F002857}">
+													<ClipList>
+														<MusicClip Name="Music_Loop02_HeartBeat_120BPM" ID="{252F8DE7-71B5-48DA-A6D4-8E5A8C8F5089}">
+=======
 												<MusicTrackSequence Name="" ID="{67969D49-2125-48A4-B436-2316554283BE}">
 													<ClipList>
 														<MusicClip Name="Music_Loop02_HeartBeat_120BPM_Compressed_1" ID="{B1BBDE0A-9D53-4DA3-8D68-FC81F7D105CD}">
+>>>>>>> Irénée
 															<PropertyList>
 																<Property Name="EndTrimOffset" Type="Real64" Value="8000"/>
 																<Property Name="FadeInMode" Type="int16" Value="0"/>
 																<Property Name="FadeOutMode" Type="int16" Value="0"/>
 															</PropertyList>
+<<<<<<< HEAD
+															<AudioSourceRef Name="Music_Loop02_HeartBeat_120BPM" ID="{CF7E1204-E943-4C78-99F5-C597FFBA873B}"/>
+=======
 															<AudioSourceRef Name="Music_Loop02_HeartBeat_120BPM_Compressed_1" ID="{CABA1ED6-F080-49F9-BC23-3EB62366FAB4}"/>
+>>>>>>> Irénée
 														</MusicClip>
 													</ClipList>
 												</MusicTrackSequence>
@@ -162,13 +213,26 @@
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
+<<<<<<< HEAD
+										<MusicTrack Name="Music_Loop03_HeartBeat_120BPM" ID="{010169EC-77F5-41CC-85A3-E3C3180F1C3C}" ShortID="753631901">
+=======
 										<MusicTrack Name="Music_Loop03_HeartBeat_120BPM_Compressed_2" ID="{031777D8-86D6-4534-95F6-F2AA2FCB58D4}" ShortID="207932679">
+>>>>>>> Irénée
 											<ReferenceList>
 												<Reference Name="OutputBus">
 													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{D377AB41-7350-4418-9D68-8CC72864D6BA}"/>
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
+<<<<<<< HEAD
+												<AudioFileSource Name="Music_Loop03_HeartBeat_120BPM" ID="{65F4BC19-1D9D-47DA-B823-BAB3CB77C33A}" ShortID="899637779">
+													<Language>SFX</Language>
+													<AudioFile>Music_Loop03_HeartBeat_120BPM.wav</AudioFile>
+												</AudioFileSource>
+											</ChildrenList>
+											<TransitionList>
+												<MusicTransition Name="Root" ID="{AEB2B372-BC80-488B-9C94-B68C209943CA}">
+=======
 												<AudioFileSource Name="Music_Loop03_HeartBeat_120BPM_Compressed_2" ID="{F3A53492-1D0D-47F3-B459-A4E97A0EC659}" ShortID="117668850">
 													<Language>SFX</Language>
 													<AudioFile>Music_Loop03_HeartBeat_120BPM_Compressed_2.wav</AudioFile>
@@ -176,6 +240,7 @@
 											</ChildrenList>
 											<TransitionList>
 												<MusicTransition Name="Root" ID="{123BF1C8-F725-45B5-A744-9505FA7A1204}">
+>>>>>>> Irénée
 													<PropertyList>
 														<Property Name="IsFolder" Type="bool" Value="True"/>
 													</PropertyList>
@@ -183,15 +248,25 @@
 												</MusicTransition>
 											</TransitionList>
 											<SequenceList>
+<<<<<<< HEAD
+												<MusicTrackSequence Name="" ID="{14FC397E-25A6-4F5D-8550-D9F0A295058C}">
+													<ClipList>
+														<MusicClip Name="Music_Loop03_HeartBeat_120BPM" ID="{9892266B-8A80-44A2-8F91-A7888BC9A259}">
+=======
 												<MusicTrackSequence Name="" ID="{54EB10E4-A751-46AF-98FF-5CD09B10A7A1}">
 													<ClipList>
 														<MusicClip Name="Music_Loop03_HeartBeat_120BPM_Compressed_2" ID="{B97B3D42-7AD7-49AD-9998-1BF5A0513F31}">
+>>>>>>> Irénée
 															<PropertyList>
 																<Property Name="EndTrimOffset" Type="Real64" Value="8000"/>
 																<Property Name="FadeInMode" Type="int16" Value="0"/>
 																<Property Name="FadeOutMode" Type="int16" Value="0"/>
 															</PropertyList>
+<<<<<<< HEAD
+															<AudioSourceRef Name="Music_Loop03_HeartBeat_120BPM" ID="{65F4BC19-1D9D-47DA-B823-BAB3CB77C33A}"/>
+=======
 															<AudioSourceRef Name="Music_Loop03_HeartBeat_120BPM_Compressed_2" ID="{F3A53492-1D0D-47F3-B459-A4E97A0EC659}"/>
+>>>>>>> Irénée
 														</MusicClip>
 													</ClipList>
 												</MusicTrackSequence>
@@ -278,13 +353,26 @@
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
+<<<<<<< HEAD
+										<MusicTrack Name="Music_Loop01_HeartBeat_125BPM_Third" ID="{138CB312-C26F-4872-8D9E-FC8AF6257878}" ShortID="846201268">
+=======
 										<MusicTrack Name="Music_Loop01_HeartBeat_125BPM_Compressed" ID="{59352E74-A3E2-4B4F-ABAB-3B8DFCC6D118}" ShortID="915863787">
+>>>>>>> Irénée
 											<ReferenceList>
 												<Reference Name="OutputBus">
 													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{D377AB41-7350-4418-9D68-8CC72864D6BA}"/>
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
+<<<<<<< HEAD
+												<AudioFileSource Name="Music_Loop01_HeartBeat_125BPM_Third" ID="{B4DB2434-29A4-4BBE-8D13-8D7135A3BB50}" ShortID="94752639">
+													<Language>SFX</Language>
+													<AudioFile>Music_Loop01_HeartBeat_125BPM_Third.wav</AudioFile>
+												</AudioFileSource>
+											</ChildrenList>
+											<TransitionList>
+												<MusicTransition Name="Root" ID="{AF631F96-FBBC-4E51-AA06-A09AFDF23D4F}">
+=======
 												<AudioFileSource Name="Music_Loop01_HeartBeat_125BPM_Compressed" ID="{631A5D5B-354E-4D9B-BE41-7BD4C7ADD195}" ShortID="507469757">
 													<Language>SFX</Language>
 													<AudioFile>Music_Loop01_HeartBeat_125BPM_Compressed.wav</AudioFile>
@@ -292,6 +380,7 @@
 											</ChildrenList>
 											<TransitionList>
 												<MusicTransition Name="Root" ID="{2C71F515-EF43-4FE7-820F-7FC9FDC695B1}">
+>>>>>>> Irénée
 													<PropertyList>
 														<Property Name="IsFolder" Type="bool" Value="True"/>
 													</PropertyList>
@@ -299,15 +388,25 @@
 												</MusicTransition>
 											</TransitionList>
 											<SequenceList>
+<<<<<<< HEAD
+												<MusicTrackSequence Name="" ID="{130BD24A-79AA-44AA-B229-421C6CF44F08}">
+													<ClipList>
+														<MusicClip Name="Music_Loop01_HeartBeat_125BPM_Third" ID="{6FDB90DC-AFD5-4A27-8C04-BA636070683C}">
+=======
 												<MusicTrackSequence Name="" ID="{ED9F6E5D-5435-4341-838C-49F9D10B5E9C}">
 													<ClipList>
 														<MusicClip Name="Music_Loop01_HeartBeat_125BPM_Compressed" ID="{B59691FB-44B3-43F7-8D9E-F63C55FB7348}">
+>>>>>>> Irénée
 															<PropertyList>
 																<Property Name="EndTrimOffset" Type="Real64" Value="7680"/>
 																<Property Name="FadeInMode" Type="int16" Value="0"/>
 																<Property Name="FadeOutMode" Type="int16" Value="0"/>
 															</PropertyList>
+<<<<<<< HEAD
+															<AudioSourceRef Name="Music_Loop01_HeartBeat_125BPM_Third" ID="{B4DB2434-29A4-4BBE-8D13-8D7135A3BB50}"/>
+=======
 															<AudioSourceRef Name="Music_Loop01_HeartBeat_125BPM_Compressed" ID="{631A5D5B-354E-4D9B-BE41-7BD4C7ADD195}"/>
+>>>>>>> Irénée
 														</MusicClip>
 													</ClipList>
 												</MusicTrackSequence>
@@ -337,13 +436,26 @@
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
+<<<<<<< HEAD
+										<MusicTrack Name="Music_Loop02_HeartBeat_125BPM_Third" ID="{13DF6B5F-8327-46B0-B12E-3A7301402556}" ShortID="728257103">
+=======
 										<MusicTrack Name="Music_Loop02_HeartBeat_125BPM_Compressed" ID="{659CC3DB-E4C2-4F23-A3C6-7782C0DF258E}" ShortID="223729845">
+>>>>>>> Irénée
 											<ReferenceList>
 												<Reference Name="OutputBus">
 													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{D377AB41-7350-4418-9D68-8CC72864D6BA}"/>
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
+<<<<<<< HEAD
+												<AudioFileSource Name="Music_Loop02_HeartBeat_125BPM_Third" ID="{FC82CE9E-2344-4162-AAB1-0354231696B4}" ShortID="38614877">
+													<Language>SFX</Language>
+													<AudioFile>Music_Loop02_HeartBeat_125BPM_Third.wav</AudioFile>
+												</AudioFileSource>
+											</ChildrenList>
+											<TransitionList>
+												<MusicTransition Name="Root" ID="{53DF851F-60FC-40AA-AA22-4862239B0438}">
+=======
 												<AudioFileSource Name="Music_Loop02_HeartBeat_125BPM_Compressed" ID="{03B799F4-06CF-4C00-BD31-376C7FE32D3A}" ShortID="556970694">
 													<Language>SFX</Language>
 													<AudioFile>Music_Loop02_HeartBeat_125BPM_Compressed.wav</AudioFile>
@@ -351,6 +463,7 @@
 											</ChildrenList>
 											<TransitionList>
 												<MusicTransition Name="Root" ID="{5318968E-ACDC-40D1-A956-3243A8555F62}">
+>>>>>>> Irénée
 													<PropertyList>
 														<Property Name="IsFolder" Type="bool" Value="True"/>
 													</PropertyList>
@@ -358,15 +471,25 @@
 												</MusicTransition>
 											</TransitionList>
 											<SequenceList>
+<<<<<<< HEAD
+												<MusicTrackSequence Name="" ID="{39D74568-26D9-4376-9724-B696F5237E67}">
+													<ClipList>
+														<MusicClip Name="Music_Loop02_HeartBeat_125BPM_Third" ID="{A15F5A3D-E6A0-4B1D-AA50-5C608F05B08C}">
+=======
 												<MusicTrackSequence Name="" ID="{692532CE-CC7F-4787-A379-7B683F177FC6}">
 													<ClipList>
 														<MusicClip Name="Music_Loop02_HeartBeat_125BPM_Compressed" ID="{8AD2B9B6-1B85-4685-AC5E-5344B1EA4CCF}">
+>>>>>>> Irénée
 															<PropertyList>
 																<Property Name="EndTrimOffset" Type="Real64" Value="7680"/>
 																<Property Name="FadeInMode" Type="int16" Value="0"/>
 																<Property Name="FadeOutMode" Type="int16" Value="0"/>
 															</PropertyList>
+<<<<<<< HEAD
+															<AudioSourceRef Name="Music_Loop02_HeartBeat_125BPM_Third" ID="{FC82CE9E-2344-4162-AAB1-0354231696B4}"/>
+=======
 															<AudioSourceRef Name="Music_Loop02_HeartBeat_125BPM_Compressed" ID="{03B799F4-06CF-4C00-BD31-376C7FE32D3A}"/>
+>>>>>>> Irénée
 														</MusicClip>
 													</ClipList>
 												</MusicTrackSequence>
@@ -447,13 +570,26 @@
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
+<<<<<<< HEAD
+										<MusicTrack Name="Music_Loop01_HeartBeat_130BPM_Fifth" ID="{84EADC5B-F4B4-4E2C-8A12-99811AAFD0A8}" ShortID="131251325">
+=======
 										<MusicTrack Name="Music_Loop01_HeartBeat_130BPM_Compressed" ID="{921FE691-EDF8-4989-865D-88E84AFD9D15}" ShortID="801800866">
+>>>>>>> Irénée
 											<ReferenceList>
 												<Reference Name="OutputBus">
 													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{D377AB41-7350-4418-9D68-8CC72864D6BA}"/>
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
+<<<<<<< HEAD
+												<AudioFileSource Name="Music_Loop01_HeartBeat_130BPM_Fifth" ID="{E8ADB0DB-207D-4C9D-9901-3F1266F0D906}" ShortID="826211055">
+													<Language>SFX</Language>
+													<AudioFile>Music_Loop01_HeartBeat_130BPM_Fifth.wav</AudioFile>
+												</AudioFileSource>
+											</ChildrenList>
+											<TransitionList>
+												<MusicTransition Name="Root" ID="{F99C9E03-814A-415B-BAE7-8DB475C06DD3}">
+=======
 												<AudioFileSource Name="Music_Loop01_HeartBeat_130BPM_Compressed" ID="{7E34A2B2-E01C-4C38-9DA8-6D93B1CDB4F5}" ShortID="925025280">
 													<Language>SFX</Language>
 													<AudioFile>Music_Loop01_HeartBeat_130BPM_Compressed.wav</AudioFile>
@@ -461,6 +597,7 @@
 											</ChildrenList>
 											<TransitionList>
 												<MusicTransition Name="Root" ID="{49BD47BD-BA61-41A6-B5B8-BFCE70CBDEAD}">
+>>>>>>> Irénée
 													<PropertyList>
 														<Property Name="IsFolder" Type="bool" Value="True"/>
 													</PropertyList>
@@ -468,15 +605,25 @@
 												</MusicTransition>
 											</TransitionList>
 											<SequenceList>
+<<<<<<< HEAD
+												<MusicTrackSequence Name="" ID="{6A20CA2B-CA10-40EA-A974-2FE2A54A2F04}">
+													<ClipList>
+														<MusicClip Name="Music_Loop01_HeartBeat_130BPM_Fifth" ID="{81F1FEEF-ADB4-482C-94AB-F19463806EA0}">
+=======
 												<MusicTrackSequence Name="" ID="{A6FA56DE-6836-489F-9465-675F7DD14D3C}">
 													<ClipList>
 														<MusicClip Name="Music_Loop01_HeartBeat_130BPM_Compressed" ID="{BF22A764-6AF9-4F56-8E20-2D232FF8CEF4}">
+>>>>>>> Irénée
 															<PropertyList>
 																<Property Name="EndTrimOffset" Type="Real64" Value="7384.60416666667"/>
 																<Property Name="FadeInMode" Type="int16" Value="0"/>
 																<Property Name="FadeOutMode" Type="int16" Value="0"/>
 															</PropertyList>
+<<<<<<< HEAD
+															<AudioSourceRef Name="Music_Loop01_HeartBeat_130BPM_Fifth" ID="{E8ADB0DB-207D-4C9D-9901-3F1266F0D906}"/>
+=======
 															<AudioSourceRef Name="Music_Loop01_HeartBeat_130BPM_Compressed" ID="{7E34A2B2-E01C-4C38-9DA8-6D93B1CDB4F5}"/>
+>>>>>>> Irénée
 														</MusicClip>
 													</ClipList>
 												</MusicTrackSequence>
@@ -506,13 +653,26 @@
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
+<<<<<<< HEAD
+										<MusicTrack Name="Music_Loop02_HeartBeat_130BPM_Fifth" ID="{FC6B48A1-A53E-450C-95C5-27C8A7843E89}" ShortID="909102134">
+=======
 										<MusicTrack Name="Music_Loop02_HeartBeat_130BPM_Compressed" ID="{8B51BD78-7DF5-4F49-8ADF-F2065C61A502}" ShortID="893738648">
+>>>>>>> Irénée
 											<ReferenceList>
 												<Reference Name="OutputBus">
 													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{D377AB41-7350-4418-9D68-8CC72864D6BA}"/>
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
+<<<<<<< HEAD
+												<AudioFileSource Name="Music_Loop02_HeartBeat_130BPM_Fifth" ID="{B1FBBBEA-078E-4BFA-AA8A-5EC5865455B3}" ShortID="135792651">
+													<Language>SFX</Language>
+													<AudioFile>Music_Loop02_HeartBeat_130BPM_Fifth.wav</AudioFile>
+												</AudioFileSource>
+											</ChildrenList>
+											<TransitionList>
+												<MusicTransition Name="Root" ID="{E8A421B0-D255-4295-B691-2AB177161169}">
+=======
 												<AudioFileSource Name="Music_Loop02_HeartBeat_130BPM_Compressed" ID="{024AA4D2-6989-4753-ABEB-5E59F7073FA7}" ShortID="471718011">
 													<Language>SFX</Language>
 													<AudioFile>Music_Loop02_HeartBeat_130BPM_Compressed.wav</AudioFile>
@@ -520,6 +680,7 @@
 											</ChildrenList>
 											<TransitionList>
 												<MusicTransition Name="Root" ID="{EE66C08B-A68D-4771-87B5-BE9A20B27D2B}">
+>>>>>>> Irénée
 													<PropertyList>
 														<Property Name="IsFolder" Type="bool" Value="True"/>
 													</PropertyList>
@@ -527,15 +688,25 @@
 												</MusicTransition>
 											</TransitionList>
 											<SequenceList>
+<<<<<<< HEAD
+												<MusicTrackSequence Name="" ID="{D472EDEF-437E-432F-AFCC-2DA93584652D}">
+													<ClipList>
+														<MusicClip Name="Music_Loop02_HeartBeat_130BPM_Fifth" ID="{CA9C0259-6A0D-46A2-9D96-F9409174CB96}">
+=======
 												<MusicTrackSequence Name="" ID="{D2024AE4-E40A-4B52-BD7E-EDD1FA08F593}">
 													<ClipList>
 														<MusicClip Name="Music_Loop02_HeartBeat_130BPM_Compressed" ID="{1040B48C-B2DF-4D05-8BA5-A1753AFF5E40}">
+>>>>>>> Irénée
 															<PropertyList>
 																<Property Name="EndTrimOffset" Type="Real64" Value="7384.625"/>
 																<Property Name="FadeInMode" Type="int16" Value="0"/>
 																<Property Name="FadeOutMode" Type="int16" Value="0"/>
 															</PropertyList>
+<<<<<<< HEAD
+															<AudioSourceRef Name="Music_Loop02_HeartBeat_130BPM_Fifth" ID="{B1FBBBEA-078E-4BFA-AA8A-5EC5865455B3}"/>
+=======
 															<AudioSourceRef Name="Music_Loop02_HeartBeat_130BPM_Compressed" ID="{024AA4D2-6989-4753-ABEB-5E59F7073FA7}"/>
+>>>>>>> Irénée
 														</MusicClip>
 													</ClipList>
 												</MusicTrackSequence>
@@ -593,11 +764,14 @@
 								<Property Name="GridFrequencyPreset" Type="int16" Value="51"/>
 								<Property Name="OverrideClockSettings" Type="bool" Value="True"/>
 								<Property Name="Tempo" Type="Real64" Value="135"/>
+<<<<<<< HEAD
+=======
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
 										<Value>-8</Value>
 									</ValueList>
 								</Property>
+>>>>>>> Irénée
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -638,7 +812,10 @@
 													<PropertyList>
 														<Property Name="IsFolder" Type="bool" Value="True"/>
 													</PropertyList>
+<<<<<<< HEAD
+=======
 													<ReferenceList/>
+>>>>>>> Irénée
 													<TransitionInfo/>
 												</MusicTransition>
 											</TransitionList>

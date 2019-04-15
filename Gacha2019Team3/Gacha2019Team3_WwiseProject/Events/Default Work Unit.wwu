@@ -105,6 +105,8 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+<<<<<<< HEAD
+=======
 				<Event Name="Lazer_in" ID="{C214B741-F99E-463C-BC07-94FEFCBE7D4E}">
 					<ChildrenList>
 						<Action Name="" ID="{3F633C59-EABF-4686-BA87-D8FA43FA0417}" ShortID="315617318">
@@ -193,6 +195,7 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+>>>>>>> Irénée
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

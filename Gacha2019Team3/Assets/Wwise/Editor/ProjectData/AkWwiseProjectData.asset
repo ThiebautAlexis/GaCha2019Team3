@@ -16,6 +16,17 @@ MonoBehaviour:
   CurrentPluginConfig: 
   m_lastPopulateTimePart2: 0
   m_lastPopulateTimePsrt1: 0
+<<<<<<< HEAD
+  AcousticTextureWwu: []
+  AuxBusWwu: []
+  BankWwu: []
+  EventWwu: []
+  ExpandedItems: []
+  RtpcWwu: []
+  StateWwu: []
+  SwitchWwu: []
+  TriggerWwu: []
+=======
   AcousticTextureWwu:
   - Guid: '{1A0E16EF-2844-4199-9DB0-B45BE042272F}'
     m_lastTimePart2: -1999191890
@@ -181,3 +192,4 @@ MonoBehaviour:
     ParentPhysicalPath: 
     PhysicalPath: Triggers\Default Work Unit.wwu
     List: []
+>>>>>>> Irénée

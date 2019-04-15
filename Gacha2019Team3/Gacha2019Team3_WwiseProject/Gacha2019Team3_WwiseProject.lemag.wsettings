@@ -81,7 +81,11 @@
 				<Property Name="ProjectExplorer\FirstVisible_8_1" Type="string" Value="{41093F77-829F-4D88-8601-E8B25F3D4781}"/>
 				<Property Name="ProjectExplorer\x64_Expanded_10_1" Type="string" Value="M6bCGh5w3EmctDmHeG3WAA=="/>
 				<Property Name="ProjectExplorer\x64_Expanded_11_1" Type="string" Value=""/>
+<<<<<<< HEAD
+				<Property Name="ProjectExplorer\x64_Expanded_12_1" Type="string" Value="ff1KlsP7M0CKX0g/vhnqMhb2oHfs/mJAkHuq+f9WDF5Poi9Wv+KIQLNWXHgKMfj+wo9Wg6GJ50Cyvq1zqpvSjwGhOSffdlpCuOX8sp+I2sH5efINJpCTQrdCvn5lTIrydZRFYavTjkOyk70of1QNaoimyDWMub9DurDC5M4bm+a/iq6j8OHqRLYJT8e5ohpHFTEZ9YAaY0anfnYRISHr7PIVTEzlheZJsOYG0+mqBGM="/>
+=======
 				<Property Name="ProjectExplorer\x64_Expanded_12_1" Type="string" Value="ff1KlsP7M0CKX0g/vhnqMhb2oHfs/mJAkHuq+f9WDF5Poi9Wv+KIQLNWXHgKMfj+wo9Wg6GJ50Cyvq1zqpvSjwGhOSffdlpCuOX8sp+I2sH5efINJpCTQrdCvn5lTIrydZRFYavTjkOyk70of1QNaoimyDWMub9DurDC5M4bm+a/iq6j8OHqRLYJT8e5ohpHFTEZ9YAaY0anfnYRISHr7DlMGMJ1I3dIsifYtYbgirK0L/2orrpASYvlRfcjXv/08hVMTOWF5kmw5gbT6aoEY6sxLsfGLYtPr/qLtDAnf0A="/>
+>>>>>>> Irénée
 				<Property Name="ProjectExplorer\x64_Expanded_13_1" Type="string" Value=""/>
 				<Property Name="ProjectExplorer\x64_Expanded_14_1" Type="string" Value=""/>
 				<Property Name="ProjectExplorer\x64_Expanded_15_1" Type="string" Value=""/>
@@ -92,6 +96,15 @@
 				<Property Name="ProjectExplorer\x64_Expanded_1_1" Type="string" Value="Qat301BzGESdaIzHKGTWug=="/>
 				<Property Name="ProjectExplorer\x64_Expanded_20_1" Type="string" Value=""/>
 				<Property Name="ProjectExplorer\x64_Expanded_21_1" Type="string" Value=""/>
+<<<<<<< HEAD
+				<Property Name="ProjectExplorer\x64_Expanded_2_1" Type="string" Value="zhU4j1pYREycxqZkNwqzcf+l+dtCqCxNmQ/6NOmYLMw="/>
+				<Property Name="ProjectExplorer\x64_Expanded_3_1" Type="string" Value="Ohnv52fyRkiahsLzSUlV0Q=="/>
+				<Property Name="ProjectExplorer\x64_Expanded_4_1" Type="string" Value="yF+eYSxp/0WwD46FB4PDEpJJWh1UFyhKn9Xnnn0Ik1A="/>
+				<Property Name="ProjectExplorer\x64_Expanded_5_1" Type="string" Value=""/>
+				<Property Name="ProjectExplorer\x64_Expanded_6_1" Type="string" Value=""/>
+				<Property Name="ProjectExplorer\x64_Expanded_7_1" Type="string" Value=""/>
+				<Property Name="ProjectExplorer\x64_Expanded_8_1" Type="string" Value=""/>
+=======
 				<Property Name="ProjectExplorer\x64_Expanded_2_1" Type="string" Value="EkEg9ZhcM0KIBTXe/EjbrxlC0ueynghDgHQKKafnGQaV1Vt9+seCRpD7c1lNX1ppskQ31APENkqICE54E1e4k84VOI9aWERMnMamZDcKs3H0qo105RCETLKPuxbk2w8U/6X520KoLE2ZD/o06ZgszHMMdtGKLKpNrWtZIAsfqVCxy0PaU38zTqnQwqHRTlaC"/>
 				<Property Name="ProjectExplorer\x64_Expanded_3_1" Type="string" Value="Ohnv52fyRkiahsLzSUlV0Q=="/>
 				<Property Name="ProjectExplorer\x64_Expanded_4_1" Type="string" Value="yF+eYSxp/0WwD46FB4PDEpJJWh1UFyhKn9Xnnn0Ik1A="/>
@@ -100,6 +113,7 @@
 				<Property Name="ProjectExplorer\x64_Expanded_7_1" Type="string" Value="mOeEm9B0vEibapcMHfhcGg=="/>
 				<Property Name="ProjectExplorer\x64_Expanded_8_1" Type="string" Value=""/>
 				<Property Name="RTPC\GameParameterSimValue\{D8CE90DF-3A09-4C3B-ADAA-9FDD54972A77}" Type="Real64" Value="0"/>
+>>>>>>> Irénée
 				<Property Name="SoundBank Manager\x64_Expand States" Type="string" Value=""/>
 				<Property Name="SoundBankHeaderFilePath" Type="string" Value="GeneratedSoundBanks\"/>
 				<Property Name="SoundBankPaths" Type="string">
