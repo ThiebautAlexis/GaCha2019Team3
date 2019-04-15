@@ -432,7 +432,7 @@ MonoBehaviour:
   m_MapSizeX: 20
   m_MapSizeY: 20
   m_CellSize: 1
-  m_PlayerCount: 2
+  m_PlayerCount: 1
   walls: []
   m_MapRestrictionPlot1: {x: 0, y: 0}
   m_MapRestrictionPlot2: {x: 19, y: 19}
