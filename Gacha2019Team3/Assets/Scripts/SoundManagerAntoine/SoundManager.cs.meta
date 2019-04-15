@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: 07b58e90100e36f48b102c923e462635
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - m_Explosion: {fileID: 8300000, guid: 11e44aa9c3825b94dac060a0cb51aa6a, type: 3}
+  - m_BaseTaken: {fileID: 8300000, guid: 253e6203b767ec8449d7ca861c99be30, type: 3}
+  - m_BaseSelection: {fileID: 8300000, guid: 00e7b7e9cebc69c41b1f0601bf6a36be, type: 3}
+  - m_GeneratorBroken: {fileID: 8300000, guid: e4ff3412f1847644b8bc0a0f08ea3f69, type: 3}
+  - m_MoveUnits: {fileID: 8300000, guid: cdb9e79d90d20e849b6454388b191aec, type: 3}
+  - m_ArrowModeStart: {fileID: 8300000, guid: fd73379cc8cf9ce44a652726b02c750b, type: 3}
+  - m_Victory: {fileID: 8300000, guid: 58fe94c92c89d734e9bddc36f74fb5ed, type: 3}
+  - m_Defeat: {fileID: 8300000, guid: 01c1763fb6fb9724eaf71e61af62c76f, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
