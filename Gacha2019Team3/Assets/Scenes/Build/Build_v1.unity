@@ -112,38 +112,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!84 &76139986
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  m_Width: 1079
-  m_Height: 607
-  m_AntiAliasing: 1
-  m_DepthFormat: 1
-  m_ColorFormat: 7
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 0
-  m_UseDynamicScale: 0
-  m_BindMS: 0
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
 --- !u!1 &167687004
 GameObject:
   m_ObjectHideFlags: 0
@@ -196,6 +164,38 @@ MonoBehaviour:
   m_currentStateIndex: 0
   m_spawningTrapsNames:
   - LaserTrap
+--- !u!84 &282333302
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_Width: 987
+  m_Height: 555
+  m_AntiAliasing: 1
+  m_DepthFormat: 1
+  m_ColorFormat: 7
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
 --- !u!1 &364728568
 GameObject:
   m_ObjectHideFlags: 0
@@ -311,7 +311,7 @@ Camera:
     serializedVersion: 2
     m_Bits: 0
   m_RenderingPath: 1
-  m_TargetTexture: {fileID: 76139986}
+  m_TargetTexture: {fileID: 977555874}
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 0
@@ -540,7 +540,7 @@ MonoBehaviour:
   m_PlayerCount: 1
   walls: []
   m_MapRestrictionPlot1: {x: 0, y: 0}
-  m_MapRestrictionPlot2: {x: 0, y: 0}
+  m_MapRestrictionPlot2: {x: 5, y: 5}
   counter: 0
   m_Camera: {fileID: 1085462357}
   m_SnakeHeadPrefab: {fileID: 36131592776301499, guid: 11479925a98dc4f4e969db8ad893bdfd,
@@ -557,7 +557,7 @@ MonoBehaviour:
     type: 3}
   m_EntitiesContainerTransform: {fileID: 770776560}
   m_Players: []
---- !u!84 &1025334201
+--- !u!84 &977555874
 RenderTexture:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -569,8 +569,8 @@ RenderTexture:
     Hash: 00000000000000000000000000000000
   m_ForcedFallbackFormat: 4
   m_DownscaleFallback: 0
-  m_Width: 1079
-  m_Height: 607
+  m_Width: 987
+  m_Height: 555
   m_AntiAliasing: 1
   m_DepthFormat: 1
   m_ColorFormat: 7
@@ -732,8 +732,8 @@ MonoBehaviour:
   sourceCamera: {fileID: 1085462355}
   outlineCamera: {fileID: 379463928}
   outlineShaderMaterial: {fileID: 0}
-  renderTexture: {fileID: 76139986}
-  extraRenderTexture: {fileID: 1025334201}
+  renderTexture: {fileID: 977555874}
+  extraRenderTexture: {fileID: 282333302}
 --- !u!1001 &1535856665
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -750,11 +750,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2717706116944841886, guid: 2b042877859141d47a92f3c1fbcb5f77,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1355918358560014159, guid: 2b042877859141d47a92f3c1fbcb5f77,
         type: 3}
@@ -859,6 +854,16 @@ PrefabInstance:
     - target: {fileID: 1355918358560014159, guid: 2b042877859141d47a92f3c1fbcb5f77,
         type: 3}
       propertyPath: m_Pivot.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1355918358561022199, guid: 2b042877859141d47a92f3c1fbcb5f77,
+        type: 3}
+      propertyPath: time
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2717706116944841886, guid: 2b042877859141d47a92f3c1fbcb5f77,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
