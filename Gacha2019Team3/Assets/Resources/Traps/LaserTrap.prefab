@@ -105,7 +105,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2afcc2265cd688243a536dc0fa8f5a53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_spawningTick: 5
+  m_spawningTick: 40
   m_activationTick: 2
   m_laserDuration: 3
   m_laserRenderer: {fileID: 0}
