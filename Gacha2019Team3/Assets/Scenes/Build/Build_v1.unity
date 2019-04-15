@@ -351,7 +351,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &402294244
 Transform:
   m_ObjectHideFlags: 0
@@ -384,7 +384,7 @@ MonoBehaviour:
   isItemOnMap: 0
   isProtected: 0
   imageUI: {fileID: 838086887}
-  nbrItemAllowedOnMap: 1
+  nbrItemAllowedOnMap: 10
   m_SpawnTimeLimit: 1
 --- !u!1 &770776559
 GameObject:
@@ -906,7 +906,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4270c28bf2bb8d04b80c3cb2a97b619c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_TickEventPlayer: 0.1
   m_TickEvent: 0.1
+  m_TickEventReset: 6
 --- !u!1 &1863984915
 GameObject:
   m_ObjectHideFlags: 0

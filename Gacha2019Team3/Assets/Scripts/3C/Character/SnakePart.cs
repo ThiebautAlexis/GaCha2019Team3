@@ -16,7 +16,7 @@ public abstract class SnakePart : MonoBehaviour
     [Header("Shield Variables")]
     public bool m_IsShield = false;
     public float m_ShieldActiveTime = 0f;
-    public int m_ShieldTimeLimit = 32;
+    public float m_ShieldTimeLimit = 0f;
 
     public Vector2Int GetTilePosition()
     {
@@ -79,23 +79,26 @@ public abstract class SnakePart : MonoBehaviour
 
             m_Body = newBody.GetComponent<SnakeBody>();
             m_Body.m_TilePosition = m_TilePosition;
+            m_Body.m_CanWalkOnItself = m_CanWalkOnItself;
+            m_Body.m_ShieldTimeLimit = m_ShieldTimeLimit;
 
             /// NOT ON THE TILE
         }
         else
         {
-            m_Body.m_CanWalkOnItself = m_CanWalkOnItself;
             m_Body.AddBody();
         }
     }
 
-    protected void ActivateShield()
+    virtual public void ActivateShield()
     {
+        Debug.Log("Activated Shield");
         m_IsShield = true;
     }
 
-    protected void DeactivateShield()
+    public void DeactivateShield()
     {
+        Debug.Log("Shield over");
         m_IsShield = false;
     }
 
@@ -105,7 +108,7 @@ public abstract class SnakePart : MonoBehaviour
         {
             m_ShieldActiveTime += Time.deltaTime;
 
-            if (m_ShieldActiveTime > (float)(m_ShieldTimeLimit * GameUpdater.Instance.m_TickEvent))
+            if (m_ShieldActiveTime >= (m_ShieldTimeLimit * GameUpdater.Instance.m_TickEventPlayer))
             {
                 DeactivateShield();
 
@@ -119,7 +122,7 @@ public abstract class SnakePart : MonoBehaviour
         transform.position = Vector3.MoveTowards(transform.position, GameData.Instance.m_TileManager.TilePositionToWorldPosition(m_TilePosition), m_MoveSmoothSpeed);
     }
 
-    private void Update()
+    virtual protected void Update()
     {
         ShieldUpdateTimeAndDeactivate();
         MoveSmooth();

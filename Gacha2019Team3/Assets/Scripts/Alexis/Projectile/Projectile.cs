@@ -23,13 +23,13 @@ public abstract class Projectile : MonoBehaviour
     /// Init the tile position of the projectile
     /// </summary>
     /// <param name="_tilePosition"></param>
-    public void InitProjectile(Vector2Int _tilePosition, Vector3Int _dir)
+    public void InitProjectile(Vector2Int _tilePosition, Vector3 _dir)
     {
         m_tilePosition = _tilePosition;
         transform.position = GameData.Instance.m_TileManager.TilePositionToWorldPosition(m_tilePosition);
         GameData.Instance.m_TileManager.GetRestrictedMap()[_tilePosition.x, _tilePosition.y].m_Entities.Add(gameObject);
         transform.rotation = Quaternion.Euler(_dir.x, 0, _dir.y); 
-        m_shootDirection = new Vector2Int(_dir.x, _dir.z);
+        m_shootDirection = new Vector2Int((int)_dir.x, (int)_dir.z);
         StartCoroutine(MoveProjectile()); 
     }
 

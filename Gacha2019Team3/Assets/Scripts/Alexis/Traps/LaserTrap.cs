@@ -41,6 +41,7 @@ public class LaserTrap : Trap
         Vector3 _direction = Vector3.zero; 
         while (_timer < m_LaserDurationInSeconds)
         {
+
             for (int i = 0; i < m_laserRenderer.positionCount; i+=2)
             {
                 _direction = transform.forward * Mathf.Cos(90*(i/2)*Mathf.Deg2Rad) + transform.right * Mathf.Sin(90 * (i/2) * Mathf.Deg2Rad);
@@ -59,6 +60,11 @@ public class LaserTrap : Trap
                         break;
                     }
                 }
+            }
+            if (GameUpdater.Instance.IsStoped())
+            {
+                yield return new WaitForSeconds(GameUpdater.Instance.m_TickEvent);
+                continue;
             }
             _timer += Time.deltaTime;
             yield return new WaitForEndOfFrame();
