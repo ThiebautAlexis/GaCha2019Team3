@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{1AC2A633-701E-49DC-9CB4-3987786DD600}" SchemaVersion="89">
+	<SoundcasterSessions>
+		<WorkUnit Name="Default Work Unit" ID="{1AC2A633-701E-49DC-9CB4-3987786DD600}" PersistMode="Standalone">
+			<ChildrenList>
+				<SoundcasterSession Name="New Soundcaster Session" ID="{9371017B-B5A0-4C04-8FEB-203D94F12F3C}">
+					<ModuleList>
+						<Module>
+							<ObjectRef Name="Play_Music_Switch" ID="{AAEBD01F-0F5C-4080-8D9A-F52F59C63964}" WorkUnitID="{E7EF193A-F267-4846-9A86-C2F3494955D1}"/>
+							<Position X="0" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="Drop" ID="{6E1EC20F-4B79-453F-99B7-7A30B05D15CC}" WorkUnitID="{E7EF193A-F267-4846-9A86-C2F3494955D1}"/>
+							<Position X="0" Y="1"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="Get_cut" ID="{B9BEF272-35B5-4268-9603-45DA197455F3}" WorkUnitID="{E7EF193A-F267-4846-9A86-C2F3494955D1}"/>
+							<Position X="0" Y="2"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="Play_Death_007" ID="{C47C0DCB-5890-4526-BDFF-D6B54D8F3653}" WorkUnitID="{E7EF193A-F267-4846-9A86-C2F3494955D1}"/>
+							<Position X="1" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="Lazer_in" ID="{C214B741-F99E-463C-BC07-94FEFCBE7D4E}" WorkUnitID="{E7EF193A-F267-4846-9A86-C2F3494955D1}"/>
+							<Position X="1" Y="1"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="Play_Amb" ID="{AC24B13C-B892-4BE1-A945-3FA87ED7CEBF}" WorkUnitID="{E7EF193A-F267-4846-9A86-C2F3494955D1}"/>
+							<Position X="2" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="Lazer_Out" ID="{996D8169-E0DB-4CAD-ACAC-5C526C67EB36}" WorkUnitID="{E7EF193A-F267-4846-9A86-C2F3494955D1}"/>
+							<Position X="2" Y="1"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="Eat" ID="{D791807D-09FC-4DD7-9F13-9ED4A8CBFDE8}" WorkUnitID="{E7EF193A-F267-4846-9A86-C2F3494955D1}"/>
+							<Position X="3" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="Play_Hit_Wall" ID="{6FB3985C-F10B-4543-A1A7-C19E673D8D42}" WorkUnitID="{E7EF193A-F267-4846-9A86-C2F3494955D1}"/>
+							<Position X="3" Y="1"/>
+						</Module>
+					</ModuleList>
+					<RTPCValueList ShowAll="true">
+						<RTPCValue>
+							<GameParameterRef Name="Low_Pass" ID="{D8CE90DF-3A09-4C3B-ADAA-9FDD54972A77}"/>
+							<Value>0</Value>
+						</RTPCValue>
+					</RTPCValueList>
+					<CurrentStateList ShowAll="true"/>
+					<CurrentSwitchList ShowAll="true">
+						<CurrentSwitchRef Name="BPM_120" ID="{E6EBEA40-4343-43AF-8858-807E8D077445}"/>
+					</CurrentSwitchList>
+				</SoundcasterSession>
+			</ChildrenList>
+		</WorkUnit>
+	</SoundcasterSessions>
+</WwiseDocument>

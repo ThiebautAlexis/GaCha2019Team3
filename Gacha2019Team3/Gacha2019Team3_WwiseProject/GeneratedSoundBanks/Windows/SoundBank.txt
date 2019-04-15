@@ -1,0 +1,47 @@
+Event	ID	Name			Wwise Object Path	Notes
+	781390793	Eat			\Default Work Unit\Eat	
+	1228139402	Play_Music_Switch			\Default Work Unit\Play_Music_Switch	
+	1367751422	Play_Death_007			\Default Work Unit\Play_Death_007	
+	2959533290	Play_Amb			\Default Work Unit\Play_Amb	
+
+Game Parameter	ID	Name			Wwise Object Path	Notes
+	1177178531	Low_Pass			\Default Work Unit\Low_Pass	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	36708284	Feedback Eating-02	D:\ACFA\Works\GaCha2019Team3\Gacha2019Team3\Gacha2019Team3_WwiseProject\.cache\Windows\SFX\Feedback Eating-02_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\Rototo_RC\Feedback Eating-02		0
+	39649192	Bactery_Activity_OS_05	D:\ACFA\Works\GaCha2019Team3\Gacha2019Team3\Gacha2019Team3_WwiseProject\.cache\Windows\SFX\Bactery_Activity_OS_05_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambiance\Bactery_Activity_RC\Bactery_Activity_OS_05		0
+	57583385	Amb_insect_squirm_05	D:\ACFA\Works\GaCha2019Team3\Gacha2019Team3\Gacha2019Team3_WwiseProject\.cache\Windows\SFX\Amb_insect_squirm_05_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambiance\Bactery_Squirm_RC\Amb_insect_squirm_05		0
+	117668850	Music_Loop03_HeartBeat_120BPM_Compressed_2	D:\ACFA\Works\GaCha2019Team3\Gacha2019Team3\Gacha2019Team3_WwiseProject\.cache\Windows\SFX\Music_Loop03_HeartBeat_120BPM_Compressed_2_8956FC97.wem		\Interactive Music Hierarchy\Default Work Unit\Music_Switch\120\120_Loop_03\Music_Loop03_HeartBeat_120BPM_Compressed_2		0
+	151104016	Feedback Eating-01	D:\ACFA\Works\GaCha2019Team3\Gacha2019Team3\Gacha2019Team3_WwiseProject\.cache\Windows\SFX\Feedback Eating-01_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\Rototo_RC\Feedback Eating-01		0
+	274105717	Eat_02	D:\ACFA\Works\GaCha2019Team3\Gacha2019Team3\Gacha2019Team3_WwiseProject\.cache\Windows\SFX\Eat_02_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\Eating_RC\Eat_02		0
+	449726549	Music_Loop01_HeartBeat_135BPM	D:\ACFA\Works\GaCha2019Team3\Gacha2019Team3\Gacha2019Team3_WwiseProject\.cache\Windows\SFX\Music_Loop01_HeartBeat_135BPM_8956FC97.wem		\Interactive Music Hierarchy\Default Work Unit\Music_Switch\135\135_Loop_01\Music_Loop01_HeartBeat_135BPM		0
+	471718011	Music_Loop02_HeartBeat_130BPM_Compressed	D:\ACFA\Works\GaCha2019Team3\Gacha2019Team3\Gacha2019Team3_WwiseProject\.cache\Windows\SFX\Music_Loop02_HeartBeat_130BPM_Compressed_8956FC97.wem		\Interactive Music Hierarchy\Default Work Unit\Music_Switch\130\130_Loop_02\Music_Loop02_HeartBeat_130BPM_Compressed		0
+	495761855	General_Amb_02	D:\ACFA\Works\GaCha2019Team3\Gacha2019Team3\Gacha2019Team3_WwiseProject\.cache\Windows\SFX\General_Amb_02_8956FC97.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambiance\General_Amb_02		0
+	501626401	Bactery_Activity_OS_01	D:\ACFA\Works\GaCha2019Team3\Gacha2019Team3\Gacha2019Team3_WwiseProject\.cache\Windows\SFX\Bactery_Activity_OS_01_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambiance\Bactery_Activity_RC\Bactery_Activity_OS_01		0
+	507469757	Music_Loop01_HeartBeat_125BPM_Compressed	D:\ACFA\Works\GaCha2019Team3\Gacha2019Team3\Gacha2019Team3_WwiseProject\.cache\Windows\SFX\Music_Loop01_HeartBeat_125BPM_Compressed_8956FC97.wem		\Interactive Music Hierarchy\Default Work Unit\Music_Switch\125\125_Loop_01\Music_Loop01_HeartBeat_125BPM_Compressed		0
+	510323400	Amb_insect_squirm_04	D:\ACFA\Works\GaCha2019Team3\Gacha2019Team3\Gacha2019Team3_WwiseProject\.cache\Windows\SFX\Amb_insect_squirm_04_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambiance\Bactery_Squirm_RC\Amb_insect_squirm_04		0
+	531236327	Amb_Bubbles_06	D:\ACFA\Works\GaCha2019Team3\Gacha2019Team3\Gacha2019Team3_WwiseProject\.cache\Windows\SFX\Amb_Bubbles_06_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambiance\Bubble_RC\Amb_Bubbles_06		0
+	534065206	Music_Loop01_HeartBeat_120BPM_Compressed	D:\ACFA\Works\GaCha2019Team3\Gacha2019Team3\Gacha2019Team3_WwiseProject\.cache\Windows\SFX\Music_Loop01_HeartBeat_120BPM_Compressed_8956FC97.wem		\Interactive Music Hierarchy\Default Work Unit\Music_Switch\120\120_Loop_01\Music_Loop01_HeartBeat_120BPM_Compressed		0
+	556970694	Music_Loop02_HeartBeat_125BPM_Compressed	D:\ACFA\Works\GaCha2019Team3\Gacha2019Team3\Gacha2019Team3_WwiseProject\.cache\Windows\SFX\Music_Loop02_HeartBeat_125BPM_Compressed_8956FC97.wem		\Interactive Music Hierarchy\Default Work Unit\Music_Switch\125\125_Loop_02\Music_Loop02_HeartBeat_125BPM_Compressed		0
+	582658070	Swalow_02	D:\ACFA\Works\GaCha2019Team3\Gacha2019Team3\Gacha2019Team3_WwiseProject\.cache\Windows\SFX\Swalow_02_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\Swalow_RC\Swalow_02		0
+	594666851	Bactery_Activity_OS_04	D:\ACFA\Works\GaCha2019Team3\Gacha2019Team3\Gacha2019Team3_WwiseProject\.cache\Windows\SFX\Bactery_Activity_OS_04_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambiance\Bactery_Activity_RC\Bactery_Activity_OS_04		0
+	595146296	Amb_Bubbles_05	D:\ACFA\Works\GaCha2019Team3\Gacha2019Team3\Gacha2019Team3_WwiseProject\.cache\Windows\SFX\Amb_Bubbles_05_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambiance\Bubble_RC\Amb_Bubbles_05		0
+	638238796	Amb_Bubbles_04	D:\ACFA\Works\GaCha2019Team3\Gacha2019Team3\Gacha2019Team3_WwiseProject\.cache\Windows\SFX\Amb_Bubbles_04_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambiance\Bubble_RC\Amb_Bubbles_04		0
+	648606424	Amb_insect_squirm_02	D:\ACFA\Works\GaCha2019Team3\Gacha2019Team3\Gacha2019Team3_WwiseProject\.cache\Windows\SFX\Amb_insect_squirm_02_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambiance\Bactery_Squirm_RC\Amb_insect_squirm_02		0
+	670704308	Amb_Bubbles_02	D:\ACFA\Works\GaCha2019Team3\Gacha2019Team3\Gacha2019Team3_WwiseProject\.cache\Windows\SFX\Amb_Bubbles_02_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambiance\Bubble_RC\Amb_Bubbles_02		0
+	671318290	Amb_Bubbles_03	D:\ACFA\Works\GaCha2019Team3\Gacha2019Team3\Gacha2019Team3_WwiseProject\.cache\Windows\SFX\Amb_Bubbles_03_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambiance\Bubble_RC\Amb_Bubbles_03		0
+	677030385	Feedback_Positif_03_mangé	D:\ACFA\Works\GaCha2019Team3\Gacha2019Team3\Gacha2019Team3_WwiseProject\.cache\Windows\SFX\Feedback_Positif_03_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\Feedback_Positif_03_mangé		0
+	707879515	Death_007	D:\ACFA\Works\GaCha2019Team3\Gacha2019Team3\Gacha2019Team3_WwiseProject\.cache\Windows\SFX\Death_007_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\Death_007		0
+	763640264	Music_Loop02_HeartBeat_120BPM_Compressed_1	D:\ACFA\Works\GaCha2019Team3\Gacha2019Team3\Gacha2019Team3_WwiseProject\.cache\Windows\SFX\Music_Loop02_HeartBeat_120BPM_Compressed_1_8956FC97.wem		\Interactive Music Hierarchy\Default Work Unit\Music_Switch\120\120_Loop_02\Music_Loop02_HeartBeat_120BPM_Compressed_1		0
+	791215423	Amb_insect_squirm_03	D:\ACFA\Works\GaCha2019Team3\Gacha2019Team3\Gacha2019Team3_WwiseProject\.cache\Windows\SFX\Amb_insect_squirm_03_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambiance\Bactery_Squirm_RC\Amb_insect_squirm_03		0
+	792095584	Bactery_Activity_OS_03	D:\ACFA\Works\GaCha2019Team3\Gacha2019Team3\Gacha2019Team3_WwiseProject\.cache\Windows\SFX\Bactery_Activity_OS_03_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambiance\Bactery_Activity_RC\Bactery_Activity_OS_03		0
+	836409513	Amb_Bubbles_07	D:\ACFA\Works\GaCha2019Team3\Gacha2019Team3\Gacha2019Team3_WwiseProject\.cache\Windows\SFX\Amb_Bubbles_07_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambiance\Bubble_RC\Amb_Bubbles_07		0
+	865747770	Amb_insect_squirm_01	D:\ACFA\Works\GaCha2019Team3\Gacha2019Team3\Gacha2019Team3_WwiseProject\.cache\Windows\SFX\Amb_insect_squirm_01_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambiance\Bactery_Squirm_RC\Amb_insect_squirm_01		0
+	919302500	Amb_Bubbles_01	D:\ACFA\Works\GaCha2019Team3\Gacha2019Team3\Gacha2019Team3_WwiseProject\.cache\Windows\SFX\Amb_Bubbles_01_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambiance\Bubble_RC\Amb_Bubbles_01		0
+	925025280	Music_Loop01_HeartBeat_130BPM_Compressed	D:\ACFA\Works\GaCha2019Team3\Gacha2019Team3\Gacha2019Team3_WwiseProject\.cache\Windows\SFX\Music_Loop01_HeartBeat_130BPM_Compressed_8956FC97.wem		\Interactive Music Hierarchy\Default Work Unit\Music_Switch\130\130_Loop_01\Music_Loop01_HeartBeat_130BPM_Compressed		0
+	984452605	Feedback Eating-03	D:\ACFA\Works\GaCha2019Team3\Gacha2019Team3\Gacha2019Team3_WwiseProject\.cache\Windows\SFX\Feedback Eating-03_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\Rototo_RC\Feedback Eating-03		0
+	1013550161	Bactery_Activity_OS_02	D:\ACFA\Works\GaCha2019Team3\Gacha2019Team3\Gacha2019Team3_WwiseProject\.cache\Windows\SFX\Bactery_Activity_OS_02_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambiance\Bactery_Activity_RC\Bactery_Activity_OS_02		0
+	1035445754	Swalow_01	D:\ACFA\Works\GaCha2019Team3\Gacha2019Team3\Gacha2019Team3_WwiseProject\.cache\Windows\SFX\Swalow_01_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\Swalow_RC\Swalow_01		0
+	1053284115	Eat_01	D:\ACFA\Works\GaCha2019Team3\Gacha2019Team3\Gacha2019Team3_WwiseProject\.cache\Windows\SFX\Eat_01_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\Eating_RC\Eat_01		0
+	1055316263	Eat_03	D:\ACFA\Works\GaCha2019Team3\Gacha2019Team3\Gacha2019Team3_WwiseProject\.cache\Windows\SFX\Eat_03_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\Eating_RC\Eat_03		0
+

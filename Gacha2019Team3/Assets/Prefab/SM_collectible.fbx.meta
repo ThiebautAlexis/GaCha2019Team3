@@ -1,14 +1,37 @@
 fileFormatVersion: 2
-guid: f93db98f2b14f124dbfccf2714c9bc59
+guid: 5cf096e3308b3e545a692fd96205d150
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: //RootNode
-    400000: //RootNode
-    2100000: 'Material #27'
-    2300000: //RootNode
-    3300000: //RootNode
-    4300000: SM_Laser_enemy002
+    100000: Bind_back_01
+    100002: Bind_back_02
+    100004: Bind_front_01
+    100006: Bind_front_02
+    100008: Bind_front_03
+    100010: Bind_root
+    100012: CTRL_back_01
+    100014: CTRL_front_01
+    100016: CTRL_front_02
+    100018: CTRL_root
+    100020: pCylinder1
+    100022: //RootNode
+    400000: Bind_back_01
+    400002: Bind_back_02
+    400004: Bind_front_01
+    400006: Bind_front_02
+    400008: Bind_front_03
+    400010: Bind_root
+    400012: CTRL_back_01
+    400014: CTRL_front_01
+    400016: CTRL_front_02
+    400018: CTRL_root
+    400020: pCylinder1
+    400022: //RootNode
+    2100000: lambert1
+    4300000: pCylinder1
+    7400000: Take 001
+    9500000: //RootNode
+    13700000: pCylinder1
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -62,7 +85,7 @@ ModelImporter:
     secondaryUVPackMargin: 4
     useFileScale: 1
     previousCalculatedGlobalScale: 1
-    hasPreviousCalculatedGlobalScale: 0
+    hasPreviousCalculatedGlobalScale: 1
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
@@ -89,7 +112,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 0
+  animationType: 2
   humanoidOversampling: 1
   additionalBone: 0
   userData: 

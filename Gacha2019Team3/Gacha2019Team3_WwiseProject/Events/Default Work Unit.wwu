@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{E7EF193A-F267-4846-9A86-C2F3494955D1}" SchemaVersion="89">
+	<Events>
+		<WorkUnit Name="Default Work Unit" ID="{E7EF193A-F267-4846-9A86-C2F3494955D1}" PersistMode="Standalone">
+			<ChildrenList>
+				<Event Name="Play_Music_Switch" ID="{AAEBD01F-0F5C-4080-8D9A-F52F59C63964}">
+					<ChildrenList>
+						<Action Name="" ID="{B6BA56E3-FC66-4780-9D12-451F01AA8CD5}" ShortID="159532222">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Music_Switch" ID="{35C8A688-B98C-43BF-BAB0-C2E4CE1B9BE6}" WorkUnitID="{F5193115-1A80-4663-A77E-76112121EBEC}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Amb" ID="{AC24B13C-B892-4BE1-A945-3FA87ED7CEBF}">
+					<ChildrenList>
+						<Action Name="" ID="{7557FA00-D11C-422E-A558-56D850D7604D}" ShortID="25349072">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Ambiance" ID="{DBF9A5FF-A842-4D2C-990F-FA34E9982CCC}" WorkUnitID="{8F3815CE-585A-4C44-9CC6-A664370AB371}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Eat" ID="{D791807D-09FC-4DD7-9F13-9ED4A8CBFDE8}">
+					<ChildrenList>
+						<Action Name="" ID="{69FF6411-A7D2-4CD9-852B-EDDD8E6BEF44}" ShortID="961544259">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Eating_RC" ID="{D1760C73-2C8A-4DAA-AD6B-59200B1FA950}" WorkUnitID="{8F3815CE-585A-4C44-9CC6-A664370AB371}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{489D794B-91E8-4F6A-A374-83AF0D78F2FF}" ShortID="457265739">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+								<Property Name="Delay" Type="Real64" Value="1.1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Rototo_RC" ID="{748DAAF4-10E5-4C84-B28F-BB16E4DB0F14}" WorkUnitID="{8F3815CE-585A-4C44-9CC6-A664370AB371}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{97491DED-9435-428D-BA6D-6968E65B12D9}" ShortID="893909137">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+								<Property Name="Delay" Type="Real64" Value="0.6"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Swalow_RC" ID="{E7D24219-9EB2-4308-8074-0A29A7E71906}" WorkUnitID="{8F3815CE-585A-4C44-9CC6-A664370AB371}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{0B884882-C4AA-49FC-A693-7BE9423D1CFB}" ShortID="305829999">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Feedback_Positif_03_mangé" ID="{2E052E0B-74F0-45E7-BDC5-05F9986B72CA}" WorkUnitID="{8F3815CE-585A-4C44-9CC6-A664370AB371}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Death_007" ID="{C47C0DCB-5890-4526-BDFF-D6B54D8F3653}">
+					<ChildrenList>
+						<Action Name="" ID="{DF3502A6-9296-4B1E-B19E-861637EEF09A}" ShortID="562916459">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Death_007" ID="{1ACB034A-60F4-41C4-8039-4A3910178D3A}" WorkUnitID="{8F3815CE-585A-4C44-9CC6-A664370AB371}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Drop" ID="{6E1EC20F-4B79-453F-99B7-7A30B05D15CC}">
+					<ChildrenList>
+						<Action Name="" ID="{053CAC7D-5972-4014-B3E7-A2BDD18CF9C3}" ShortID="506276493">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Feedback_Positif_02" ID="{A89D8CC1-B9D9-4932-BBA4-7282115965D7}" WorkUnitID="{8F3815CE-585A-4C44-9CC6-A664370AB371}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+<<<<<<< HEAD
+=======
+				<Event Name="Lazer_in" ID="{C214B741-F99E-463C-BC07-94FEFCBE7D4E}">
+					<ChildrenList>
+						<Action Name="" ID="{3F633C59-EABF-4686-BA87-D8FA43FA0417}" ShortID="315617318">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Lazer_in" ID="{908C30B5-D107-49AA-873B-455BB98DC86B}" WorkUnitID="{8F3815CE-585A-4C44-9CC6-A664370AB371}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{D73C5D0A-D0CE-41D3-9A77-00918D576F6C}" ShortID="842273977">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+								<Property Name="Delay" Type="Real64" Value="0.2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Lazer_Loop" ID="{D43744B2-C403-4A36-8808-4E781357B893}" WorkUnitID="{8F3815CE-585A-4C44-9CC6-A664370AB371}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Lazer_Out" ID="{996D8169-E0DB-4CAD-ACAC-5C526C67EB36}">
+					<ChildrenList>
+						<Action Name="" ID="{B7038C02-E8FC-4767-90B9-22FE3897E43E}" ShortID="458798385">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Lazer_Loop" ID="{D43744B2-C403-4A36-8808-4E781357B893}" WorkUnitID="{8F3815CE-585A-4C44-9CC6-A664370AB371}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{00D151F2-8E34-4816-9CF2-E07766819933}" ShortID="833942238">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Lazer_Out" ID="{90925949-A677-4B69-8CB4-D34007E2A679}" WorkUnitID="{8F3815CE-585A-4C44-9CC6-A664370AB371}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Hit_Wall" ID="{6FB3985C-F10B-4543-A1A7-C19E673D8D42}">
+					<ChildrenList>
+						<Action Name="" ID="{EE90E48C-A926-47AE-8592-94D33C589803}" ShortID="993381648">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Hit_Wall" ID="{7D5BD595-C7FA-4682-90FB-73594D5F5A69}" WorkUnitID="{8F3815CE-585A-4C44-9CC6-A664370AB371}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Get_cut" ID="{B9BEF272-35B5-4268-9603-45DA197455F3}">
+					<ChildrenList>
+						<Action Name="" ID="{AE79CB82-6518-4DAE-BF6B-8AA92952BAF5}" ShortID="223810569">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Cuuuut" ID="{F5204112-5C98-4233-8805-35DEFC48DBAF}" WorkUnitID="{8F3815CE-585A-4C44-9CC6-A664370AB371}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{F204A8E8-E67F-491B-9778-0DEA01C6B576}" ShortID="646558371">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+								<Property Name="Delay" Type="Real64" Value="0.1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Feedback_Cut" ID="{DA43CBB1-7F53-4E33-A9D0-C2A1D14E5682}" WorkUnitID="{8F3815CE-585A-4C44-9CC6-A664370AB371}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+>>>>>>> Irénée
+			</ChildrenList>
+		</WorkUnit>
+	</Events>
+</WwiseDocument>
