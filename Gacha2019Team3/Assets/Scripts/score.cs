@@ -24,7 +24,7 @@ public class score : MonoBehaviour
     {
         yield return new WaitForSeconds(1);
         bodies = GameData.Instance.m_Players[0].m_Size;
-        scoring = (scoring + bodies);
+        scoring = (scoring + bodies + 1);
         EndData.Instance.UpdateScore(scoring);
         this.gameObject.GetComponent<Text>().text = scoring.ToString();
         done = false;
