@@ -65,23 +65,18 @@ public class ItemManager : Singleton<ItemManager>
 
         if (GameData.Instance.m_TileManager.GetRestrictedMap()[position.x, position.y].m_Entities.Count > 0)
         {
-            for (int i = 0; i < GameData.Instance.m_TileManager.GetRestrictedMap()[position.x, position.y].m_Entities.Count; i++)
+            for (int _i = 0; _i < GameData.Instance.m_TileManager.GetRestrictedMap()[position.x, position.y].m_Entities.Count; _i++)
             {
-                Item item = GameData.Instance.m_TileManager.GetRestrictedMap()[position.x, position.y].m_Entities[i].GetComponent<Item>();
+                Item item = GameData.Instance.m_TileManager.GetRestrictedMap()[position.x, position.y].m_Entities[_i].GetComponent<Item>();
                 if (item)
                 {
                     _Item = item;
                     return true;
                 }
-
-                else
-                {
-                    _Item = null;
-                    return false;
-                }
             }
+            _Item = null;
+            return false;
         }
-
         _Item = null;
         return false;
     }

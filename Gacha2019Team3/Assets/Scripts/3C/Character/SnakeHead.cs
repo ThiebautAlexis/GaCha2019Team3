@@ -135,10 +135,12 @@ public class SnakeHead : SnakePart
                         }
                         else
                         {
+                            Debug.Log("CHECK ITEM");
                             Item item;
                             bool doesItemExists = ItemManager.Instance.CheckItem(_WantedTilePosition, out item);
                             if (doesItemExists)
                             {
+                                Debug.Log("ITEM EXISTS");
                                 m_HasItem = true;
                                 ItemManager.Instance.SetImageUIActive(true);
                                 ItemManager.Instance.DestroyItem(_WantedTilePosition, item);
