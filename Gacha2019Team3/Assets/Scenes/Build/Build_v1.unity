@@ -161,9 +161,9 @@ MonoBehaviour:
   - 0.7
   - 0.5
   - 0.2
+  m_currentStateIndex: 0
   m_spawningTrapsNames:
   - LaserTrap
-  - ShootingTrap
 --- !u!1 &364728568
 GameObject:
   m_ObjectHideFlags: 0
@@ -274,12 +274,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasItemInStorage: 0
-  itemPrefab: {fileID: 5378841321813338835, guid: b1ce6fc03074e964ea1246d8754b2d35,
+  itemPrefab: {fileID: 5580334207042625637, guid: b1ce6fc03074e964ea1246d8754b2d35,
     type: 3}
   isItemOnMap: 0
   isProtected: 0
   imageUI: {fileID: 838086887}
-  nbrItemAllowedOnMap: 1
+  nbrItemAllowedOnMap: 10
   m_SpawnTimeLimit: 1
 --- !u!1 &770776559
 GameObject:
@@ -431,7 +431,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_MapSizeX: 20
   m_MapSizeY: 20
-  m_PlayerCount: 1
+  m_PlayerCount: 2
+  m_Camera: {fileID: 1085462357}
   m_SnakeHeadPrefab: {fileID: 7896868396144839396, guid: 928ea3a2d81f10a46b7bc0347c454f87,
     type: 3}
   m_SnakeBodyPrefab: {fileID: 9095718743466118222, guid: cc43013e38987774688dc6d04770eafa,
@@ -457,6 +458,8 @@ GameObject:
   - component: {fileID: 1085462356}
   - component: {fileID: 1085462355}
   - component: {fileID: 1085462354}
+  - component: {fileID: 1085462357}
+  - component: {fileID: 1085462358}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -528,6 +531,35 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 60, y: 0, z: 0}
+--- !u!114 &1085462357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1085462353}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20fa3da419f70d248b7f8887315920eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShakeBehavior: {fileID: 0}
+--- !u!114 &1085462358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1085462353}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff495ab6d168a8740a8785b613557d63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  camTransform: {fileID: 0}
+  shakeDuration: 0
+  shakeAmount: 0.3
+  decreaseFactor: 1
 --- !u!1001 &1535856665
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -700,7 +732,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4270c28bf2bb8d04b80c3cb2a97b619c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_TickEventPlayer: 0.1
   m_TickEvent: 0.1
+  m_TickEventReset: 6
 --- !u!1 &1863984915
 GameObject:
   m_ObjectHideFlags: 0

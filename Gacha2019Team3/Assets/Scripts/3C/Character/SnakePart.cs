@@ -11,11 +11,12 @@ public abstract class SnakePart : MonoBehaviour
     public bool m_CanWalkOnItself = false;
     public Vector2Int m_TilePosition = Vector2Int.zero;
     public Vector2Int m_LastTilePosition = Vector2Int.zero;
+    public float m_MoveSmoothSpeed = 0.2f;
 
     [Header("Shield Variables")]
     public bool m_IsShield = false;
     public float m_ShieldActiveTime = 0f;
-    public int m_ShieldTimeLimit = 32;
+    public float m_ShieldTimeLimit = 0f;
 
     public Vector2Int GetTilePosition()
     {
@@ -26,18 +27,17 @@ public abstract class SnakePart : MonoBehaviour
     {
         m_TilePosition = _TilePosition;
         transform.position = GameData.Instance.m_TileManager.TilePositionToWorldPosition(_TilePosition);
-        GameData.Instance.m_TileManager.m_MapTile[_TilePosition.x, _TilePosition.y].m_Entities.Add(gameObject);
+        GameData.Instance.m_TileManager.GetRestrictedMap()[_TilePosition.x, _TilePosition.y].m_Entities.Add(gameObject);
     }
 
     public void SetTilePosition(Vector2Int _TilePosition)
     {
         m_LastTilePosition = m_TilePosition;
-
-        GameData.Instance.m_TileManager.m_MapTile[m_LastTilePosition.x, m_LastTilePosition.y].m_Entities.Remove(gameObject);
+        CustomTile[,] test = GameData.Instance.m_TileManager.GetRestrictedMap();
+        GameData.Instance.m_TileManager.GetRestrictedMap()[m_LastTilePosition.x, m_LastTilePosition.y].m_Entities.Remove(gameObject);
         m_TilePosition = _TilePosition;
 
-        transform.position = GameData.Instance.m_TileManager.TilePositionToWorldPosition(_TilePosition);
-        GameData.Instance.m_TileManager.m_MapTile[m_TilePosition.x, m_TilePosition.y].m_Entities.Add(gameObject);
+        GameData.Instance.m_TileManager.GetRestrictedMap()[m_TilePosition.x, m_TilePosition.y].m_Entities.Add(gameObject);
     }
 
     public void Hit()
@@ -73,29 +73,32 @@ public abstract class SnakePart : MonoBehaviour
         if (m_Body == null)
         {
             GameObject newBody = Instantiate(GameData.Instance.m_SnakeBodyPrefab);
-           // newBody.transform.Rotate(new Vector3(-90, 0, 0));
-            newBody.transform.parent = GameData.Instance.m_EntitiesContainerTransform;           
+
+            newBody.transform.parent = GameData.Instance.m_EntitiesContainerTransform;
             newBody.transform.position = GameData.Instance.m_TileManager.TilePositionToWorldPosition(m_TilePosition);
 
             m_Body = newBody.GetComponent<SnakeBody>();
             m_Body.m_TilePosition = m_TilePosition;
+            m_Body.m_CanWalkOnItself = m_CanWalkOnItself;
+            m_Body.m_ShieldTimeLimit = m_ShieldTimeLimit;
 
             /// NOT ON THE TILE
         }
         else
         {
-            m_Body.m_CanWalkOnItself = m_CanWalkOnItself;
             m_Body.AddBody();
         }
     }
 
-    protected void ActivateShield()
+    virtual public void ActivateShield()
     {
+        Debug.Log("Activated Shield");
         m_IsShield = true;
     }
 
-    protected void DeactivateShield()
+    public void DeactivateShield()
     {
+        Debug.Log("Shield over");
         m_IsShield = false;
     }
 
@@ -105,7 +108,7 @@ public abstract class SnakePart : MonoBehaviour
         {
             m_ShieldActiveTime += Time.deltaTime;
 
-            if (m_ShieldActiveTime > (float)(m_ShieldTimeLimit * GameUpdater.Instance.m_TickEvent))
+            if (m_ShieldActiveTime >= (m_ShieldTimeLimit * GameUpdater.Instance.m_TickEventPlayer))
             {
                 DeactivateShield();
 
@@ -114,8 +117,14 @@ public abstract class SnakePart : MonoBehaviour
         }
     }
 
-    private void Update()
+    protected void MoveSmooth()
+    {
+        transform.position = Vector3.MoveTowards(transform.position, GameData.Instance.m_TileManager.TilePositionToWorldPosition(m_TilePosition), m_MoveSmoothSpeed);
+    }
+
+    virtual protected void Update()
     {
         ShieldUpdateTimeAndDeactivate();
+        MoveSmooth();
     }
 }
