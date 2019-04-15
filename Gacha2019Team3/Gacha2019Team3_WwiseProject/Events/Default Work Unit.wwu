@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{E7EF193A-F267-4846-9A86-C2F3494955D1}" SchemaVersion="89">
+	<Events>
+		<WorkUnit Name="Default Work Unit" ID="{E7EF193A-F267-4846-9A86-C2F3494955D1}" PersistMode="Standalone">
+			<ChildrenList>
+				<Event Name="Play_Music_Switch" ID="{AAEBD01F-0F5C-4080-8D9A-F52F59C63964}">
+					<ChildrenList>
+						<Action Name="" ID="{B6BA56E3-FC66-4780-9D12-451F01AA8CD5}" ShortID="159532222">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Music_Switch" ID="{35C8A688-B98C-43BF-BAB0-C2E4CE1B9BE6}" WorkUnitID="{F5193115-1A80-4663-A77E-76112121EBEC}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Amb" ID="{AC24B13C-B892-4BE1-A945-3FA87ED7CEBF}">
+					<ChildrenList>
+						<Action Name="" ID="{7557FA00-D11C-422E-A558-56D850D7604D}" ShortID="25349072">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Ambiance" ID="{DBF9A5FF-A842-4D2C-990F-FA34E9982CCC}" WorkUnitID="{8F3815CE-585A-4C44-9CC6-A664370AB371}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Eat" ID="{D791807D-09FC-4DD7-9F13-9ED4A8CBFDE8}">
+					<ChildrenList>
+						<Action Name="" ID="{69FF6411-A7D2-4CD9-852B-EDDD8E6BEF44}" ShortID="961544259">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Eating_RC" ID="{D1760C73-2C8A-4DAA-AD6B-59200B1FA950}" WorkUnitID="{8F3815CE-585A-4C44-9CC6-A664370AB371}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{489D794B-91E8-4F6A-A374-83AF0D78F2FF}" ShortID="457265739">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+								<Property Name="Delay" Type="Real64" Value="1.1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Rototo_RC" ID="{748DAAF4-10E5-4C84-B28F-BB16E4DB0F14}" WorkUnitID="{8F3815CE-585A-4C44-9CC6-A664370AB371}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{97491DED-9435-428D-BA6D-6968E65B12D9}" ShortID="893909137">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+								<Property Name="Delay" Type="Real64" Value="0.6"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Swalow_RC" ID="{E7D24219-9EB2-4308-8074-0A29A7E71906}" WorkUnitID="{8F3815CE-585A-4C44-9CC6-A664370AB371}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{0B884882-C4AA-49FC-A693-7BE9423D1CFB}" ShortID="305829999">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Feedback_Positif_03_mangé" ID="{2E052E0B-74F0-45E7-BDC5-05F9986B72CA}" WorkUnitID="{8F3815CE-585A-4C44-9CC6-A664370AB371}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Death_007" ID="{C47C0DCB-5890-4526-BDFF-D6B54D8F3653}">
+					<ChildrenList>
+						<Action Name="" ID="{DF3502A6-9296-4B1E-B19E-861637EEF09A}" ShortID="562916459">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Death_007" ID="{1ACB034A-60F4-41C4-8039-4A3910178D3A}" WorkUnitID="{8F3815CE-585A-4C44-9CC6-A664370AB371}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Drop" ID="{6E1EC20F-4B79-453F-99B7-7A30B05D15CC}">
+					<ChildrenList>
+						<Action Name="" ID="{053CAC7D-5972-4014-B3E7-A2BDD18CF9C3}" ShortID="506276493">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Feedback_Positif_02" ID="{A89D8CC1-B9D9-4932-BBA4-7282115965D7}" WorkUnitID="{8F3815CE-585A-4C44-9CC6-A664370AB371}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+			</ChildrenList>
+		</WorkUnit>
+	</Events>
+</WwiseDocument>

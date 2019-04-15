@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SoundBanksInfo Platform="Mac" BasePlatform="Mac" SchemaVersion="11" SoundbankVersion="132">
+	<RootPaths>
+		<ProjectRoot>D:\ACFA\Works\GaCha2019Team3\Gacha2019Team3\Gacha2019Team3_WwiseProject\</ProjectRoot>
+		<SourceFilesRoot>D:\ACFA\Works\GaCha2019Team3\Gacha2019Team3\Gacha2019Team3_WwiseProject\.cache\Mac\</SourceFilesRoot>
+		<SoundBanksRoot>D:\ACFA\Works\GaCha2019Team3\Gacha2019Team3\Gacha2019Team3_WwiseProject\GeneratedSoundBanks\Mac\</SoundBanksRoot>
+		<ExternalSourcesInputFile></ExternalSourcesInputFile>
+		<ExternalSourcesOutputRoot>D:\ACFA\Works\GaCha2019Team3\Gacha2019Team3\Gacha2019Team3_WwiseProject\GeneratedSoundBanks\Mac</ExternalSourcesOutputRoot>
+	</RootPaths>
+	<DialogueEvents/>
+	<StreamedFiles/>
+	<MediaFilesNotInAnyBank/>
+	<SoundBanks>
+		<SoundBank Id="1355168291" Language="SFX">
+			<ObjectPath>Init</ObjectPath>
+			<ShortName>Init</ShortName>
+			<Path>Init.bnk</Path>
+		</SoundBank>
+		<SoundBank Id="1661994096" Language="SFX">
+			<ObjectPath>\SoundBanks\Default Work Unit\SoundBank</ObjectPath>
+			<ShortName>SoundBank</ShortName>
+			<Path>SoundBank.bnk</Path>
+			<IncludedEvents>
+				<Event Id="781390793" Name="Eat" ObjectPath="\Events\Default Work Unit\Eat"/>
+				<Event Id="2959533290" Name="Play_Amb" ObjectPath="\Events\Default Work Unit\Play_Amb"/>
+				<Event Id="1367751422" Name="Play_Death_007" ObjectPath="\Events\Default Work Unit\Play_Death_007"/>
+				<Event Id="1228139402" Name="Play_Music_Switch" ObjectPath="\Events\Default Work Unit\Play_Music_Switch"/>
+			</IncludedEvents>
+			<IncludedMemoryFiles>
+				<File Id="36708284" Language="SFX">
+					<ShortName>Feedback Eating-02.wav</ShortName>
+					<Path>SFX\Feedback Eating-02_56D34C19.wem</Path>
+				</File>
+				<File Id="39649192" Language="SFX">
+					<ShortName>Bactery_Activity_OS_05.wav</ShortName>
+					<Path>SFX\Bactery_Activity_OS_05_56D34C19.wem</Path>
+				</File>
+				<File Id="57583385" Language="SFX">
+					<ShortName>Amb_insect_squirm_05.wav</ShortName>
+					<Path>SFX\Amb_insect_squirm_05_56D34C19.wem</Path>
+				</File>
+				<File Id="117668850" Language="SFX">
+					<ShortName>Music_Loop03_HeartBeat_120BPM_Compressed_2.wav</ShortName>
+					<Path>SFX\Music_Loop03_HeartBeat_120BPM_Compressed_2_8956FC97.wem</Path>
+				</File>
+				<File Id="151104016" Language="SFX">
+					<ShortName>Feedback Eating-01.wav</ShortName>
+					<Path>SFX\Feedback Eating-01_56D34C19.wem</Path>
+				</File>
+				<File Id="274105717" Language="SFX">
+					<ShortName>Eat_02.wav</ShortName>
+					<Path>SFX\Eat_02_56D34C19.wem</Path>
+				</File>
+				<File Id="449726549" Language="SFX">
+					<ShortName>Music_Loop01_HeartBeat_135BPM.wav</ShortName>
+					<Path>SFX\Music_Loop01_HeartBeat_135BPM_8956FC97.wem</Path>
+				</File>
+				<File Id="471718011" Language="SFX">
+					<ShortName>Music_Loop02_HeartBeat_130BPM_Compressed.wav</ShortName>
+					<Path>SFX\Music_Loop02_HeartBeat_130BPM_Compressed_8956FC97.wem</Path>
+				</File>
+				<File Id="495761855" Language="SFX">
+					<ShortName>General_Amb_02.wav</ShortName>
+					<Path>SFX\General_Amb_02_8956FC97.wem</Path>
+				</File>
+				<File Id="501626401" Language="SFX">
+					<ShortName>Bactery_Activity_OS_01.wav</ShortName>
+					<Path>SFX\Bactery_Activity_OS_01_56D34C19.wem</Path>
+				</File>
+				<File Id="507469757" Language="SFX">
+					<ShortName>Music_Loop01_HeartBeat_125BPM_Compressed.wav</ShortName>
+					<Path>SFX\Music_Loop01_HeartBeat_125BPM_Compressed_8956FC97.wem</Path>
+				</File>
+				<File Id="510323400" Language="SFX">
+					<ShortName>Amb_insect_squirm_04.wav</ShortName>
+					<Path>SFX\Amb_insect_squirm_04_56D34C19.wem</Path>
+				</File>
+				<File Id="531236327" Language="SFX">
+					<ShortName>Amb_Bubbles_06.wav</ShortName>
+					<Path>SFX\Amb_Bubbles_06_56D34C19.wem</Path>
+				</File>
+				<File Id="534065206" Language="SFX">
+					<ShortName>Music_Loop01_HeartBeat_120BPM_Compressed.wav</ShortName>
+					<Path>SFX\Music_Loop01_HeartBeat_120BPM_Compressed_8956FC97.wem</Path>
+				</File>
+				<File Id="556970694" Language="SFX">
+					<ShortName>Music_Loop02_HeartBeat_125BPM_Compressed.wav</ShortName>
+					<Path>SFX\Music_Loop02_HeartBeat_125BPM_Compressed_8956FC97.wem</Path>
+				</File>
+				<File Id="582658070" Language="SFX">
+					<ShortName>Swalow_02.wav</ShortName>
+					<Path>SFX\Swalow_02_56D34C19.wem</Path>
+				</File>
+				<File Id="594666851" Language="SFX">
+					<ShortName>Bactery_Activity_OS_04.wav</ShortName>
+					<Path>SFX\Bactery_Activity_OS_04_56D34C19.wem</Path>
+				</File>
+				<File Id="595146296" Language="SFX">
+					<ShortName>Amb_Bubbles_05.wav</ShortName>
+					<Path>SFX\Amb_Bubbles_05_56D34C19.wem</Path>
+				</File>
+				<File Id="638238796" Language="SFX">
+					<ShortName>Amb_Bubbles_04.wav</ShortName>
+					<Path>SFX\Amb_Bubbles_04_56D34C19.wem</Path>
+				</File>
+				<File Id="648606424" Language="SFX">
+					<ShortName>Amb_insect_squirm_02.wav</ShortName>
+					<Path>SFX\Amb_insect_squirm_02_56D34C19.wem</Path>
+				</File>
+				<File Id="670704308" Language="SFX">
+					<ShortName>Amb_Bubbles_02.wav</ShortName>
+					<Path>SFX\Amb_Bubbles_02_56D34C19.wem</Path>
+				</File>
+				<File Id="671318290" Language="SFX">
+					<ShortName>Amb_Bubbles_03.wav</ShortName>
+					<Path>SFX\Amb_Bubbles_03_56D34C19.wem</Path>
+				</File>
+				<File Id="677030385" Language="SFX">
+					<ShortName>Feedback_Positif_03.wav</ShortName>
+					<Path>SFX\Feedback_Positif_03_56D34C19.wem</Path>
+				</File>
+				<File Id="707879515" Language="SFX">
+					<ShortName>Death_007.wav</ShortName>
+					<Path>SFX\Death_007_56D34C19.wem</Path>
+				</File>
+				<File Id="763640264" Language="SFX">
+					<ShortName>Music_Loop02_HeartBeat_120BPM_Compressed_1.wav</ShortName>
+					<Path>SFX\Music_Loop02_HeartBeat_120BPM_Compressed_1_8956FC97.wem</Path>
+				</File>
+				<File Id="791215423" Language="SFX">
+					<ShortName>Amb_insect_squirm_03.wav</ShortName>
+					<Path>SFX\Amb_insect_squirm_03_56D34C19.wem</Path>
+				</File>
+				<File Id="792095584" Language="SFX">
+					<ShortName>Bactery_Activity_OS_03.wav</ShortName>
+					<Path>SFX\Bactery_Activity_OS_03_56D34C19.wem</Path>
+				</File>
+				<File Id="836409513" Language="SFX">
+					<ShortName>Amb_Bubbles_07.wav</ShortName>
+					<Path>SFX\Amb_Bubbles_07_56D34C19.wem</Path>
+				</File>
+				<File Id="865747770" Language="SFX">
+					<ShortName>Amb_insect_squirm_01.wav</ShortName>
+					<Path>SFX\Amb_insect_squirm_01_56D34C19.wem</Path>
+				</File>
+				<File Id="919302500" Language="SFX">
+					<ShortName>Amb_Bubbles_01.wav</ShortName>
+					<Path>SFX\Amb_Bubbles_01_56D34C19.wem</Path>
+				</File>
+				<File Id="925025280" Language="SFX">
+					<ShortName>Music_Loop01_HeartBeat_130BPM_Compressed.wav</ShortName>
+					<Path>SFX\Music_Loop01_HeartBeat_130BPM_Compressed_8956FC97.wem</Path>
+				</File>
+				<File Id="984452605" Language="SFX">
+					<ShortName>Feedback Eating-03.wav</ShortName>
+					<Path>SFX\Feedback Eating-03_56D34C19.wem</Path>
+				</File>
+				<File Id="1013550161" Language="SFX">
+					<ShortName>Bactery_Activity_OS_02.wav</ShortName>
+					<Path>SFX\Bactery_Activity_OS_02_56D34C19.wem</Path>
+				</File>
+				<File Id="1035445754" Language="SFX">
+					<ShortName>Swalow_01.wav</ShortName>
+					<Path>SFX\Swalow_01_56D34C19.wem</Path>
+				</File>
+				<File Id="1053284115" Language="SFX">
+					<ShortName>Eat_01.wav</ShortName>
+					<Path>SFX\Eat_01_56D34C19.wem</Path>
+				</File>
+				<File Id="1055316263" Language="SFX">
+					<ShortName>Eat_03.wav</ShortName>
+					<Path>SFX\Eat_03_56D34C19.wem</Path>
+				</File>
+			</IncludedMemoryFiles>
+		</SoundBank>
+	</SoundBanks>
+</SoundBanksInfo>
