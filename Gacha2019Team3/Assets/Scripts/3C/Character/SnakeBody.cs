@@ -7,8 +7,10 @@ public class SnakeBody : SnakePart
     public bool m_CanBeDestroyed = false;
     public GameObject m_FXDamagePrefab = null;
 
-    private void Update()
+    override protected void Update()
     {
+        base.Update();
+
         MoveSmooth();
 
         if (m_CanBeDestroyed)
@@ -64,6 +66,16 @@ public class SnakeBody : SnakePart
         if (m_Body != null)
         {
             m_Body.CanBeDestroyed();
+        }
+    }
+
+    override public void ActivateShield()
+    {
+        base.ActivateShield();
+
+        if (m_Body != null)
+        {
+            m_Body.ActivateShield();
         }
     }
 }
