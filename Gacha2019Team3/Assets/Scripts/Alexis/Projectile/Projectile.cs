@@ -6,11 +6,15 @@ using UnityEngine;
 public abstract class Projectile : MonoBehaviour
 {
     #region Fields and Properties
-    private Vector2Int m_tilePosition = Vector2Int.zero;
+    [SerializeField, Range(1,4)] int m_projectileLength = 1;
+
+    private Vector2Int[] m_tilesPosition;  
+
+    // private Vector2Int m_tilePosition = Vector2Int.zero;
 
     private Vector2Int m_lastTilePosition = Vector2Int.zero; 
 
-    public Vector2Int m_TilePosition { get { return m_tilePosition; } }
+    //public Vector2Int m_TilePosition { get { return m_tilePosition; } }
 
     private Vector2Int m_shootDirection = Vector2Int.zero;
     #endregion
@@ -25,8 +29,8 @@ public abstract class Projectile : MonoBehaviour
     /// <param name="_tilePosition"></param>
     public void InitProjectile(Vector2Int _tilePosition, Vector3 _dir)
     {
-        m_tilePosition = _tilePosition;
-        transform.position = GameData.Instance.m_TileManager.TilePositionToWorldPosition(m_tilePosition);
+        m_tilesPosition.ToList().ForEach(t => t= _tilePosition);
+        transform.position = GameData.Instance.m_TileManager.TilePositionToWorldPosition(_tilePosition);
         GameData.Instance.m_TileManager.GetRestrictedMap()[_tilePosition.x, _tilePosition.y].m_Entities.Add(gameObject);
         transform.rotation = Quaternion.Euler(_dir.x, 0, _dir.y); 
         m_shootDirection = new Vector2Int((int)_dir.x, (int)_dir.z);
@@ -39,13 +43,20 @@ public abstract class Projectile : MonoBehaviour
     /// <param name="_tilePosition"></param>
     protected void SetTilePosition(Vector2Int _tilePosition)
     {
-        m_lastTilePosition = m_tilePosition;
+        m_lastTilePosition = m_tilesPosition.Last();
 
-        GameData.Instance.m_TileManager.GetRestrictedMap()[m_TilePosition.x, m_TilePosition.y].m_Entities.Remove(gameObject);
-        m_tilePosition = _tilePosition;
+        GameData.Instance.m_TileManager.GetRestrictedMap()[m_lastTilePosition.x, m_lastTilePosition.y].m_Entities.Remove(gameObject);
+        if (m_projectileLength > 1)
+        {
+            for (int i = 1; i < m_projectileLength; i++)
+            {
+                m_tilesPosition[i] = m_tilesPosition[i - 1]; 
+            }
+        }
+        m_tilesPosition[0] = _tilePosition;
 
-        transform.position = GameData.Instance.m_TileManager.TilePositionToWorldPosition(m_tilePosition); 
-        GameData.Instance.m_TileManager.GetRestrictedMap()[m_tilePosition.x, m_tilePosition.y].m_Entities.Add(gameObject);
+        transform.position = GameData.Instance.m_TileManager.TilePositionToWorldPosition(m_tilesPosition[0]); 
+        GameData.Instance.m_TileManager.GetRestrictedMap()[m_tilesPosition[0].x, m_tilesPosition[0].y].m_Entities.Add(gameObject);
     }
 
     protected IEnumerator MoveProjectile()
@@ -55,7 +66,7 @@ public abstract class Projectile : MonoBehaviour
         CustomTile _nextTile;
         while (true)
         {
-            _nextPos = m_tilePosition + m_shootDirection;
+            _nextPos = m_tilesPosition[0] + m_shootDirection;
             if (_nextPos.x < 0 || _nextPos.x >= GameData.Instance.m_TileManager.GetRestrictedMapSize().x || _nextPos.y < 0 || _nextPos.y >= GameData.Instance.m_TileManager.GetRestrictedMapSize().y)
             {
                 break;
@@ -76,11 +87,15 @@ public abstract class Projectile : MonoBehaviour
             SetTilePosition(_nextPos); 
             yield return new WaitForSeconds(GameUpdater.Instance.m_TickEvent);
         }
-        GameData.Instance.m_TileManager.GetTile(m_tilePosition).m_Entities.Remove(gameObject); 
+        m_tilesPosition.ToList().ForEach(t => GameData.Instance.m_TileManager.GetTile(t).m_Entities.Remove(gameObject)); 
         Destroy(gameObject); 
     }
 
     #region UnityMethods
+    private void Start()
+    {
+        m_tilesPosition = new Vector2Int[m_projectileLength]; 
+    }
     #endregion
 
     #endregion
