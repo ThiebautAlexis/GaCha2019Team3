@@ -730,13 +730,15 @@ MonoBehaviour:
   m_MapRestrictionPlot2: {x: 0, y: 0}
   counter: 0
   m_Camera: {fileID: 0}
-  m_SnakeHeadPrefab: {fileID: 7896868396144839396, guid: 928ea3a2d81f10a46b7bc0347c454f87,
+  m_SnakeHeadPrefab: {fileID: 7138857636102591130, guid: 7d5faced925b9224695cfc32814ea3c4,
     type: 3}
   m_SnakeBodyPrefab: {fileID: 9095718743466118222, guid: cc43013e38987774688dc6d04770eafa,
     type: 3}
   m_SnakeProjectilePrefab: {fileID: 0}
-  m_BackgroundPrefab: {fileID: 0}
-  m_GroundPrefab: {fileID: 0}
+  m_BackgroundPrefab: {fileID: 7001291273091165580, guid: 49784d964ea9d0b4eb3501ff3e5996bb,
+    type: 3}
+  m_GroundPrefab: {fileID: 7001291273091165580, guid: 49784d964ea9d0b4eb3501ff3e5996bb,
+    type: 3}
   m_WallPrefab: {fileID: 0}
   m_PickUpPrefab: {fileID: 0}
   m_EntitiesContainerTransform: {fileID: 2081955826}
@@ -763,3 +765,72 @@ MonoBehaviour:
   m_spawningTrapsNames:
   - LaserTrap
   - ShootingTrap
+--- !u!1001 &7750986940451283671
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7138857636102591130, guid: 7d5faced925b9224695cfc32814ea3c4,
+        type: 3}
+      propertyPath: m_Name
+      value: SnakeHead
+      objectReference: {fileID: 0}
+    - target: {fileID: 4262490125514379696, guid: 7d5faced925b9224695cfc32814ea3c4,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4262490125514379696, guid: 7d5faced925b9224695cfc32814ea3c4,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4262490125514379696, guid: 7d5faced925b9224695cfc32814ea3c4,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4262490125514379696, guid: 7d5faced925b9224695cfc32814ea3c4,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4262490125514379696, guid: 7d5faced925b9224695cfc32814ea3c4,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4262490125514379696, guid: 7d5faced925b9224695cfc32814ea3c4,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4262490125514379696, guid: 7d5faced925b9224695cfc32814ea3c4,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4262490125514379696, guid: 7d5faced925b9224695cfc32814ea3c4,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4262490125514379696, guid: 7d5faced925b9224695cfc32814ea3c4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4262490125514379696, guid: 7d5faced925b9224695cfc32814ea3c4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4262490125514379696, guid: 7d5faced925b9224695cfc32814ea3c4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7d5faced925b9224695cfc32814ea3c4, type: 3}

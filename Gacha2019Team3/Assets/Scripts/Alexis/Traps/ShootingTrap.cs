@@ -6,6 +6,8 @@ using UnityEngine;
 public class ShootingTrap : Trap
 {
     #region Fields and Properties
+    [Header("Shooting Trap Settings")]
+    [SerializeField] private string[] m_projectilePrefabNames; 
     #endregion
 
     #region Methods
@@ -21,7 +23,8 @@ public class ShootingTrap : Trap
             yield break; 
         }
         yield return new WaitForSeconds(m_activationTick * GameUpdater.Instance.m_TickEvent);
-        GameObject _projectileObject = Instantiate((Resources.Load("TrapsProjectile") as GameObject), transform.position, Quaternion.identity); 
+        int _randomProjectileIndex = (int)Random.Range(0, m_projectilePrefabNames.Length); 
+        GameObject _projectileObject = Instantiate((Resources.Load(m_projectilePrefabNames[_randomProjectileIndex]) as GameObject), transform.position, Quaternion.identity); 
         TrapProjectile _projectile = _projectileObject.GetComponent<TrapProjectile>(); 
         if(_projectile)
         {
