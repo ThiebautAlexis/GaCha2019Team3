@@ -28,6 +28,12 @@ public class AIManager : Singleton<AIManager>
     /// <returns></returns>
     private IEnumerator SpawnTrap(GameObject _trapToSpawn)
     {
+        if(GameUpdater.Instance.IsStoped())
+        {
+            yield return new WaitForSeconds(GameUpdater.Instance.m_TickEvent); 
+            StartCoroutine(SpawnTrap(_trapToSpawn));
+            yield break; 
+        }
         Trap _tmpTrap = _trapToSpawn.GetComponent<Trap>();
         float _delay = _tmpTrap.m_SpawningTick * GameUpdater.Instance.m_TickEvent * m_statesCoefficient[m_currentStateIndex];
         yield return new WaitForSeconds(_delay);
