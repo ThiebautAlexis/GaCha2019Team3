@@ -102,12 +102,10 @@ public class GameData : Singleton<GameData>
         
         foreach (GameObject wall in walls)
         {
-
-            
             Destroy(wall);
         }
         walls.Clear();
-        m_TileManager.m_RestrictedMap2 = new Vector2Int(m_MapRestrictionPlot2.x+5*phase,m_MapRestrictionPlot2.y+5*phase);
+        m_TileManager.m_RestrictedMap2 = new Vector2Int(m_MapRestrictionPlot2.x+5*phase, m_MapRestrictionPlot2.y+5*phase);
         GenerateWall();
     }
 }
