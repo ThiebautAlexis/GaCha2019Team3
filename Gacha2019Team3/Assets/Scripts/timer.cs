@@ -34,7 +34,7 @@ public class timer : MonoBehaviour
             this.gameObject.GetComponent<Text>().text = showtime.ToString();
         //}
 
-        if (showtime % 10 == 0 && flag)
+        if (showtime % 10 == 0 && flag && showtime < 31)
         {
             phase++;
             GameData.Instance.expand(phase);
