@@ -64,9 +64,9 @@ public class GameData : Singleton<GameData>
 
         if (m_TileManager != null)
         {
-            for (int i = 0; i < m_TileManager.GetFullMapSize().x / 2; i++)
+            for (int i = 0; i < m_TileManager.GetFullMapSize().x * GameData.Instance.m_CellSize; i++)
             {
-                for (int j = 0; j < m_TileManager.GetFullMapSize().y / 2; j++)
+                for (int j = 0; j < m_TileManager.GetFullMapSize().y * GameData.Instance.m_CellSize; j++)
                 {
                     GameObject ground = Instantiate(m_GroundPrefab, new Vector3(i * 1, -0.5f, -j * 1), Quaternion.identity);
                     ground.transform.localScale = new Vector3(0.1f, 1, 0.1f);
@@ -79,19 +79,19 @@ public class GameData : Singleton<GameData>
     {
         if (m_WallPrefab != null)
         {
-            for (int i = 0; i < m_TileManager.GetRestrictedMapSize().x / 2; i++)
+            for (int i = 0; i < m_TileManager.GetRestrictedMapSize().x * GameData.Instance.m_CellSize; i++)
             {
                 GameObject upWall = Instantiate(m_WallPrefab, new Vector3(1 * i, 0, 1), Quaternion.identity);
                 walls.Add(upWall);
-                GameObject downWall = Instantiate(m_WallPrefab, new Vector3(1 * i, 0, -m_TileManager.GetRestrictedMapSize().x/2), Quaternion.identity);
+                GameObject downWall = Instantiate(m_WallPrefab, new Vector3(1 * i, 0, -m_TileManager.GetRestrictedMapSize().x * GameData.Instance.m_CellSize), Quaternion.identity);
                 walls.Add(downWall);
             }
             
-            for (int i = 0; i < m_TileManager.GetRestrictedMapSize().y / 2; i++)
+            for (int i = 0; i < m_TileManager.GetRestrictedMapSize().y * GameData.Instance.m_CellSize; i++)
             {
                 GameObject leftWall = Instantiate(m_WallPrefab, new Vector3(-1, 0, -1 * i), Quaternion.identity);
                 walls.Add(leftWall);
-                GameObject rightWall = Instantiate(m_WallPrefab, new Vector3(m_TileManager.GetRestrictedMapSize().y/2, 0, -1 * i), Quaternion.identity);
+                GameObject rightWall = Instantiate(m_WallPrefab, new Vector3(m_TileManager.GetRestrictedMapSize().y * GameData.Instance.m_CellSize, 0, -1 * i), Quaternion.identity);
                 walls.Add(rightWall);
             }          
         }
