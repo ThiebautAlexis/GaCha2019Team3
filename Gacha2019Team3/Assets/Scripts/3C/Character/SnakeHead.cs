@@ -60,6 +60,7 @@ public class SnakeHead : SnakePart
 
     public void Move()
     {
+        if (m_Controller == null) return; 
         Vector2Int previousPos = m_TilePosition;
         Vector2Int newPos = m_TilePosition;
 
