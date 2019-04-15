@@ -36,7 +36,7 @@ public class ShootingTrap : Trap
             Destroy(_projectileObject); 
         }
         // yield return new WaitForSeconds(m_activationTick * GameUpdater.Instance.m_TickEvent);
-        //CleanTile(); 
+        CleanTile(); 
         yield break; 
     }
 
@@ -46,6 +46,8 @@ public class ShootingTrap : Trap
         if (_tiles.Count == 0) return Vector2Int.zero;
         List<Vector2Int> _availablesPosition;
         Vector2Int _playerPosition = GameData.Instance.m_Players[0].m_TilePosition;
+        _availablesPosition = _tiles.Select(t => GameData.Instance.m_TileManager.GetPosition(t)).ToList();
+        /*
         if (AIManager.Instance.m_CurrentStateIndex == 0)
         {
             _availablesPosition = _tiles.Select(t => GameData.Instance.m_TileManager.GetPosition(t)).Where(p => (p.x == 0 || p.x == GameData.Instance.m_TileManager.GetRestrictedMapSize().x)).ToList();
@@ -67,6 +69,7 @@ public class ShootingTrap : Trap
         {
             _availablesPosition = _tiles.Select(t => GameData.Instance.m_TileManager.GetPosition(t)).Where(p => p.x == 0 || p.x == GameData.Instance.m_TileManager.GetRestrictedMapSize().x || p.y == 0 || p.y == GameData.Instance.m_TileManager.GetRestrictedMapSize().y).ToList();
         }
+        */
         int _randomIndex = (int)Random.Range(0, _availablesPosition.Count); 
         return _availablesPosition[_randomIndex];
     }
