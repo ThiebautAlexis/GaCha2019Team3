@@ -274,7 +274,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasItemInStorage: 0
-  itemPrefab: {fileID: 5580334207042625637, guid: b1ce6fc03074e964ea1246d8754b2d35,
+  itemPrefab: {fileID: 5378841321813338835, guid: b1ce6fc03074e964ea1246d8754b2d35,
     type: 3}
   isItemOnMap: 0
   isProtected: 0
@@ -431,9 +431,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_MapSizeX: 20
   m_MapSizeY: 20
-  m_PlayerCount: 2
+  m_CellSize: 1
+  m_PlayerCount: 1
+  walls: []
+  m_MapRestrictionPlot1: {x: 0, y: 0}
+  m_MapRestrictionPlot2: {x: 19, y: 19}
+  counter: 0
   m_Camera: {fileID: 1085462357}
-  m_SnakeHeadPrefab: {fileID: 7896868396144839396, guid: 928ea3a2d81f10a46b7bc0347c454f87,
+  m_SnakeHeadPrefab: {fileID: 7138857636102591130, guid: 7d5faced925b9224695cfc32814ea3c4,
     type: 3}
   m_SnakeBodyPrefab: {fileID: 9095718743466118222, guid: cc43013e38987774688dc6d04770eafa,
     type: 3}
