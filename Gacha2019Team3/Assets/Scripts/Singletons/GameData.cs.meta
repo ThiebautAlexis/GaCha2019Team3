@@ -3,7 +3,23 @@ guid: 8bc510480a0ed5d4a89a30cc4b023f67
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - m_SnakeHeadPrefab: {instanceID: 0}
+  - m_SnakeBodyPrefab: {instanceID: 0}
+  - m_SnakeProjectilePrefab: {instanceID: 0}
+  - m_BackgroundPrefab: {instanceID: 0}
+  - m_GroundPrefab: {instanceID: 0}
+  - m_WallPrefab: {instanceID: 0}
+  - m_PickUpPrefab: {instanceID: 0}
+  - m_EntitiesContainerTransform: {instanceID: 0}
+  - m_DmgFxPrefab: {fileID: 1749411839220447726, guid: 29727cd9c593725498e87fc979dfb856,
+      type: 3}
+  - m_LaserFxPrefab: {fileID: 1762957347775067127, guid: 40f9af07a9a54b741b41e36ece29af9b,
+      type: 3}
+  - m_BombFxPrefab: {fileID: 6091325488856505483, guid: 80edad0bee813b94994d66b5b5d54d8b,
+      type: 3}
+  - m_CollectFxPrefab: {fileID: 3920938974577655470, guid: 458790de844bf404db036c4324181948,
+      type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

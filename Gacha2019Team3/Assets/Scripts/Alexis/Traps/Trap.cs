@@ -32,7 +32,7 @@ public abstract class Trap : MonoBehaviour
     /// <param name="_waitingTime">Time to wait</param>
     /// <returns></returns>
     protected virtual IEnumerator PrepareTrigger()
-    {
+    { //FX HERE
         yield return new WaitForSeconds(m_activationTick * GameUpdater.Instance.m_TickEvent);
         StartCoroutine(TriggerTrap());
         yield break; 
@@ -51,6 +51,7 @@ public abstract class Trap : MonoBehaviour
         //Set a random Rotation
         transform.rotation = Quaternion.Euler(0, 90 * (int)UnityEngine.Random.Range(0, 3), 0);
         //Prepare to be triggered
+        //parallelisme de tache
         StartCoroutine(PrepareTrigger());
     }
     #endregion

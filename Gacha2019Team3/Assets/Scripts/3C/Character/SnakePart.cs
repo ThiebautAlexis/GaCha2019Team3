@@ -65,6 +65,9 @@ public abstract class SnakePart : MonoBehaviour
             newBody.transform.position = GameData.Instance.m_TileManager.TilePositionToWorldPosition(m_LastTilePosition);
 
             m_Body = newBody.GetComponent<SnakeBody>();
+
+            //fx grow
+            GameData.Instance.SpawnFx(newBody, 5);
         }
         else
         {

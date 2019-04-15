@@ -14,7 +14,7 @@ public class ShakeObjet : MonoBehaviour
 
     void Start()
     {
-            Shake();
+            //Shake();
     }
 
     void Update()

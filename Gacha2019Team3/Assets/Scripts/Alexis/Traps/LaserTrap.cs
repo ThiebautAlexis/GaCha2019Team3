@@ -23,6 +23,8 @@ public class LaserTrap : Trap
     /// If the player is touched, call the damage method 
     /// Then break and destroy the object
     /// </summary>
+
+    
     protected override IEnumerator TriggerTrap()
     {
         float _timer = 0;

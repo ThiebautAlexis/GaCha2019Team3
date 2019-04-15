@@ -138,6 +138,10 @@ public class SnakeHead : SnakePart
                             m_HasItem = true;
                             ItemManager.Instance.SetImageUIActive(true);
                             ItemManager.Instance.DestroyItem(_WantedTilePosition, item);
+
+                            //fx Collect
+                            Debug.Log("BeEaten");
+                            GameData.Instance.SpawnFx(this.gameObject,0);
                         }
                     }
                 }
@@ -204,7 +208,6 @@ public class SnakeHead : SnakePart
         if (m_HasItem && !m_CanUseAbility)
         {
             Debug.Log("Add Body !");
-
             AddBody();
             UseItemGenericFunction();
         }
@@ -216,8 +219,11 @@ public class SnakeHead : SnakePart
         {
             Debug.Log("Shield !");
 
+            GameData.Instance.SpawnFx(this.gameObject, 4);
+
             ActivateShield();
             UseItemGenericFunction();
+            
         }
     }
 

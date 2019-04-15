@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -446,6 +446,18 @@ MonoBehaviour:
     type: 3}
   m_EntitiesContainerTransform: {fileID: 770776560}
   m_Players: []
+  m_CollectFxPrefab: {fileID: 3920938974577655470, guid: 458790de844bf404db036c4324181948,
+    type: 3}
+  m_BombFxPrefab: {fileID: 6091325488856505483, guid: 80edad0bee813b94994d66b5b5d54d8b,
+    type: 3}
+  m_LaserFxPrefab: {fileID: 1762957347775067127, guid: 40f9af07a9a54b741b41e36ece29af9b,
+    type: 3}
+  m_DmgFxPrefab: {fileID: 1749411839220447726, guid: 29727cd9c593725498e87fc979dfb856,
+    type: 3}
+  m_ShieldFxPrefab: {fileID: 3519042448506670599, guid: 9470ec90d2db70f45841e98bbab5d55c,
+    type: 3}
+  m_GrowFxPrefab: {fileID: 3259870568627071731, guid: a6ccab3bf10125b469b99a4602ebb5c3,
+    type: 3}
 --- !u!1 &1085462353
 GameObject:
   m_ObjectHideFlags: 0

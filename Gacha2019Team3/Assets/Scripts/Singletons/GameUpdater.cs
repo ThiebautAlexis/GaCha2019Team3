@@ -18,7 +18,7 @@ public class GameUpdater : Singleton<GameUpdater>
     void Update()
     {
 
-        Debug.Log("Free Tile: " + GameData.Instance.m_TileManager.GetEmptyTiles().Count);
+        //Debug.Log("Free Tile: " + GameData.Instance.m_TileManager.GetEmptyTiles().Count);
 
         m_TickTimer += Time.deltaTime;
 
@@ -51,7 +51,7 @@ public class GameUpdater : Singleton<GameUpdater>
             }
             else
             {
-                Debug.LogError("Missing Data reference in GameData.");
+                //Debug.LogError("Missing Data reference in GameData.");
             }
         }
     }
