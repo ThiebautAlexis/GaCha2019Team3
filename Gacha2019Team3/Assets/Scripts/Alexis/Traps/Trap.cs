@@ -28,7 +28,7 @@ public abstract class Trap : MonoBehaviour
 
     public abstract Vector2Int GetSpawningPosition();
 
-    public abstract Vector3 GetBestOrientation(); 
+    public abstract Quaternion GetBestOrientation(); 
 
     /// <summary>
     /// Wait some time before triggering the trap
@@ -53,7 +53,7 @@ public abstract class Trap : MonoBehaviour
     protected virtual void Start()
     {
         //Set a random Rotation
-        transform.rotation = Quaternion.Euler(GetBestOrientation()); 
+        transform.rotation = GetBestOrientation(); 
         //Prepare to be triggered
         StartCoroutine(PrepareTrigger());
     }
