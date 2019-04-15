@@ -105,6 +105,94 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="Lazer_in" ID="{C214B741-F99E-463C-BC07-94FEFCBE7D4E}">
+					<ChildrenList>
+						<Action Name="" ID="{3F633C59-EABF-4686-BA87-D8FA43FA0417}" ShortID="315617318">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Lazer_in" ID="{908C30B5-D107-49AA-873B-455BB98DC86B}" WorkUnitID="{8F3815CE-585A-4C44-9CC6-A664370AB371}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{D73C5D0A-D0CE-41D3-9A77-00918D576F6C}" ShortID="842273977">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+								<Property Name="Delay" Type="Real64" Value="0.2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Lazer_Loop" ID="{D43744B2-C403-4A36-8808-4E781357B893}" WorkUnitID="{8F3815CE-585A-4C44-9CC6-A664370AB371}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Lazer_Out" ID="{996D8169-E0DB-4CAD-ACAC-5C526C67EB36}">
+					<ChildrenList>
+						<Action Name="" ID="{B7038C02-E8FC-4767-90B9-22FE3897E43E}" ShortID="458798385">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Lazer_Loop" ID="{D43744B2-C403-4A36-8808-4E781357B893}" WorkUnitID="{8F3815CE-585A-4C44-9CC6-A664370AB371}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{00D151F2-8E34-4816-9CF2-E07766819933}" ShortID="833942238">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Lazer_Out" ID="{90925949-A677-4B69-8CB4-D34007E2A679}" WorkUnitID="{8F3815CE-585A-4C44-9CC6-A664370AB371}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Hit_Wall" ID="{6FB3985C-F10B-4543-A1A7-C19E673D8D42}">
+					<ChildrenList>
+						<Action Name="" ID="{EE90E48C-A926-47AE-8592-94D33C589803}" ShortID="993381648">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Hit_Wall" ID="{7D5BD595-C7FA-4682-90FB-73594D5F5A69}" WorkUnitID="{8F3815CE-585A-4C44-9CC6-A664370AB371}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Get_cut" ID="{B9BEF272-35B5-4268-9603-45DA197455F3}">
+					<ChildrenList>
+						<Action Name="" ID="{AE79CB82-6518-4DAE-BF6B-8AA92952BAF5}" ShortID="223810569">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Cuuuut" ID="{F5204112-5C98-4233-8805-35DEFC48DBAF}" WorkUnitID="{8F3815CE-585A-4C44-9CC6-A664370AB371}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{F204A8E8-E67F-491B-9778-0DEA01C6B576}" ShortID="646558371">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+								<Property Name="Delay" Type="Real64" Value="0.1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Feedback_Cut" ID="{DA43CBB1-7F53-4E33-A9D0-C2A1D14E5682}" WorkUnitID="{8F3815CE-585A-4C44-9CC6-A664370AB371}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>
