@@ -11,6 +11,7 @@ public class timer : MonoBehaviour
     int showtime;
     public string scenename;
     bool flag = true;
+    int phase = 0;
 
     private void Start()
     {
@@ -33,10 +34,15 @@ public class timer : MonoBehaviour
             this.gameObject.GetComponent<Text>().text = showtime.ToString();
         //}
 
-        if (showtime == 5 && flag)
+        if (showtime % 10 == 0 && flag && showtime < 31)
         {
-            GameData.Instance.expand(1);
+            phase++;
+            GameData.Instance.expand(phase);
             flag = false;
+        }
+        else if (showtime % 10 == 1)
+        {
+            flag = true;
         }
     }
 }

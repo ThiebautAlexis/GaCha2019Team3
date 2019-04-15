@@ -8,7 +8,7 @@ public abstract class Projectile : MonoBehaviour
     #region Fields and Properties
     [SerializeField, Range(1,4)] int m_projectileLength = 1;
 
-    private Vector2Int[] m_tilesPosition;  
+    [SerializeField]private Vector2Int[] m_tilesPosition;  
 
     // private Vector2Int m_tilePosition = Vector2Int.zero;
 
@@ -27,13 +27,14 @@ public abstract class Projectile : MonoBehaviour
     /// Init the tile position of the projectile
     /// </summary>
     /// <param name="_tilePosition"></param>
-    public void InitProjectile(Vector2Int _tilePosition, Vector3 _dir)
+    public void InitProjectile(Vector2Int _tilePosition, Quaternion _dir)
     {
-        m_tilesPosition.ToList().ForEach(t => t= _tilePosition);
+        m_tilesPosition = new Vector2Int[m_projectileLength];
+        m_tilesPosition.ToList().ForEach(t => t = _tilePosition);
         transform.position = GameData.Instance.m_TileManager.TilePositionToWorldPosition(_tilePosition);
         GameData.Instance.m_TileManager.GetRestrictedMap()[_tilePosition.x, _tilePosition.y].m_Entities.Add(gameObject);
-        transform.rotation = Quaternion.Euler(_dir.x, 0, _dir.y); 
-        m_shootDirection = new Vector2Int((int)_dir.x, (int)_dir.z);
+        transform.rotation = _dir;
+        m_shootDirection = new Vector2Int((int)transform.forward.x, (int)transform.forward.z); 
         StartCoroutine(MoveProjectile()); 
     }
 
@@ -92,10 +93,6 @@ public abstract class Projectile : MonoBehaviour
     }
 
     #region UnityMethods
-    private void Start()
-    {
-        m_tilesPosition = new Vector2Int[m_projectileLength]; 
-    }
     #endregion
 
     #endregion

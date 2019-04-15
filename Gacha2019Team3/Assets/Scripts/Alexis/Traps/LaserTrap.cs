@@ -41,7 +41,6 @@ public class LaserTrap : Trap
         Vector3 _direction = Vector3.zero; 
         while (_timer < m_LaserDurationInSeconds)
         {
-
             for (int i = 0; i < m_laserRenderer.positionCount; i+=2)
             {
                 _direction = transform.forward * Mathf.Cos(90*(i/2)*Mathf.Deg2Rad) + transform.right * Mathf.Sin(90 * (i/2) * Mathf.Deg2Rad);
@@ -107,24 +106,25 @@ public class LaserTrap : Trap
                     _availablePosition = _tiles.Select(t => GameData.Instance.m_TileManager.GetPosition(t)).ToList();
                     break;
             }
-            return Vector2Int.zero;
+            int _randomIndex = (int)Random.Range(0, _availablePosition.Count);
+            return _availablePosition[_randomIndex];
         }
     }
 
-    public override Vector3 GetBestOrientation()
+    public override Quaternion GetBestOrientation()
     {
         if(AIManager.Instance.m_CurrentStateIndex == 0)
         {
-            return new Vector3(0, 90 * (int)UnityEngine.Random.Range(0, 3), 0);
+            return Quaternion.Euler(0, 90 * (int)UnityEngine.Random.Range(0, 3), 0);
         }
         if (AIManager.Instance.m_CurrentStateIndex >= 1)
         {
             SnakeHead.Direction _dir = GameData.Instance.m_Players[0].m_Controller.m_Direction;
             if (_dir == SnakeHead.Direction.UP || _dir == SnakeHead.Direction.DOWN)
-                return Vector3.zero;
-            else return new Vector3(0, 90, 0);
+                return Quaternion.identity;
+            else return Quaternion.Euler(0, 90, 0);
         }
-        else return Vector3.zero; 
+        else return Quaternion.identity; 
     }
 
     #region UnityMethods

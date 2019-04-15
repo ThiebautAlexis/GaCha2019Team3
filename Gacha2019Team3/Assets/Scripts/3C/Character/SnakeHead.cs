@@ -60,6 +60,7 @@ public class SnakeHead : SnakePart
 
     public void Move()
     {
+        if (m_Controller == null) return; 
         Vector2Int previousPos = m_TilePosition;
         Vector2Int newPos = m_TilePosition;
 
@@ -125,7 +126,7 @@ public class SnakeHead : SnakePart
                         return false;
                     }
                     else
-                    {
+                    { 
                         SnakePart snakePart = entities[i].GetComponent<SnakePart>();
                         if (snakePart != null && !snakePart.m_CanWalkOnItself)
                         {
