@@ -30,7 +30,10 @@ public abstract class Projectile : MonoBehaviour
     public void InitProjectile(Vector2Int _tilePosition, Quaternion _dir)
     {
         m_tilesPosition = new Vector2Int[m_projectileLength];
-        m_tilesPosition.ToList().ForEach(t => t = _tilePosition);
+        for (int i = 0; i < m_tilesPosition.Length; i++)
+        {
+            m_tilesPosition[0] = _tilePosition; 
+        }
         transform.position = GameData.Instance.m_TileManager.TilePositionToWorldPosition(_tilePosition);
         GameData.Instance.m_TileManager.GetRestrictedMap()[_tilePosition.x, _tilePosition.y].m_Entities.Add(gameObject);
         transform.rotation = _dir;
