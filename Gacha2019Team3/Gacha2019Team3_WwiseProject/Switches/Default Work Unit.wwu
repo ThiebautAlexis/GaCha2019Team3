@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{619E5FC8-692C-45FF-B00F-8E850783C312}" SchemaVersion="89">
 	<Switches>
-		<WorkUnit Name="Default Work Unit" ID="{619E5FC8-692C-45FF-B00F-8E850783C312}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{619E5FC8-692C-45FF-B00F-8E850783C312}" PersistMode="Standalone">
+			<ChildrenList>
+				<SwitchGroup Name="Music_Switch" ID="{1D5A4992-1754-4A28-9FD5-E79E7D089350}">
+					<ChildrenList>
+						<Switch Name="BPM_120" ID="{E6EBEA40-4343-43AF-8858-807E8D077445}"/>
+						<Switch Name="BPM_125" ID="{C3DF91FE-E13C-4088-A299-2EDA327B92D4}"/>
+						<Switch Name="BPM_130" ID="{BF042198-8FA6-48E7-A4CC-E7B72ECEA8EE}"/>
+						<Switch Name="BPM_135" ID="{63B7C657-CFF1-4DFD-A21B-1F6A0D7DF77B}"/>
+					</ChildrenList>
+				</SwitchGroup>
+			</ChildrenList>
+		</WorkUnit>
 	</Switches>
 </WwiseDocument>

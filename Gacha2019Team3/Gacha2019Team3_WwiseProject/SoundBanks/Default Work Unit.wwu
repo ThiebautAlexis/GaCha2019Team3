@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{04AAA4ED-2A07-4A2A-BC13-DFDD88E2B563}" SchemaVersion="89">
 	<SoundBanks>
-		<WorkUnit Name="Default Work Unit" ID="{04AAA4ED-2A07-4A2A-BC13-DFDD88E2B563}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{04AAA4ED-2A07-4A2A-BC13-DFDD88E2B563}" PersistMode="Standalone">
+			<ChildrenList>
+				<SoundBank Name="SoundBank" ID="{3CA17882-8CE5-4389-B848-33069B80775C}">
+					<ObjectInclusionList>
+						<ObjectRef Name="Play_Music_Switch" ID="{AAEBD01F-0F5C-4080-8D9A-F52F59C63964}" WorkUnitID="{E7EF193A-F267-4846-9A86-C2F3494955D1}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="Play_Death_007" ID="{C47C0DCB-5890-4526-BDFF-D6B54D8F3653}" WorkUnitID="{E7EF193A-F267-4846-9A86-C2F3494955D1}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="Play_Amb" ID="{AC24B13C-B892-4BE1-A945-3FA87ED7CEBF}" WorkUnitID="{E7EF193A-F267-4846-9A86-C2F3494955D1}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="Eat" ID="{D791807D-09FC-4DD7-9F13-9ED4A8CBFDE8}" WorkUnitID="{E7EF193A-F267-4846-9A86-C2F3494955D1}" Filter="7" Origin="Manual"/>
+					</ObjectInclusionList>
+					<ObjectExclusionList/>
+					<GameSyncExclusionList/>
+				</SoundBank>
+			</ChildrenList>
+		</WorkUnit>
 	</SoundBanks>
 </WwiseDocument>

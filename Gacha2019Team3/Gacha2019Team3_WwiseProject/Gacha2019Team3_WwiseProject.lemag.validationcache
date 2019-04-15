@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ValidationCache Version="1" SchemaVersion="89">
-	<ValidationCacheItem File="D:\ACFA\Works\GaCha2019Team3\Gacha2019Team3\Gacha2019Team3_WwiseProject\Actor-Mixer Hierarchy\Default Work Unit.wwu" DateLow="1555228518" DateHigh="0"/>
+	<ValidationCacheItem File="D:\ACFA\Works\GaCha2019Team3\Gacha2019Team3\Gacha2019Team3_WwiseProject\Actor-Mixer Hierarchy\Default Work Unit.wwu" DateLow="1555291356" DateHigh="0"/>
 	<ValidationCacheItem File="D:\ACFA\Works\GaCha2019Team3\Gacha2019Team3\Gacha2019Team3_WwiseProject\Attenuations\Default Work Unit.wwu" DateLow="1555228518" DateHigh="0"/>
 	<ValidationCacheItem File="D:\ACFA\Works\GaCha2019Team3\Gacha2019Team3\Gacha2019Team3_WwiseProject\Audio Devices\Default Work Unit.wwu" DateLow="1555228518" DateHigh="0"/>
-	<ValidationCacheItem File="D:\ACFA\Works\GaCha2019Team3\Gacha2019Team3\Gacha2019Team3_WwiseProject\Control Surface Sessions\Default Work Unit.wwu" DateLow="1555228518" DateHigh="0"/>
+	<ValidationCacheItem File="D:\ACFA\Works\GaCha2019Team3\Gacha2019Team3\Gacha2019Team3_WwiseProject\Control Surface Sessions\Default Work Unit.wwu" DateLow="1555255884" DateHigh="0"/>
 	<ValidationCacheItem File="D:\ACFA\Works\GaCha2019Team3\Gacha2019Team3\Gacha2019Team3_WwiseProject\Conversion Settings\Default Work Unit.wwu" DateLow="1555228518" DateHigh="0"/>
 	<ValidationCacheItem File="D:\ACFA\Works\GaCha2019Team3\Gacha2019Team3\Gacha2019Team3_WwiseProject\Conversion Settings\Factory Conversion Settings.wwu" DateLow="1555228518" DateHigh="0"/>
 	<ValidationCacheItem File="D:\ACFA\Works\GaCha2019Team3\Gacha2019Team3\Gacha2019Team3_WwiseProject\Dynamic Dialogue\Default Work Unit.wwu" DateLow="1555228518" DateHigh="0"/>
 	<ValidationCacheItem File="D:\ACFA\Works\GaCha2019Team3\Gacha2019Team3\Gacha2019Team3_WwiseProject\Effects\Default Work Unit.wwu" DateLow="1555228518" DateHigh="0"/>
 	<ValidationCacheItem File="D:\ACFA\Works\GaCha2019Team3\Gacha2019Team3\Gacha2019Team3_WwiseProject\Effects\Factory Effects.wwu" DateLow="1555228518" DateHigh="0"/>
-	<ValidationCacheItem File="D:\ACFA\Works\GaCha2019Team3\Gacha2019Team3\Gacha2019Team3_WwiseProject\Events\Default Work Unit.wwu" DateLow="1555228518" DateHigh="0"/>
+	<ValidationCacheItem File="D:\ACFA\Works\GaCha2019Team3\Gacha2019Team3\Gacha2019Team3_WwiseProject\Events\Default Work Unit.wwu" DateLow="1555256298" DateHigh="0"/>
+	<ValidationCacheItem File="D:\ACFA\Works\GaCha2019Team3\Gacha2019Team3\Gacha2019Team3_WwiseProject\Gacha2019Team3_WwiseProject.lemag.wsettings" DateLow="1555291361" DateHigh="0"/>
 	<ValidationCacheItem File="D:\ACFA\Works\GaCha2019Team3\Gacha2019Team3\Gacha2019Team3_WwiseProject\Gacha2019Team3_WwiseProject.wproj" DateLow="1555228518" DateHigh="0"/>
 	<ValidationCacheItem File="D:\ACFA\Works\GaCha2019Team3\Gacha2019Team3\Gacha2019Team3_WwiseProject\Game Parameters\Default Work Unit.wwu" DateLow="1555228518" DateHigh="0"/>
-	<ValidationCacheItem File="D:\ACFA\Works\GaCha2019Team3\Gacha2019Team3\Gacha2019Team3_WwiseProject\Interactive Music Hierarchy\Default Work Unit.wwu" DateLow="1555228518" DateHigh="0"/>
+	<ValidationCacheItem File="D:\ACFA\Works\GaCha2019Team3\Gacha2019Team3\Gacha2019Team3_WwiseProject\Interactive Music Hierarchy\Default Work Unit.wwu" DateLow="1555263102" DateHigh="0"/>
 	<ValidationCacheItem File="D:\ACFA\Works\GaCha2019Team3\Gacha2019Team3\Gacha2019Team3_WwiseProject\Master-Mixer Hierarchy\Default Work Unit.wwu" DateLow="1555228518" DateHigh="0"/>
 	<ValidationCacheItem File="D:\ACFA\Works\GaCha2019Team3\Gacha2019Team3\Gacha2019Team3_WwiseProject\Mixing Sessions\Default Work Unit.wwu" DateLow="1555228518" DateHigh="0"/>
 	<ValidationCacheItem File="D:\ACFA\Works\GaCha2019Team3\Gacha2019Team3\Gacha2019Team3_WwiseProject\Modulators\Default Work Unit.wwu" DateLow="1555228518" DateHigh="0"/>
@@ -20,9 +21,9 @@
 	<ValidationCacheItem File="D:\ACFA\Works\GaCha2019Team3\Gacha2019Team3\Gacha2019Team3_WwiseProject\Queries\Default Work Unit.wwu" DateLow="1555228518" DateHigh="0"/>
 	<ValidationCacheItem File="D:\ACFA\Works\GaCha2019Team3\Gacha2019Team3\Gacha2019Team3_WwiseProject\Queries\Factory Queries.wwu" DateLow="1555228518" DateHigh="0"/>
 	<ValidationCacheItem File="D:\ACFA\Works\GaCha2019Team3\Gacha2019Team3\Gacha2019Team3_WwiseProject\SoundBanks\Default Work Unit.wwu" DateLow="1555228518" DateHigh="0"/>
-	<ValidationCacheItem File="D:\ACFA\Works\GaCha2019Team3\Gacha2019Team3\Gacha2019Team3_WwiseProject\Soundcaster Sessions\Default Work Unit.wwu" DateLow="1555228518" DateHigh="0"/>
+	<ValidationCacheItem File="D:\ACFA\Works\GaCha2019Team3\Gacha2019Team3\Gacha2019Team3_WwiseProject\Soundcaster Sessions\Default Work Unit.wwu" DateLow="1555263102" DateHigh="0"/>
 	<ValidationCacheItem File="D:\ACFA\Works\GaCha2019Team3\Gacha2019Team3\Gacha2019Team3_WwiseProject\States\Default Work Unit.wwu" DateLow="1555228518" DateHigh="0"/>
-	<ValidationCacheItem File="D:\ACFA\Works\GaCha2019Team3\Gacha2019Team3\Gacha2019Team3_WwiseProject\Switches\Default Work Unit.wwu" DateLow="1555228518" DateHigh="0"/>
+	<ValidationCacheItem File="D:\ACFA\Works\GaCha2019Team3\Gacha2019Team3\Gacha2019Team3_WwiseProject\Switches\Default Work Unit.wwu" DateLow="1555257396" DateHigh="0"/>
 	<ValidationCacheItem File="D:\ACFA\Works\GaCha2019Team3\Gacha2019Team3\Gacha2019Team3_WwiseProject\Triggers\Default Work Unit.wwu" DateLow="1555228518" DateHigh="0"/>
 	<ValidationCacheItem File="D:\ACFA\Works\GaCha2019Team3\Gacha2019Team3\Gacha2019Team3_WwiseProject\Virtual Acoustics\Default Work Unit.wwu" DateLow="1555228518" DateHigh="0"/>
 	<ValidationCacheItem File="D:\ACFA\Works\GaCha2019Team3\Gacha2019Team3_WwiseIntegrationTemp\Gacha2019Team3_WwiseProject\Actor-Mixer Hierarchy\Default Work Unit.wwu" DateLow="1555228383" DateHigh="0"/>
