@@ -1,0 +1,195 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51362c4cac6bb264b994798cc3aae9b1, type: 3}
+  m_Name: AkWwiseProjectData
+  m_EditorClassIdentifier: 
+  autoPopulateEnabled: 1
+  CurrentPluginConfig: 
+  m_lastPopulateTimePart2: 0
+  m_lastPopulateTimePsrt1: 0
+<<<<<<< HEAD
+  AcousticTextureWwu: []
+  AuxBusWwu: []
+  BankWwu: []
+  EventWwu: []
+  ExpandedItems: []
+  RtpcWwu: []
+  StateWwu: []
+  SwitchWwu: []
+  TriggerWwu: []
+=======
+  AcousticTextureWwu:
+  - Guid: '{1A0E16EF-2844-4199-9DB0-B45BE042272F}'
+    m_lastTimePart2: -1999191890
+    m_lastTimePsrt1: -1981438250
+    ParentPhysicalPath: 
+    PhysicalPath: Virtual Acoustics\Default Work Unit.wwu
+    List: []
+  AuxBusWwu:
+  - Guid: '{D377AB41-7350-4418-9D68-8CC72864D6BA}'
+    m_lastTimePart2: -1999191890
+    m_lastTimePsrt1: -1981849794
+    ParentPhysicalPath: 
+    PhysicalPath: Master-Mixer Hierarchy\Default Work Unit.wwu
+    List: []
+  BankWwu:
+  - Guid: '{04AAA4ED-2A07-4A2A-BC13-DFDD88E2B563}'
+    m_lastTimePart2: -1999191702
+    m_lastTimePsrt1: -160708154
+    ParentPhysicalPath: 
+    PhysicalPath: SoundBanks\Default Work Unit.wwu
+    List:
+    - Guid: 8278a13ce58c8943b84833069b80775c
+      ID: 1661994096
+      Name: SoundBank
+      Path: Default Work Unit\SoundBank
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: SoundBank
+        ObjectType: 7
+  EventWwu:
+  - Guid: '{E7EF193A-F267-4846-9A86-C2F3494955D1}'
+    m_lastTimePart2: -1999191699
+    m_lastTimePsrt1: 1738327556
+    ParentPhysicalPath: 
+    PhysicalPath: Events\Default Work Unit.wwu
+    List:
+    - Guid: 0fc21e6e794b3f4599b77a30b05d15cc
+      ID: 1878686274
+      Name: Drop
+      Path: Default Work Unit\Drop
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Drop
+        ObjectType: 3
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - Guid: 7d8091d7fc09d74d9f139ed4a8cbfde8
+      ID: 781390793
+      Name: Eat
+      Path: Default Work Unit\Eat
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Eat
+        ObjectType: 3
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - Guid: 3cb124ac92b8e14ba9453fa87ed7cebf
+      ID: -1335434006
+      Name: Play_Amb
+      Path: Default Work Unit\Play_Amb
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Play_Amb
+        ObjectType: 3
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - Guid: cb0d7cc490582645bdffd6b54d8f3653
+      ID: 1367751422
+      Name: Play_Death_007
+      Path: Default Work Unit\Play_Death_007
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Play_Death_007
+        ObjectType: 3
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - Guid: 1fd0ebaa5c0f80408d9af52f59c63964
+      ID: 1228139402
+      Name: Play_Music_Switch
+      Path: Default Work Unit\Play_Music_Switch
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Play_Music_Switch
+        ObjectType: 3
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+  ExpandedItems:
+  - /Gacha2019Team3_WwiseProject
+  RtpcWwu:
+  - Guid: '{9B84E798-74D0-48BC-9B6A-970C1DF85C1A}'
+    m_lastTimePart2: -1999191699
+    m_lastTimePsrt1: 1738517057
+    ParentPhysicalPath: 
+    PhysicalPath: Game Parameters\Default Work Unit.wwu
+    List:
+    - Guid: df90ced8093a3b4cadaa9fdd54972a77
+      ID: 1177178531
+      Name: Low_Pass
+      Path: Default Work Unit\Low_Pass
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Low_Pass
+        ObjectType: 13
+  StateWwu:
+  - Guid: '{50A98443-4335-472E-B1E0-788556CDD8C3}'
+    m_lastTimePart2: -1999191890
+    m_lastTimePsrt1: -1981475221
+    ParentPhysicalPath: 
+    PhysicalPath: States\Default Work Unit.wwu
+    List: []
+  SwitchWwu:
+  - Guid: '{619E5FC8-692C-45FF-B00F-8E850783C312}'
+    m_lastTimePart2: -1999191823
+    m_lastTimePsrt1: -972200199
+    ParentPhysicalPath: 
+    PhysicalPath: Switches\Default Work Unit.wwu
+    List:
+    - Guid: 92495a1d5417284a9fd5e79e7d089350
+      ID: -1570097955
+      Name: Music_Switch
+      Path: Default Work Unit\Music_Switch
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Music_Switch
+        ObjectType: 11
+      ValueGuids:
+      - bytes: 40eaebe64343af438858807e8d077445
+      - bytes: fe91dfc33ce18840a2992eda327b92d4
+      - bytes: 982104bfa68fe748a4cce7b72ecea8ee
+      - bytes: 57c6b763f1cffd4da21b1f6a0d7df77b
+      ValueIcons:
+      - ElementName: BPM_120
+        ObjectType: 10
+      - ElementName: BPM_125
+        ObjectType: 10
+      - ElementName: BPM_130
+        ObjectType: 10
+      - ElementName: BPM_135
+        ObjectType: 10
+      valueIDs: 8a3560a68f3560a67d3760a7783760a7
+      values:
+      - BPM_120
+      - BPM_125
+      - BPM_130
+      - BPM_135
+  TriggerWwu:
+  - Guid: '{7E8C27CC-E370-4F19-85B1-C9EC9BD63222}'
+    m_lastTimePart2: -1999191890
+    m_lastTimePsrt1: -1982009488
+    ParentPhysicalPath: 
+    PhysicalPath: Triggers\Default Work Unit.wwu
+    List: []
+>>>>>>> Irénée

@@ -21,22 +21,15 @@ public class timer : MonoBehaviour
     void Update()
     {
         time += Time.deltaTime;
+        showtime = (int)time;
+        EndData.Instance.UpdateTime(/*maxtime - */showtime);
+        this.gameObject.GetComponent<Text>().text = string.Format("{0:#0}:{1:00}", Mathf.Floor(showtime / 60), Mathf.Floor(showtime) % 60);
 
-        /*if (time <= 0)
-        {
-            EndData.Instance.win = true;
-            SceneManager.LoadScene(scenename);
-        }
-        else
-        {*/
-            showtime = (int)time;
-            EndData.Instance.UpdateTime(/*maxtime - */showtime);
-            this.gameObject.GetComponent<Text>().text = showtime.ToString();
-        //}
 
-        if (showtime % 10 == 0 && flag && showtime < 31)
+        if (showtime % 20 == 0 && flag && showtime < 31)
         {
             phase++;
+
             GameData.Instance.expand(phase);
             flag = false;
         }
