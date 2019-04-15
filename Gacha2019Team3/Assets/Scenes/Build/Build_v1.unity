@@ -379,7 +379,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasItemInStorage: 0
-  itemPrefab: {fileID: 5580334207042625637, guid: b1ce6fc03074e964ea1246d8754b2d35,
+  itemPrefab: {fileID: 5378841321813338835, guid: b1ce6fc03074e964ea1246d8754b2d35,
     type: 3}
   isItemOnMap: 0
   isProtected: 0

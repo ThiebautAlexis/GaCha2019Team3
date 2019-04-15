@@ -125,7 +125,7 @@ public class SnakeHead : SnakePart
                         return false;
                     }
                     else
-                    {
+                    { 
                         SnakePart snakePart = entities[i].GetComponent<SnakePart>();
                         if (snakePart != null && !snakePart.m_CanWalkOnItself)
                         {
