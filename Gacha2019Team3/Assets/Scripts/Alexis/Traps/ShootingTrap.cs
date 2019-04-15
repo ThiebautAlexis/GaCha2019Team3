@@ -14,19 +14,24 @@ public class ShootingTrap : Trap
     /// </summary>
     protected override IEnumerator TriggerTrap()
     {
-
+        if(GameUpdater.Instance.IsStoped())
+        {
+            yield return new WaitForSeconds(GameUpdater.Instance.m_TickEvent);
+            StartCoroutine(TriggerTrap());
+            yield break; 
+        }
         yield return new WaitForSeconds(m_activationTick * GameUpdater.Instance.m_TickEvent);
         GameObject _projectileObject = Instantiate((Resources.Load("TrapsProjectile") as GameObject), transform.position, Quaternion.identity); 
         TrapProjectile _projectile = _projectileObject.GetComponent<TrapProjectile>(); 
         if(_projectile)
         {
-            _projectile.InitProjectile(m_GridPosition, new Vector3Int((int)transform.forward.x, 0, (int)transform.forward.z));
+            _projectile.InitProjectile(m_GridPosition, GetBestOrientation());
         }
         else
         {
             Destroy(_projectileObject); 
         }
-        yield return new WaitForSeconds(m_activationTick * GameUpdater.Instance.m_TickEvent);
+        // yield return new WaitForSeconds(m_activationTick * GameUpdater.Instance.m_TickEvent);
         CleanTile(); 
         yield break; 
     }
@@ -75,6 +80,7 @@ public class ShootingTrap : Trap
         {
             return new Vector3(0, 90, 0);
         }
+
         if (m_GridPosition.y == GameData.Instance.m_TileManager.GetRestrictedMapSize().x)
         {
             return new Vector3(0, -90, 0);
