@@ -97,9 +97,4 @@ public class ItemManager : Singleton<ItemManager>
         DestroyImmediate(_ToDestroy.gameObject);
         --nbrItemOnMap;
     }
-
-
-
-
-
 }
