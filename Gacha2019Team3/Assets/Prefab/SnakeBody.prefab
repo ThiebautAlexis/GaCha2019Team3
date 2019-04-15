@@ -49,6 +49,7 @@ MonoBehaviour:
   m_CanWalkOnItself: 1
   m_TilePosition: {x: 0, y: 0}
   m_LastTilePosition: {x: 0, y: 0}
+  m_MoveSmoothSpeed: 0.2
   m_IsShield: 0
   m_ShieldActiveTime: 0
   m_ShieldTimeLimit: 16

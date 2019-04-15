@@ -39,6 +39,7 @@ public class SnakeHead : SnakePart
     {
         base.Update();
 
+        MoveSmooth();
         m_Controller.Update();
         m_Size = CountBodies();
         ResetAbility();
@@ -82,8 +83,8 @@ public class SnakeHead : SnakePart
                 break;
         }
 
-        newPos.x = Mathf.Clamp(newPos.x, 0, GameData.Instance.m_TileManager.m_MapSize.x - 1);
-        newPos.y = Mathf.Clamp(newPos.y, 0, GameData.Instance.m_TileManager.m_MapSize.y - 1);
+        newPos.x = Mathf.Clamp(newPos.x, 0, GameData.Instance.m_TileManager.GetRestrictedMapSize().x - 1);
+        newPos.y = Mathf.Clamp(newPos.y, 0, GameData.Instance.m_TileManager.GetRestrictedMapSize().y - 1);
 
         if (newPos == m_TilePosition)
         {
@@ -105,6 +106,12 @@ public class SnakeHead : SnakePart
     public bool CanMove(Vector2Int _WantedTilePosition)
     {
         CustomTile wantedTile = GameData.Instance.m_TileManager.GetTile(_WantedTilePosition);
+
+        if (wantedTile == null)
+        {
+            return false;
+        }
+
         List<GameObject> entities = wantedTile.m_Entities;
 
         if (wantedTile != null)
