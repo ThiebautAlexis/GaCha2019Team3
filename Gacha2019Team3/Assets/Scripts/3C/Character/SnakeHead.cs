@@ -7,6 +7,7 @@ public class SnakeHead : SnakePart
 {
     [Header("Basic Variables")]
     public GameController m_Controller = null;
+    public PlayerNum m_PlayerNum = PlayerNum.Player1;
 
     public enum Direction
     {
@@ -28,14 +29,16 @@ public class SnakeHead : SnakePart
 
     void Start()
     {
-        m_Controller = new GameController();
+        m_Controller = new GameController(m_PlayerNum);
         m_Controller.UseFirstAbility += UseFirstAbility;
         m_Controller.UseSecondAbility += UseSecondAbility;
         m_Controller.UseThirdAbility += UseThirdAbility;
     }
 
-    void Update()
+    override protected void Update()
     {
+        base.Update();
+
         m_Controller.Update();
         m_Size = CountBodies();
         ResetAbility();
@@ -151,17 +154,11 @@ public class SnakeHead : SnakePart
         return 0;
     }
 
-    public void ShootProjectile()
+    public void StopTimeAbility()
     {
-        Debug.Log("Shoot !!!");
+        Debug.Log("Stop Time !");
 
-        if (GameData.Instance.m_SnakeProjectilePrefab != null)
-        {
-            GameObject projectile = Instantiate(GameData.Instance.m_SnakeProjectilePrefab);
-            projectile.transform.rotation = transform.rotation;
-        }
-
-        //SET POSITION TO CURRENT POSITION + DIRECTION (Check if it's outside the map)
+        GameUpdater.Instance.StopEventTime();    
     }
 
     public void UseFirstAbility()
@@ -170,25 +167,17 @@ public class SnakeHead : SnakePart
         {
             Debug.Log("Add Body !");
 
-            // Add x2
-            if (m_Size == 0)
+            if (m_Body != null)
             {
-                for (int i = 0; i < 10; i++)
-                {
-                    AddBody();
-                }
-            }
-
-            for (int i = 0; i < m_Size; i++)
-            {
-                AddBody();
+                m_Body.m_CanWalkOnItself = m_CanWalkOnItself;
+                m_Body.m_ShieldTimeLimit = m_ShieldTimeLimit;
             }
 
             // Add +2
-            //for (int i = 0; i < 2; i++)
-            //{
-            //    AddBody();
-            //}
+            for (int i = 0; i < 2; i++)
+            {
+                AddBody();
+            }
 
             UseItemGenericFunction();
         }
@@ -201,6 +190,7 @@ public class SnakeHead : SnakePart
             Debug.Log("Shield !");
 
             ActivateShield();
+
             UseItemGenericFunction();
         }
     }
@@ -209,9 +199,9 @@ public class SnakeHead : SnakePart
     {
         if (m_HasItem && m_CanUseAbility)
         {
-            Debug.Log("Shoot !");
+            Debug.Log("Freeze !");
 
-            ShootProjectile();
+            StopTimeAbility();
             UseItemGenericFunction();
         }
     }
@@ -234,6 +224,16 @@ public class SnakeHead : SnakePart
                 m_CanUseAbility = true;
                 m_TimerAbility = 0f;
             }
+        }
+    }
+
+    override public void ActivateShield()
+    {
+        base.ActivateShield();
+
+        if (m_Body != null)
+        {
+            m_Body.ActivateShield();
         }
     }
 }

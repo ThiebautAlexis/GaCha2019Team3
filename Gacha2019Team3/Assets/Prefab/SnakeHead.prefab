@@ -46,12 +46,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Body: {fileID: 0}
+  m_CanWalkOnItself: 0
   m_TilePosition: {x: 0, y: 0}
   m_LastTilePosition: {x: 0, y: 0}
-  m_HasItem: 0
   m_IsShield: 0
   m_ShieldActiveTime: 0
   m_ShieldTimeLimit: 16
+  m_HasItem: 0
   m_Size: 0
   m_ResetAbility: 0.5
 --- !u!65 &6063151396894242360

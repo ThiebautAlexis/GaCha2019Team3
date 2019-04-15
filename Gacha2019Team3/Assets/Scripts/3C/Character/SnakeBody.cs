@@ -7,8 +7,10 @@ public class SnakeBody : SnakePart
     public bool m_CanBeDestroyed = false;
     public GameObject m_FXDamagePrefab = null;
 
-    private void Update()
+    override protected void Update()
     {
+        base.Update();
+
         if (m_CanBeDestroyed)
         {
             GameData.Instance.m_Camera.m_ShakeBehavior.LaunchCameraShake(1f, 0.1f, 5f);
@@ -62,6 +64,16 @@ public class SnakeBody : SnakePart
         if (m_Body != null)
         {
             m_Body.CanBeDestroyed();
+        }
+    }
+
+    override public void ActivateShield()
+    {
+        base.ActivateShield();
+
+        if (m_Body != null)
+        {
+            m_Body.ActivateShield();
         }
     }
 }

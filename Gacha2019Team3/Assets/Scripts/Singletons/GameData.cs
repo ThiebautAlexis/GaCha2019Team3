@@ -61,7 +61,7 @@ public class GameData : Singleton<GameData>
                 GameObject upWall = Instantiate(m_WallPrefab, new Vector3(1 * i, 0, 1), Quaternion.identity);
                 GameObject downWall = Instantiate(m_WallPrefab, new Vector3(1 * i, 0, -m_TileManager.m_MapSize.x / 2), Quaternion.identity);
             }
-
+            
             for (int i = 0; i < m_TileManager.m_MapSize.y / 2; i++)
             {
                 GameObject leftWall = Instantiate(m_WallPrefab, new Vector3(-1, 0, -1 * i), Quaternion.identity);
