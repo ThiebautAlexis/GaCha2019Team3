@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 19ca37b42af6ece49bd8b260de14201e
+=======
+guid: 27dbded83620f1b478350bb0302718ee
+>>>>>>> master
 PluginImporter:
   externalObjects: {}
   serializedVersion: 2
@@ -14,16 +18,26 @@ PluginImporter:
   - first:
       Any: 
     second:
+<<<<<<< HEAD
       enabled: 0
+=======
+      enabled: 1
+>>>>>>> master
       settings: {}
   - first:
       Editor: Editor
     second:
+<<<<<<< HEAD
       enabled: 1
       settings:
         CPU: x86_64
         DefaultValueInitialized: true
         OS: Windows
+=======
+      enabled: 0
+      settings:
+        DefaultValueInitialized: true
+>>>>>>> master
   userData: 
   assetBundleName: 
   assetBundleVariant: 
